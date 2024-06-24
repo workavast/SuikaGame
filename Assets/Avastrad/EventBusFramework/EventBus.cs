@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using SuikaGame.Scripts;
 using UnityEngine;
 
 namespace Avastrad.EventBusFramework
 {
-    public class EventBus
+    public class EventBus : IEventBus
     {
         /// <summary>
         /// key - eventType hash <br/>

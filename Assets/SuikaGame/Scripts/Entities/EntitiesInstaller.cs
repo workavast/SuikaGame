@@ -1,0 +1,35 @@
+using System;
+using SuikaGame.Scripts.Entities.Factory;
+using UnityEngine;
+using Zenject;
+
+namespace SuikaGame.Scripts.Entities
+{
+    public sealed class EntitiesInstaller : MonoInstaller
+    {
+        [SerializeField] private EntitiesConfig entitiesConfig;
+
+        public override void InstallBindings()
+        {
+            BindConfig();
+            BindFactory();
+        }
+
+        private void BindConfig()
+        {
+            if (entitiesConfig == null)
+                throw new NullReferenceException($"entitiesConfig is null");
+            
+            Container.BindInstance(entitiesConfig).AsSingle();
+        }
+        
+        private void BindFactory()
+        {
+            var factory = FindObjectOfType<EntityFactory>();
+            if (factory == null)
+                throw new NullReferenceException($"factory is null");
+
+            Container.BindInterfacesTo<EntityFactory>().FromInstance(factory).AsSingle();
+        }
+    }
+}
