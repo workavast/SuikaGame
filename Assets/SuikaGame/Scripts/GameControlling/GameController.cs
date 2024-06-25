@@ -1,4 +1,5 @@
 using SuikaGame.Scripts.Entities;
+using SuikaGame.Scripts.Entities.Spawning;
 using SuikaGame.Scripts.EntityMaxSizeCounting;
 using SuikaGame.Scripts.GameOverDetection;
 using SuikaGame.Scripts.Score;
@@ -10,19 +11,19 @@ namespace SuikaGame.Scripts.GameControlling
     public class GameController : MonoBehaviour, IGameReseter
     {
         [SerializeField] private GameOverZone _gameOverZone;
-        [SerializeField] private Spawner _spawner;
         
+        private IEntitySpawner _entitySpawner;
         private IEntitiesRepository _entitiesRepository;
         private IScoreCounter _scoreCounter;
         private IEntityMaxSizeCounter _entityMaxSizeCounter;
         
         [Inject]
         public void Construct(
-            // Spawner spawner, 
+            IEntitySpawner entitySpawner, 
             IEntitiesRepository entitiesRepository, IScoreCounter scoreCounter, 
             IEntityMaxSizeCounter entityMaxSizeCounter)
         {
-            // _spawner = spawner;
+            _entitySpawner = entitySpawner;
             _entitiesRepository = entitiesRepository;
             _entityMaxSizeCounter = entityMaxSizeCounter;
             _scoreCounter = scoreCounter;
@@ -39,7 +40,7 @@ namespace SuikaGame.Scripts.GameControlling
             _scoreCounter.Reset();
             _entityMaxSizeCounter.Reset();
             _entitiesRepository.Reset();
-            _spawner.Reset();
+            _entitySpawner.Reset();
         }
     }
 }
