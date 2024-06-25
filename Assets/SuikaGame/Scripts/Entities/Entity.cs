@@ -1,5 +1,6 @@
 using System;
 using Avastrad.EventBusFramework;
+using SuikaGame.Scripts.Vfx;
 using UnityEngine;
 using Zenject;
 
@@ -14,15 +15,17 @@ namespace SuikaGame.Scripts.Entities
         
         private static int _globalCreateIndex;
         private IEventBus _eventBus;
+        private IVfxFactory _vfxFactory;
         private Rigidbody2D _rigidbody2D;
         
         public event Action<Entity> ReturnElementEvent;
         public event Action<Entity> DestroyElementEvent;
         
         [Inject]
-        public void Construct(IEventBus eventBus)
+        public void Construct(IEventBus eventBus, IVfxFactory vfxFactory)
         {
             _eventBus = eventBus;
+            _vfxFactory = vfxFactory;
         }
         
         private void Awake()
@@ -41,9 +44,12 @@ namespace SuikaGame.Scripts.Entities
         public void DeActivate() 
             => _rigidbody2D.simulated = false;
 
-        public void ManualReturnInPool() 
-            => ReturnElementEvent?.Invoke(this);
-        
+        public void ManualReturnInPool()
+        {
+            _vfxFactory.Create(VfxType.Smoke, transform.position, transform.localScale.x);
+            ReturnElementEvent?.Invoke(this);
+        }
+
         public void OnElementExtractFromPool() 
             => gameObject.SetActive(true);
 

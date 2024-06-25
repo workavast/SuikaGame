@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -40,4 +41,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 1082059291
+    locked: 0
+  - name: Enviroment
+    uniqueID: 1760184077
+    locked: 0
+  - name: Entities
+    uniqueID: 1405189805
+    locked: 0
+  - name: VFX
+    uniqueID: 1816937763
     locked: 0
