@@ -21,14 +21,14 @@ namespace SuikaGame.UI
         {
             var spawnPoint = eventData.position;
             var gamePoint = Camera.main.ScreenToWorldPoint(spawnPoint);
-            spawner.Move(gamePoint);
+            spawner.MoveEntity(gamePoint);
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
             var spawnPoint = eventData.position;
             var gamePoint = Camera.main.ScreenToWorldPoint(spawnPoint);
-            spawner.Move(gamePoint);
+            spawner.MoveEntity(gamePoint);
         }
         
         public void OnPointerUp(PointerEventData eventData) 
@@ -39,7 +39,7 @@ namespace SuikaGame.UI
             if(!_pointerIsIn)
                 return;
             
-            spawner.Spawn();
+            spawner.DropEntity();
         }
     }
 }

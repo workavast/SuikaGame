@@ -1,5 +1,6 @@
 using System;
 using SuikaGame.Scripts.Entities.Factory;
+using SuikaGame.Scripts.EntityMaxSizeCounting;
 using UnityEngine;
 using Zenject;
 
@@ -13,8 +14,9 @@ namespace SuikaGame.Scripts.Entities
         {
             BindConfig();
             BindFactory();
+            BindEntityMaxSizeCounter();
         }
-
+        
         private void BindConfig()
         {
             if (entitiesConfig == null)
@@ -30,6 +32,11 @@ namespace SuikaGame.Scripts.Entities
                 throw new NullReferenceException($"factory is null");
 
             Container.BindInterfacesTo<EntityFactory>().FromInstance(factory).AsSingle();
+        }
+        
+        private void BindEntityMaxSizeCounter()
+        {
+            Container.BindInterfacesTo<EntityMaxSizeCounter>().FromNew().AsSingle().NonLazy();
         }
     }
 }

@@ -27,7 +27,29 @@ namespace SuikaGame.Scripts
             return fullWeight;
         }
 
-        public int GetSize(int currentMaxSize, int randomNumber)
+        public int GetSizeIndex(int currentMaxSize)
+        {
+            if (currentMaxSize >= spawnSets.Count)
+                currentMaxSize = spawnSets.Count - 1;
+
+            var fullWeight = GetFullWeight(currentMaxSize);
+
+            var randomNumber = Random.Range(0, fullWeight + 1);
+            if(randomNumber <= 0)
+                return spawnSets[currentMaxSize].Set.First().Size;
+            
+            var minWeight = 0;
+            foreach (var block in spawnSets[currentMaxSize].Set)
+            {
+                if (minWeight <= randomNumber && randomNumber <= block.Weight)
+                    return block.Size;
+                minWeight += block.Weight;
+            }
+
+            return spawnSets[currentMaxSize].Set.Last().Size;
+        }
+        
+        public int GetSizeIndex(int currentMaxSize, int randomNumber)
         {
             if (currentMaxSize >= spawnSets.Count)
                 currentMaxSize = spawnSets.Count - 1;
