@@ -80,6 +80,7 @@ namespace SuikaGame.Scripts.Entities
 
             var entity = _entityFactory.Create(sizeIndex, childPos);
             var newVelocity = (parentVelocity + childVelocity) * mass / entity.Mass;
+            entity.Activate();
             entity.SetVelocity(newVelocity);
         }
 
@@ -100,6 +101,11 @@ namespace SuikaGame.Scripts.Entities
         {
             if (spawnerConfig != null)
                 Gizmos.DrawWireCube(transform.position, Vector3.up + Vector3.right * spawnerConfig.Range * 2);
+        }
+
+        public void Reset()
+        {
+            SpawnEntity();            
         }
     }
 }

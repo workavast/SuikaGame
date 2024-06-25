@@ -13,6 +13,7 @@ namespace SuikaGame.Scripts.Entities
         public override void InstallBindings()
         {
             BindConfig();
+            BindRepository();
             BindFactory();
             BindEntityMaxSizeCounter();
         }
@@ -23,6 +24,11 @@ namespace SuikaGame.Scripts.Entities
                 throw new NullReferenceException($"entitiesConfig is null");
             
             Container.BindInstance(entitiesConfig).AsSingle();
+        }
+
+        private void BindRepository()
+        {
+            Container.BindInterfacesTo<EntitiesRepository>().FromNew().AsSingle();
         }
         
         private void BindFactory()

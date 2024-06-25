@@ -8,7 +8,7 @@ namespace SuikaGame.Scripts.EntityMaxSizeCounting
     {
         public int CurrentMaxSize { get; private set; }
         public event Action<int> OnCurrentMaxSizeChanged;
-        
+
         private readonly IEntityFactory _entityFactory;
         
         public EntityMaxSizeCounter(IEntityFactory entityFactory)
@@ -17,6 +17,12 @@ namespace SuikaGame.Scripts.EntityMaxSizeCounting
             _entityFactory.OnCreate += UpdateCurrentMaxSize;
         }
 
+        public void Reset()
+        {
+            CurrentMaxSize = 0;
+            OnCurrentMaxSizeChanged?.Invoke(CurrentMaxSize);
+        }
+        
         private void UpdateCurrentMaxSize(Entity newEntity)
         {
             if (newEntity.SizeIndex > CurrentMaxSize)

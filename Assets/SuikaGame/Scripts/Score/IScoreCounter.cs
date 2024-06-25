@@ -10,5 +10,7 @@ namespace SuikaGame.Scripts.Score
         /// return current score value
         /// </summary>
         public event Action<int> OnScoreChanged;
+
+        public void Reset();
     }
 }

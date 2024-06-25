@@ -19,6 +19,7 @@ namespace SuikaGame.Scripts.Entities
         private IEventBus _eventBus;
         private IVfxFactory _vfxFactory;
         private Rigidbody2D _rigidbody2D;
+        private CircleCollider2D _circleCollider2D;
         
         public event Action<Entity> ReturnElementEvent;
         public event Action<Entity> DestroyElementEvent;
@@ -34,6 +35,8 @@ namespace SuikaGame.Scripts.Entities
         {
             CreateIndex = _globalCreateIndex++;
             _rigidbody2D = GetComponent<Rigidbody2D>();
+            _circleCollider2D = GetComponent<CircleCollider2D>();
+            
             _rigidbody2D.mass = transform.localScale.x;
         }
 
@@ -43,17 +46,26 @@ namespace SuikaGame.Scripts.Entities
         public void SetVelocity(Vector2 velocity) 
             => _rigidbody2D.velocity = velocity;
 
-        public void Activate() 
-            => _rigidbody2D.simulated = true;
+        public void Activate()
+        {
+            _circleCollider2D.enabled = true;
+            _rigidbody2D.simulated = true;
+        }
 
-        public void DeActivate() 
-            => _rigidbody2D.simulated = false;
+        public void DeActivate()
+        {
+            _circleCollider2D.enabled = false;
+            _rigidbody2D.simulated = false;
+        }
 
         public void ManualReturnInPool()
         {
             _vfxFactory.Create(VfxType.Smoke, transform.position, transform.localScale.x);
             ReturnElementEvent?.Invoke(this);
         }
+
+        public void InstantlyReturnInPool() 
+            => ReturnElementEvent?.Invoke(this);
 
         public void OnElementExtractFromPool() 
             => gameObject.SetActive(true);

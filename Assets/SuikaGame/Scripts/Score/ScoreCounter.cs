@@ -20,6 +20,12 @@ namespace SuikaGame.Scripts.Score
             _eventBus.Subscribe(this);
         }
 
+        public void Reset()
+        {
+            Score = 0;
+            OnScoreChanged?.Invoke(Score);        
+        }
+        
         public void OnEvent(EntityCollisionEvent t)
         {
             Score += _scoreConfig.GetScore(t.Parent.SizeIndex);
