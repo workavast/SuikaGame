@@ -57,8 +57,8 @@ namespace SuikaGame.Scripts.Entities
                 return;
 
             pos.y = transform.position.y;
-            pos.x = Mathf.Clamp(pos.x, transform.position.x - spawnerConfig.Range,
-                transform.position.x + spawnerConfig.Range);
+            pos.x = Mathf.Clamp(pos.x, transform.position.x - spawnerConfig.Range + _currentEntity.transform.localScale.x/2,
+                transform.position.x + spawnerConfig.Range - _currentEntity.transform.localScale.x/2);
             _currentEntity.transform.position = pos;
         }
 
