@@ -57,8 +57,9 @@ namespace SuikaGame.Scripts.Entities
                 return;
 
             pos.y = transform.position.y;
-            pos.x = Mathf.Clamp(pos.x, transform.position.x - spawnerConfig.Range + _currentEntity.transform.localScale.x/2,
-                transform.position.x + spawnerConfig.Range - _currentEntity.transform.localScale.x/2);
+            var leftClampPoint = transform.position.x - spawnerConfig.Range + _currentEntity.transform.localScale.x / 2;
+            var rightClampPoint = transform.position.x + spawnerConfig.Range - _currentEntity.transform.localScale.x / 2;
+            pos.x = Mathf.Clamp(pos.x, leftClampPoint, rightClampPoint);
             _currentEntity.transform.position = pos;
         }
 
@@ -70,10 +71,16 @@ namespace SuikaGame.Scripts.Entities
             var sizeIndex = 1 + t.Parent.SizeIndex;
             var childPos = t.Child.transform.position;
 
+            var mass = t.Parent.Mass;
+            var parentVelocity = t.Parent.Velocity;
+            var childVelocity = t.Child.Velocity;
+            
             t.Parent.ManualReturnInPool();
             t.Child.ManualReturnInPool();
 
-            _entityFactory.Create(sizeIndex, childPos);
+            var entity = _entityFactory.Create(sizeIndex, childPos);
+            var newVelocity = (parentVelocity + childVelocity) * mass / entity.Mass;
+            entity.SetVelocity(newVelocity);
         }
 
         private void SpawnEntity()

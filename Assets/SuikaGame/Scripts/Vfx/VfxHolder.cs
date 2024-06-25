@@ -8,7 +8,7 @@ namespace SuikaGame.Scripts.Vfx
     public class VfxHolder : MonoBehaviour, IPoolable<VfxHolder, VfxType>
     {
         [field: SerializeField] public VfxType PoolId { get; private set; }
-        [SerializeField] private ParticleSystem particleSystem;
+        [SerializeField] private new ParticleSystem particleSystem;
         
         public event Action<VfxHolder> ReturnElementEvent;
         public event Action<VfxHolder> DestroyElementEvent;

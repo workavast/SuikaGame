@@ -12,6 +12,8 @@ namespace SuikaGame.Scripts.Entities
         public int PoolId => SizeIndex;
         public int CreateIndex { get; private set; }
         public int SizeIndex { get; private set; }
+        public Vector2 Velocity => _rigidbody2D.velocity;
+        public float Mass => _rigidbody2D.mass;
         
         private static int _globalCreateIndex;
         private IEventBus _eventBus;
@@ -37,6 +39,9 @@ namespace SuikaGame.Scripts.Entities
 
         public void Initialize(int sizeIndex) 
             => SizeIndex = sizeIndex;
+
+        public void SetVelocity(Vector2 velocity) 
+            => _rigidbody2D.velocity = velocity;
 
         public void Activate() 
             => _rigidbody2D.simulated = true;
