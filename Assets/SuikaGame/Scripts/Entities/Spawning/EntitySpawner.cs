@@ -1,3 +1,4 @@
+using System;
 using Avastrad.CustomTimer;
 using Avastrad.EventBusFramework;
 using SuikaGame.Scripts.Entities.Factory;
@@ -23,6 +24,10 @@ namespace SuikaGame.Scripts.Entities.Spawning
         private Timer _pauseTimer;
         private Entity _currentEntity;
 
+        public event Action OnSpawnEntity;
+        public event Action OnDeSpawnEntity;
+        public event Action<Vector2> OnMoveEntity;
+        
         [Inject]
         public void Construct(IEventBus eventBus, IEntityFactory entityFactory,
             IEntityMaxSizeCounter entityMaxSizeCounter, IInput input, EntitiesConfig entitiesConfig)
@@ -78,6 +83,8 @@ namespace SuikaGame.Scripts.Entities.Spawning
             var sizeIndex = spawnerConfig.GetSizeIndex(_entityMaxSizeCounter.CurrentMaxSize);
             _currentEntity = _entityFactory.Create(sizeIndex, transform.position);
             _currentEntity.DeActivate();
+            OnSpawnEntity?.Invoke();
+            OnMoveEntity?.Invoke(transform.position);
         }
         
         private void DropEntity(Vector2 point)
@@ -89,6 +96,7 @@ namespace SuikaGame.Scripts.Entities.Spawning
             _currentEntity.Activate();
             _currentEntity.SetVelocity(Vector2.down * startEntityVelocityConfig.StartVelocity);
             _currentEntity = null;
+            OnDeSpawnEntity?.Invoke();
         }
 
         private void MoveEntity(Vector2 pos)
@@ -101,6 +109,7 @@ namespace SuikaGame.Scripts.Entities.Spawning
             var rightClampPoint = transform.position.x + spawnerConfig.Range - _currentEntity.transform.localScale.x / 2;
             pos.x = Mathf.Clamp(pos.x, leftClampPoint, rightClampPoint);
             _currentEntity.transform.position = pos;
+            OnMoveEntity?.Invoke(pos);
         }
         private void OnDestroy()
         {
