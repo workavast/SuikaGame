@@ -3,12 +3,13 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace SuikaGame.UI
+namespace SuikaGame.Scripts.UI
 {
+    [DisallowMultipleComponent]
+    [RequireComponent(typeof(TMP_Text))]
     public class ScoreCounterView : MonoBehaviour
     {
-        [SerializeField] private TMP_Text tmpText;
-
+        private TMP_Text _tmpText;
         private IScoreCounter _scoreCounter;
         
         [Inject]
@@ -18,10 +19,13 @@ namespace SuikaGame.UI
             _scoreCounter.OnScoreChanged += UpdateScore;
         }
 
-        private void Awake() 
-            => UpdateScore(_scoreCounter.Score);
+        private void Awake()
+        {
+            _tmpText = GetComponent<TMP_Text>();
+            UpdateScore(_scoreCounter.Score);
+        }
 
         private void UpdateScore(int currentScore) 
-            => tmpText.text = $"{currentScore}";
+            => _tmpText.text = $"{currentScore}";
     }
 }

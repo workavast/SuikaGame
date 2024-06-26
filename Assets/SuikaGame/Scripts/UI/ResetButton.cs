@@ -1,4 +1,3 @@
-using SuikaGame.Scripts;
 using SuikaGame.Scripts.GameControlling;
 using UnityEngine;
 using UnityEngine.UI;

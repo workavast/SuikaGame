@@ -10,6 +10,7 @@ namespace SuikaGame.Scripts.Entities.Spawning
 {
     public class EntitySpawner : MonoBehaviour, IEntitySpawner, IEventReceiver<EntityCollisionEvent>
     {
+        [SerializeField] private StartEntityVelocityConfig startEntityVelocityConfig;
         [SerializeField] private SpawnerConfig spawnerConfig;
 
         public EventBusReceiverIdentifier EventBusReceiverIdentifier { get; } = new();
@@ -86,6 +87,7 @@ namespace SuikaGame.Scripts.Entities.Spawning
 
             _pauseTimer.Reset();
             _currentEntity.Activate();
+            _currentEntity.SetVelocity(Vector2.down * startEntityVelocityConfig.StartVelocity);
             _currentEntity = null;
         }
 
