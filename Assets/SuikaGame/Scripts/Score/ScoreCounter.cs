@@ -10,7 +10,9 @@ namespace SuikaGame.Scripts.Score
         private readonly ScoreConfig _scoreConfig;
 
         public int Score { get; private set; }
+        public int Record { get; private set; }
         public event Action<int> OnScoreChanged;
+        public event Action<int> OnRecordChanged;
 
         public ScoreCounter(IEventBus eventBus, ScoreConfig scoreConfig)
         {
@@ -30,6 +32,12 @@ namespace SuikaGame.Scripts.Score
         {
             Score += _scoreConfig.GetScore(t.Parent.SizeIndex);
             OnScoreChanged?.Invoke(Score);
+            
+            if (Score > Record)
+            {
+                Record = Score;
+                OnRecordChanged?.Invoke(Record);
+            }
         }
 
         public void Dispose()
