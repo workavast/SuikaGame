@@ -10,15 +10,11 @@ namespace SuikaGame.Scripts
     {
         private SerializedProperty _vertexCurve;
         private SerializedProperty _curveScale;
-        private SerializedProperty _curveScale2;
-        
-        
         
         protected override void OnEnable()
         {
             base.OnEnable();
             
-            _curveScale2 = serializedObject.FindProperty("m_text");
             _vertexCurve = serializedObject.FindProperty("vertexCurve");
             _curveScale = serializedObject.FindProperty("curveScale");
         }
@@ -35,6 +31,7 @@ namespace SuikaGame.Scripts
             EditorGUILayout.PropertyField(_vertexCurve);
             if (EditorGUI.EndChangeCheck())
             {
+                // (target as TextMeshProUGUI_Curve).ApplyCurve();
                 // m_HavePropertiesChanged = true;
             }
             
@@ -43,6 +40,7 @@ namespace SuikaGame.Scripts
             EditorGUILayout.PropertyField(_curveScale);
             if (EditorGUI.EndChangeCheck())
             {
+                // (target as TextMeshProUGUI_Curve).ApplyCurve();
                 // m_HavePropertiesChanged = true;
             }
         }

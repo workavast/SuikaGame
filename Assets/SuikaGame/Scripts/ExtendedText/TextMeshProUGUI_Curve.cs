@@ -3,75 +3,35 @@ using UnityEngine;
 
 namespace SuikaGame.Scripts
 {
-    public class TextMeshProUGUI_Curve2 : TextMeshProUGUI
+    public class TextMeshProUGUI_Curve : TextMeshProUGUI
     {
         [SerializeField] private AnimationCurve vertexCurve = new AnimationCurve(new Keyframe(0, 0), new Keyframe(0.25f, 2.0f), new Keyframe(0.5f, 0), new Keyframe(0.75f, 2.0f), new Keyframe(1, 0f));
         [SerializeField] private float curveScale = 1.0f;
         
-        // public new TMP_TextInfo textInfo
-        // {
-        //     get
-        //     {
-        //         Debug.Log("textInfo");
-        //         return base.textInfo;
-        //     }
-        // }
-        //
-        // public new string text
-        // {
-        //     get => base.text;
-        //
-        //     set
-        //     {
-        //         ApplyCurve();
-        //         base.text = value;
-        //         ApplyCurve();
-        //     }
-        // }
-
-        protected override void Start()
+        public new string text
         {
-            base.Start();
-            // ApplyCurve();
-        }
-
-        protected override void OnEnable()
-        {
-            base.OnEnable();
-            ApplyCurve();
+            get => base.text;
+        
+            set
+            {
+                ApplyCurve();
+                base.text = value;
+                ApplyCurve();
+            }
         }
         
-        public override void SetVertices(Vector3[] vertices)
-        {
-            Debug.Log($"SetVertices");
-            base.SetVertices(vertices);
-        }
-
-        public override void UpdateVertexData(TMP_VertexDataUpdateFlags flags)
-        {
-            Debug.Log($"UpdateVertexData TMP_VertexDataUpdateFlags");
-            base.UpdateVertexData(flags);
-        }
-
-        public override void UpdateVertexData()
-        {
-            Debug.Log($"UpdateVertexData");
-            base.UpdateVertexData();
-        }
-
-        protected override void OnValidate()
-        {
-            Debug.Log($"VALIDATE {curveScale}");
-            ApplyCurve();
-            base.OnValidate();
-            ApplyCurve();
-        }
+        // protected override void OnValidate()
+        // {
+        //     Debug.Log($"OnValidate");
+        //     base.OnValidate();
+        //     ApplyCurve();
+        // }
 
         public override void SetVerticesDirty()
         {
             Debug.Log($"SetVerticesDirty");
+            ApplyCurve();
             base.SetVerticesDirty();
-            // ApplyCurve();
         }
         
         [ContextMenu("Cgfasf Curve")]
@@ -80,9 +40,9 @@ namespace SuikaGame.Scripts
             text = "ASDASD";
         }
         
-        private void ApplyCurve()
+        public void ApplyCurve()
         {
-            Debug.Log($"VALIDATE START");
+            Debug.Log($"ApplyCurve START");
             
             var tmpText = this;
             if (tmpText == null)
@@ -90,6 +50,12 @@ namespace SuikaGame.Scripts
                 Debug.LogWarning($"tmpText is null");
                 return;
             }
+
+            // if (m_mesh == null)
+            // {
+            //     Debug.Log("NULL");
+            //     return;
+            // }
             
             vertexCurve.preWrapMode = WrapMode.Clamp;
             vertexCurve.postWrapMode = WrapMode.Clamp;
@@ -98,20 +64,16 @@ namespace SuikaGame.Scripts
             
             tmpText.havePropertiesChanged = true; // Need to force the TextMeshPro Object to be updated.
             
-            Debug.Log($"VALIDATE 1");
             if (!tmpText.havePropertiesChanged)
                 return;
 
             tmpText.ForceMeshUpdate(); // Generate the mesh and populate the textInfo with data we can use and manipulate.
 
             TMP_TextInfo textInfo = tmpText.textInfo;
-            Debug.Log($"VALIDATE 2");
             if(textInfo == null)
                 return;
 
             int characterCount = textInfo.characterCount;
-            
-            Debug.Log($"VALIDATE 3 | {characterCount}");
             if (characterCount == 0)
                 return;
 
@@ -175,14 +137,32 @@ namespace SuikaGame.Scripts
             }
             
             // Upload the mesh with the revised information
-            Debug.Log($"VALIDATE UpdateVertexData");
+            
+            //
+            if (m_subTextObjects != null)
+            {
+                int materialCount = m_textInfo.materialCount;
+                for (int j = 0; j < materialCount; j++)
+                {
+                    if (m_subTextObjects[j] == null)
+                    {
+                        Debug.Log("NULL 2");
+                        continue;
+                    }
+                    var mesh1 = m_subTextObjects[j].mesh;
+                    if (mesh1 == null)
+                        Debug.Log("NULL 3");
+                }
+            }
+
+
             tmpText.UpdateVertexData();
-            Debug.Log($"VALIDATE END");
+            Debug.Log($"ApplyCurve END");
         }
     }
 
 
-    public class TextMeshProUGUI_Curve : TextMeshProUGUI
+    public class TextMeshProUGUI_Curve2 : TextMeshProUGUI
     {
         [SerializeField] private AnimationCurve vertexCurve = new AnimationCurve(new Keyframe(0, 0),
             new Keyframe(0.25f, 2.0f), new Keyframe(0.5f, 0), new Keyframe(0.75f, 2.0f), new Keyframe(1, 0f));
