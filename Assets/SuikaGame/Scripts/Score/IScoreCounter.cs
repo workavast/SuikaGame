@@ -15,7 +15,8 @@ namespace SuikaGame.Scripts.Score
         /// return current record value
         /// </summary>
         public event Action<int> OnRecordChanged;
-
+        
+        public void ApplyRecord();
         public void Reset();
     }
 }

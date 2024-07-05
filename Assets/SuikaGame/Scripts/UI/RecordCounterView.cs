@@ -16,16 +16,26 @@ namespace SuikaGame.Scripts.UI
         public void Construct(IScoreCounter scoreCounter)
         {
             _scoreCounter = scoreCounter;
-            _scoreCounter.OnRecordChanged += UpdateRecord;
         }
 
         private void Awake()
         {
             _tmpText = GetComponent<TMP_Text>();
-            UpdateRecord(_scoreCounter.Score);
         }
 
-        private void UpdateRecord(int currentRecord) 
-            => _tmpText.text = $"{currentRecord}";
+        private void UpdateRecord(int currentRecord)
+            => _tmpText.text = currentRecord.ToString();
+
+        private void OnEnable()
+        {
+            _scoreCounter.OnRecordChanged += UpdateRecord;
+            UpdateRecord(_scoreCounter.Record);
+        }
+
+        private void OnDisable()
+        {
+            if (_scoreCounter != null)
+                _scoreCounter.OnRecordChanged += UpdateRecord;
+        }
     }
 }

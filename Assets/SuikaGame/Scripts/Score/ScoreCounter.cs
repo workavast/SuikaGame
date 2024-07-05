@@ -22,6 +22,15 @@ namespace SuikaGame.Scripts.Score
             _eventBus.Subscribe(this);
         }
 
+        public void ApplyRecord()
+        {
+             if (Score > Record)
+             {
+                 Record = Score;
+                 OnRecordChanged?.Invoke(Record);
+             }
+        }
+
         public void Reset()
         {
             Score = 0;
@@ -32,12 +41,6 @@ namespace SuikaGame.Scripts.Score
         {
             Score += _scoreConfig.GetScore(t.Parent.SizeIndex);
             OnScoreChanged?.Invoke(Score);
-            
-            if (Score > Record)
-            {
-                Record = Score;
-                OnRecordChanged?.Invoke(Record);
-            }
         }
 
         public void Dispose()

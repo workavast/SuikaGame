@@ -12,7 +12,6 @@ namespace SuikaGame.Scripts.Bootstraps
         public void Construct(ISceneLoader sceneLoader)
         {
             _sceneLoader = sceneLoader;
-            Debug.Log("-||- SAD");
         }
 
         private void Start()
