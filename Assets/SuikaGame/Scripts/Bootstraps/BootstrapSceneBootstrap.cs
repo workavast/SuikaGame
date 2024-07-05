@@ -1,7 +1,8 @@
+using System;
 using System.Collections;
-using System.Threading.Tasks;
 using GamePush;
 using SuikaGame.Scripts.Loading;
+using SuikaGame.Scripts.Saves;
 using UnityEngine;
 using Zenject;
 
@@ -17,55 +18,55 @@ namespace SuikaGame.Scripts.Bootstraps
         public void Construct(ISceneLoader sceneLoader)
         {
             _sceneLoader = sceneLoader;
-            Debug.Log("SAD");
         }
         
-        private async void Start()
+        private void Start()
         {
             Debug.Log("-||- BootstrapSceneBootstrap start");
+            InitializeGamePush(() => InitializeSave(LoadNextScene));
+        }
 
-            if (!GP_Init.isReady)
-                StartCoroutine(Init());
+        private void InitializeGamePush(Action onComplete)
+        {
+            Debug.Log("InitializeGamePush started");
+            if (GP_Init.isReady)
+                onComplete?.Invoke();
             else
+                StartCoroutine(WaitGamePushInitialization(onComplete));
+        }
+        
+        private static void InitializeSave(Action onComplete)
+        {
+            Debug.Log("InitializeSave started");
+            Action onCompleteLambda = null;
+            onCompleteLambda = () =>
             {
-                _sceneLoader.Initialize(false);
-                Debug.Log("-||- BootstrapSceneBootstrap loadScene in start");
-                _sceneLoader.LoadScene(sceneIndexForLoadingAfterInitializations);
-            }
+                PlayerData.Instance.OnInit -= onCompleteLambda;
+                onComplete?.Invoke();
+            };
             
-            // if (!GP_Init.isReady)
-            //     await InitGamePush();
-            //
-            // _sceneLoader.Initialize(false);
-            // Debug.Log("-||- BootstrapSceneBootstrap loadScene");
-            // _sceneLoader.LoadScene(sceneIndexForLoadingAfterInitializations);
+            PlayerData.Instance.OnInit += onCompleteLambda;
+            PlayerData.Instance.InvokeLoad();
         }
-
-        private static async Task InitGamePush()
+        
+        private void LoadNextScene()
         {
-            Debug.Log("-||- BootstrapSceneBootstrap Try INIT");
-            await GP_Init.Ready;
-
-            if (!GP_Init.isReady)
-                await InitGamePush();
+            Debug.Log("LoadNextScene started");
+            _sceneLoader.Initialize(false);
+            _sceneLoader.LoadScene(sceneIndexForLoadingAfterInitializations);
         }
-
-        private IEnumerator Init()
+        
+        private static IEnumerator WaitGamePushInitialization(Action onComplete)
         {
-            Debug.Log("-||- BootstrapSceneBootstrap Try INIT");
             yield return GP_Init.Ready;
 
-            if (!GP_Init.isReady)
-            {
-                Debug.Log("-||- BootstrapSceneBootstrap dontInited INIT");
-                yield return Init();
-            }
+            if (GP_Init.isReady)
+                onComplete?.Invoke();
             else
-            {
-                _sceneLoader.Initialize(false);
-                Debug.Log("-||- BootstrapSceneBootstrap loadScene in init");
-                _sceneLoader.LoadScene(sceneIndexForLoadingAfterInitializations);
-            }
+                yield return WaitGamePushInitialization(onComplete);
         }
     }
 }
+
+
+
