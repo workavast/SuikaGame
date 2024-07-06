@@ -10,19 +10,6 @@ namespace SuikaGame.Scripts.Saves
 
         public void Load()
         {
-            GP_Player.OnLoadComplete += InvokeOnLoaded;
-            GP_Player.OnLoadError += TryLoadAgain;
-            GP_Player.Load();
-        }
-
-        private static void TryLoadAgain()
-            => GP_Player.Load();
-        
-        private void InvokeOnLoaded()
-        {
-            GP_Player.OnLoadComplete -= InvokeOnLoaded;
-            GP_Player.OnLoadError -= TryLoadAgain;
-
             var save = new PlayerDataSave
             {
                 volumeSettingsSave =

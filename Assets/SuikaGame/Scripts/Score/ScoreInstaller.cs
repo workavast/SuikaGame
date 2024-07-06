@@ -1,4 +1,5 @@
 using System;
+using SuikaGame.Scripts.Saves;
 using UnityEngine;
 using Zenject;
 
@@ -24,7 +25,8 @@ namespace SuikaGame.Scripts.Score
 
         private void BindScoreCounter()
         {
-            Container.BindInterfacesTo<ScoreCounter>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesTo<ScoreCounter>().FromNew().AsSingle()
+                .WithArguments(PlayerData.Instance.ScoreSettings).NonLazy();
         }
     }
 }

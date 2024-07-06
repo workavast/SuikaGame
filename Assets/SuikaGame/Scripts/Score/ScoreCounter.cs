@@ -1,5 +1,6 @@
 using System;
 using Avastrad.EventBusFramework;
+using SuikaGame.Scripts.Saves.Score;
 
 namespace SuikaGame.Scripts.Score
 {
@@ -8,17 +9,19 @@ namespace SuikaGame.Scripts.Score
         public EventBusReceiverIdentifier EventBusReceiverIdentifier { get; } = new();
         private readonly IEventBus _eventBus;
         private readonly ScoreConfig _scoreConfig;
+        private readonly ScoreSettings _scoreSettings;
 
         public int Score { get; private set; }
-        public int Record { get; private set; }
+        public int Record => _scoreSettings.ScoreRecord;
         public event Action<int> OnScoreChanged;
         public event Action<int> OnRecordChanged;
 
-        public ScoreCounter(IEventBus eventBus, ScoreConfig scoreConfig)
+        public ScoreCounter(IEventBus eventBus, ScoreConfig scoreConfig, ScoreSettings scoreSettings)
         {
             _eventBus = eventBus;
             _scoreConfig = scoreConfig;
-            
+            _scoreSettings = scoreSettings;
+
             _eventBus.Subscribe(this);
         }
 
@@ -26,7 +29,7 @@ namespace SuikaGame.Scripts.Score
         {
              if (Score > Record)
              {
-                 Record = Score;
+                 _scoreSettings.SetScoreRecord(Score);
                  OnRecordChanged?.Invoke(Record);
              }
         }
