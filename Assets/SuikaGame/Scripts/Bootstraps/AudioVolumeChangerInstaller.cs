@@ -6,16 +6,11 @@ using Zenject;
 
 namespace SuikaGame.Scripts.Bootstraps
 {
-    public class GameContextsInstaller : MonoInstaller
+    public class AudioVolumeChangerInstaller : MonoInstaller
     {
         [SerializeField] private AudioMixer audioMixer;
 
         public override void InstallBindings()
-        {
-            BindAudioVolumeChanger();
-        }
-        
-        private void BindAudioVolumeChanger()
         {
             Container.Bind<AudioVolumeChanger>().FromNew().AsSingle()
                 .WithArguments(audioMixer, PlayerData.Instance.VolumeSettings).NonLazy();
