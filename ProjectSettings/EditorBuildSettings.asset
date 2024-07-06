@@ -14,4 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/SuikaGame/Scenes/GameplayScene.unity
     guid: 00f7edd459b7a2542b9a428436557ff3
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: cb53c2f9eb6372442aa2af54554168f7, type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 68fe80a2d38924f469ba804e658112ec, type: 2}

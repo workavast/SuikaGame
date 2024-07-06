@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using GamePush;
 using SuikaGame.Scripts.Loading;
+using SuikaGame.Scripts.Localization;
 using SuikaGame.Scripts.Saves;
 using UnityEngine;
 using Zenject;
@@ -23,7 +24,10 @@ namespace SuikaGame.Scripts.Bootstraps
         private void Start()
         {
             Debug.Log("-||- BootstrapSceneBootstrap start");
-            InitializeGamePush(() => InitializeSave(LoadNextScene));
+            InitializeGamePush(() => 
+                InitializeSave(() => 
+                    InitializeLanguage(
+                        LoadNextScene)));
         }
 
         private void InitializeGamePush(Action onComplete)
@@ -48,7 +52,13 @@ namespace SuikaGame.Scripts.Bootstraps
             PlayerData.Instance.OnInit += onCompleteLambda;
             PlayerData.Instance.InvokeLoad();
         }
-        
+
+        private static void InitializeLanguage(Action onComplete)
+        {
+            var localizationInitializer = new LocalizationInitializer();
+            localizationInitializer.InitLocalizationSettings(PlayerData.Instance.LocalizationSettings, onComplete);
+        }
+
         private void LoadNextScene()
         {
             Debug.Log("LoadNextScene started");
