@@ -12,8 +12,6 @@ namespace SuikaGame.Scripts.Game
         
         public static void Pause()
         {
-            Debug.LogWarning("--||-- Pause");
-
             Time.timeScale = 0;
             _pauseRequestsCount++;
             if (_pauseRequestsCount == 1)
@@ -22,8 +20,6 @@ namespace SuikaGame.Scripts.Game
 
         public static void Continue()
         {
-            Debug.LogWarning("--||-- Continue");
-            
             if (_pauseRequestsCount <= 0)
             {
                 Debug.LogWarning("Superfluous call of game continue");

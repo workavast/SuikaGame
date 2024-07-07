@@ -10,7 +10,6 @@ namespace SuikaGame.Scripts.UI
         [SerializeField] private int showNearest = 5;
         [SerializeField] private WithMe withMe = WithMe.none;
         [SerializeField] private Order order = Order.DESC;
-
         
         private void Awake()
         {
