@@ -120,7 +120,7 @@ namespace SuikaGame.Scripts.Entities.Spawning
         private void OnDrawGizmos()
         {
             if (spawnerConfig != null)
-                Gizmos.DrawWireCube(transform.position, Vector3.up + Vector3.right * spawnerConfig.Range * 2);
+                Gizmos.DrawWireCube(transform.position, Vector3.up * 0.1f + Vector3.right * spawnerConfig.Range * 2);
         }
     }
 }
