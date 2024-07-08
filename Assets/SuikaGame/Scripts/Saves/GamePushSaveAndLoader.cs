@@ -1,6 +1,7 @@
 ﻿using System;
-using Avastrad.SavingAndLoading;
 using GamePush;
+using SuikaGame.Scripts.Saves.GameplayScene;
+using UnityEngine;
 
 namespace SuikaGame.Scripts.Saves
 {
@@ -24,7 +25,8 @@ namespace SuikaGame.Scripts.Saves
                 scoreSettingsSave =
                 {
                     ScoreRecord = (int)GP_Player.GetScore()
-                }
+                },
+                gameplaySceneSettingsSave = JsonUtility.FromJson<GameplaySceneSettingsSave>(GP_Player.GetString(GamePushSaveParametersNames.GameplaySave))
             };
 
             OnLoaded?.Invoke(save);
@@ -35,6 +37,7 @@ namespace SuikaGame.Scripts.Saves
             GP_Player.Set(GamePushSaveParametersNames.MusicVolume, playerData.VolumeSettings.MusicVolume);
             GP_Player.Set(GamePushSaveParametersNames.EffectsVolume, playerData.VolumeSettings.EffectsVolume);
             GP_Player.Set(GamePushSaveParametersNames.LocalizationId, playerData.LocalizationSettings.LocalizationId);
+            GP_Player.Set(GamePushSaveParametersNames.GameplaySave, JsonUtility.ToJson(new GameplaySceneSettingsSave(playerData.GameplaySceneSettings)));
             
             GP_Player.SetScore(playerData.ScoreSettings.ScoreRecord);
             

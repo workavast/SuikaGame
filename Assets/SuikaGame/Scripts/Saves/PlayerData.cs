@@ -1,5 +1,6 @@
 using System;
 using SuikaGame.Scripts.Saves.Audio;
+using SuikaGame.Scripts.Saves.GameplayScene;
 using SuikaGame.Scripts.Saves.Localization;
 using SuikaGame.Scripts.Saves.Score;
 using SuikaGame.Scripts.Saves.Train;
@@ -18,6 +19,7 @@ namespace SuikaGame.Scripts.Saves
         public readonly VolumeSettings VolumeSettings = new();
         public readonly ScoreSettings ScoreSettings = new();
         public readonly TutorialSettings TutorialSettings = new();
+        public readonly GameplaySceneSettings GameplaySceneSettings = new();
 
 #if !UNITY_EDITOR && UNITY_WEBGL
         private static readonly IPlayerDataSaveAndLoader SaveAndLoader = new GamePushSaveAndLoader();
@@ -44,6 +46,7 @@ namespace SuikaGame.Scripts.Saves
             VolumeSettings.LoadData(save.volumeSettingsSave);
             ScoreSettings.LoadData(save.scoreSettingsSave);
             TutorialSettings.LoadData(save.tutorialSettingsSave);
+            GameplaySceneSettings.LoadData(save.gameplaySceneSettingsSave);
             
             if(!_isLoaded)
                 SubsAfterFirstLoad();
@@ -62,7 +65,8 @@ namespace SuikaGame.Scripts.Saves
                 LocalizationSettings,
                 VolumeSettings, 
                 ScoreSettings,
-                TutorialSettings
+                TutorialSettings,
+                GameplaySceneSettings
             };
             foreach (var setting in settings)
                 setting.OnChange += SaveData;

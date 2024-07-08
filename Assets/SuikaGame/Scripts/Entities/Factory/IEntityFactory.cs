@@ -7,6 +7,6 @@ namespace SuikaGame.Scripts.Entities.Factory
     {
         public event Action<Entity> OnCreate; 
         
-        public Entity Create(int index, Vector2 position);
+        public Entity Create(int index, Vector2 position, float rotation = 0);
     }
 }

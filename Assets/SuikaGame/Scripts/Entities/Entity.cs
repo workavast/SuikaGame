@@ -1,5 +1,6 @@
 using System;
 using Avastrad.EventBusFramework;
+using SuikaGame.Scripts.SerializedTypes;
 using SuikaGame.Scripts.Vfx;
 using UnityEngine;
 using Zenject;
@@ -10,6 +11,7 @@ namespace SuikaGame.Scripts.Entities
     public class Entity : MonoBehaviour, Avastrad.PoolSystem.IPoolable<Entity, int>
     {
         public int PoolId => SizeIndex;
+        public bool IsActive { get; private set; } = true;
         public int CreateIndex { get; private set; }
         public int SizeIndex { get; private set; }
         public Vector2 Velocity => _rigidbody2D.velocity;
@@ -48,16 +50,21 @@ namespace SuikaGame.Scripts.Entities
 
         public void Activate()
         {
+            IsActive = true;
             _circleCollider2D.enabled = true;
             _rigidbody2D.simulated = true;
         }
 
         public void DeActivate()
         {
+            IsActive = false;
             _circleCollider2D.enabled = false;
             _rigidbody2D.simulated = false;
         }
 
+        public EntityModel GetModel()
+            => new EntityModel(this);
+        
         public void ManualReturnInPool()
         {
             _vfxFactory.Create(VfxType.Smoke, transform.position, transform.localScale.x);

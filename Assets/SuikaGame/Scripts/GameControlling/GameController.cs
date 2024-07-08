@@ -2,6 +2,7 @@ using SuikaGame.Scripts.Entities;
 using SuikaGame.Scripts.Entities.Spawning;
 using SuikaGame.Scripts.EntityMaxSizeCounting;
 using SuikaGame.Scripts.GameOverDetection;
+using SuikaGame.Scripts.GameplaySavers;
 using SuikaGame.Scripts.Score;
 using SuikaGame.Scripts.UI;
 using UnityEngine;
@@ -18,18 +19,21 @@ namespace SuikaGame.Scripts.GameControlling
         private IScoreCounter _scoreCounter;
         private IEntityMaxSizeCounter _entityMaxSizeCounter;
         private IGameOverZone _gameOverZone;
+        private IGameplaySaver _gameplaySaver;
         
         [Inject]
         public void Construct(
             IEntitySpawner entitySpawner, 
             IEntitiesRepository entitiesRepository, IScoreCounter scoreCounter, 
-            IEntityMaxSizeCounter entityMaxSizeCounter, IGameOverZone gameOverZone)
+            IEntityMaxSizeCounter entityMaxSizeCounter, IGameOverZone gameOverZone,
+             IGameplaySaver gameplaySaver)
         {
             _entitySpawner = entitySpawner;
             _entitiesRepository = entitiesRepository;
             _entityMaxSizeCounter = entityMaxSizeCounter;
             _scoreCounter = scoreCounter;
             _gameOverZone = gameOverZone;
+            _gameplaySaver = gameplaySaver;
         }
 
         public void ResetGame()
@@ -41,6 +45,8 @@ namespace SuikaGame.Scripts.GameControlling
             _entitiesRepository.Reset();
             _entitySpawner.Reset();
             endScreen.Hide();
+            
+            _gameplaySaver.Save();
         }
     }
 }

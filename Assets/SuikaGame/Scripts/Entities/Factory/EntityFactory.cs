@@ -25,11 +25,13 @@ namespace SuikaGame.Scripts.Entities.Factory
             _pool = new Pool<Entity, int>(InstantiateEntity);
         }
         
-        public Entity Create(int index, Vector2 position)
+        /// <param name="rotation"> z axis Quaternion rotation </param>
+        public Entity Create(int index, Vector2 position, float rotation = 0)
         {
             _pool.ExtractElement(index, out var entity);
             
             entity.transform.position = position;
+            entity.transform.rotation = new Quaternion(0, 0, rotation, 1);
 
             OnCreate?.Invoke(entity);
             

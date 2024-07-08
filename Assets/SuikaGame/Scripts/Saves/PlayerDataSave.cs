@@ -1,5 +1,6 @@
 ﻿using System;
 using SuikaGame.Scripts.Saves.Audio;
+using SuikaGame.Scripts.Saves.GameplayScene;
 using SuikaGame.Scripts.Saves.Localization;
 using SuikaGame.Scripts.Saves.Score;
 using SuikaGame.Scripts.Saves.Train;
@@ -13,6 +14,7 @@ namespace SuikaGame.Scripts.Saves
         public VolumeSettingsSave volumeSettingsSave;
         public ScoreSettingsSave scoreSettingsSave;
         public TutorialSettingsSave tutorialSettingsSave;
+        public GameplaySceneSettingsSave gameplaySceneSettingsSave;
 
         public PlayerDataSave()
         {
@@ -20,6 +22,7 @@ namespace SuikaGame.Scripts.Saves
             volumeSettingsSave = new();
             tutorialSettingsSave = new();
             scoreSettingsSave = new();
+            gameplaySceneSettingsSave = new();
         }
         
         public PlayerDataSave(PlayerData playerData)
@@ -28,6 +31,7 @@ namespace SuikaGame.Scripts.Saves
             volumeSettingsSave = new VolumeSettingsSave(playerData.VolumeSettings);
             scoreSettingsSave = new ScoreSettingsSave(playerData.ScoreSettings);
             tutorialSettingsSave = new TutorialSettingsSave(playerData.TutorialSettings);
+            gameplaySceneSettingsSave = new GameplaySceneSettingsSave(playerData.GameplaySceneSettings);
         }
     }
 }
