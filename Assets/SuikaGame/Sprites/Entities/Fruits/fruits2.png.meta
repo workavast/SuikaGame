@@ -72,7 +72,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -139,8 +139,8 @@ TextureImporter:
       name: fruits2_0
       rect:
         serializedVersion: 2
-        x: 48
-        y: 90
+        x: 420
+        y: 154
         width: 240
         height: 216
       alignment: 0
@@ -160,8 +160,8 @@ TextureImporter:
       name: fruits2_1
       rect:
         serializedVersion: 2
-        x: 468
-        y: 48
+        x: 732
+        y: 112
         width: 216
         height: 300
       alignment: 9
@@ -173,6 +173,27 @@ TextureImporter:
       bones: []
       spriteID: ceb2a90eabd78ed4380fd8c8909257f6
       internalID: 311001120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: fruits2_2
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 118
+        width: 276
+        height: 276
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b099517763ddf544b3ee7066b4eda57
+      internalID: 365087435
       vertices: []
       indices: 
       edges: []
@@ -190,6 +211,7 @@ TextureImporter:
     nameFileIdTable:
       fruits2_0: -1390104944
       fruits2_1: 311001120
+      fruits2_2: 365087435
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
