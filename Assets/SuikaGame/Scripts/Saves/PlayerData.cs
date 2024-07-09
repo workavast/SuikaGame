@@ -3,6 +3,7 @@ using SuikaGame.Scripts.Saves.Audio;
 using SuikaGame.Scripts.Saves.GameplayScene;
 using SuikaGame.Scripts.Saves.Localization;
 using SuikaGame.Scripts.Saves.Score;
+using SuikaGame.Scripts.Saves.SkinsPacks;
 using SuikaGame.Scripts.Saves.Train;
 using UnityEditor;
 using UnityEngine;
@@ -20,6 +21,7 @@ namespace SuikaGame.Scripts.Saves
         public readonly ScoreSettings ScoreSettings = new();
         public readonly TutorialSettings TutorialSettings = new();
         public readonly GameplaySceneSettings GameplaySceneSettings = new();
+        public readonly SkinsPacksSettings SkinsPacksSettings = new();
 
 #if !UNITY_EDITOR && UNITY_WEBGL
         private static readonly IPlayerDataSaveAndLoader SaveAndLoader = new GamePushSaveAndLoader();
@@ -47,6 +49,7 @@ namespace SuikaGame.Scripts.Saves
             ScoreSettings.LoadData(save.scoreSettingsSave);
             TutorialSettings.LoadData(save.tutorialSettingsSave);
             GameplaySceneSettings.LoadData(save.gameplaySceneSettingsSave);
+            SkinsPacksSettings.LoadData(save.skinsPacksSettingsSave);
             
             if(!_isLoaded)
                 SubsAfterFirstLoad();
@@ -66,7 +69,8 @@ namespace SuikaGame.Scripts.Saves
                 VolumeSettings, 
                 ScoreSettings,
                 TutorialSettings,
-                GameplaySceneSettings
+                GameplaySceneSettings,
+                SkinsPacksSettings
             };
             foreach (var setting in settings)
                 setting.OnChange += SaveData;

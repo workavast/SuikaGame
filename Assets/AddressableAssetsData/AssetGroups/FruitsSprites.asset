@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: FruitsSprites
+  m_EditorClassIdentifier: 
+  m_GroupName: FruitsSprites
+  m_Data:
+    m_SerializedData: []
+  m_GUID: de1b7b114ccc7e846949b11462eeef8c
+  m_SerializeEntries:
+  - m_GUID: 304a1781ca59f794eb0f1011c8773491
+    m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/fruits.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 599e9f6f50497844291a6ae148b8c48a
+    m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/fruits2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 196c7f45421eb82419c16a2cecd50a83
+    m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/FruitsAtlas.spriteatlasv2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6909044db1124b147a46e56c2286843f
+    m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/FruitsSkinsConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f8ba67870bc57f741b4e3747672bc7ba, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 9fc7f65eaaeaa5e44966eecf2e923502, type: 2}
+    - {fileID: 11400000, guid: 4a8d69bd282967c4d9c657013a554ea2, type: 2}

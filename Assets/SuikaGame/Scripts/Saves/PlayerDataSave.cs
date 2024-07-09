@@ -3,6 +3,7 @@ using SuikaGame.Scripts.Saves.Audio;
 using SuikaGame.Scripts.Saves.GameplayScene;
 using SuikaGame.Scripts.Saves.Localization;
 using SuikaGame.Scripts.Saves.Score;
+using SuikaGame.Scripts.Saves.SkinsPacks;
 using SuikaGame.Scripts.Saves.Train;
 
 namespace SuikaGame.Scripts.Saves
@@ -15,6 +16,7 @@ namespace SuikaGame.Scripts.Saves
         public ScoreSettingsSave scoreSettingsSave;
         public TutorialSettingsSave tutorialSettingsSave;
         public GameplaySceneSettingsSave gameplaySceneSettingsSave;
+        public SkinsPacksSettingsSave skinsPacksSettingsSave;
 
         public PlayerDataSave()
         {
@@ -23,6 +25,7 @@ namespace SuikaGame.Scripts.Saves
             tutorialSettingsSave = new();
             scoreSettingsSave = new();
             gameplaySceneSettingsSave = new();
+            skinsPacksSettingsSave = new();
         }
         
         public PlayerDataSave(PlayerData playerData)
@@ -32,6 +35,7 @@ namespace SuikaGame.Scripts.Saves
             scoreSettingsSave = new ScoreSettingsSave(playerData.ScoreSettings);
             tutorialSettingsSave = new TutorialSettingsSave(playerData.TutorialSettings);
             gameplaySceneSettingsSave = new GameplaySceneSettingsSave(playerData.GameplaySceneSettings);
+            skinsPacksSettingsSave = new SkinsPacksSettingsSave(playerData.SkinsPacksSettings);
         }
     }
 }

@@ -10,6 +10,8 @@ namespace SuikaGame.Scripts.Entities
     [RequireComponent(typeof(Rigidbody2D))]
     public class Entity : MonoBehaviour, Avastrad.PoolSystem.IPoolable<Entity, int>
     {
+        [SerializeField] private SpriteRenderer spriteRenderer;
+        
         public int PoolId => SizeIndex;
         public bool IsActive { get; private set; } = true;
         public int CreateIndex { get; private set; }
@@ -48,6 +50,11 @@ namespace SuikaGame.Scripts.Entities
         public void SetVelocity(Vector2 velocity) 
             => _rigidbody2D.velocity = velocity;
 
+        public void SetSkin(Sprite newSprite)
+        {
+            spriteRenderer.sprite = newSprite;
+        }
+        
         public void Activate()
         {
             IsActive = true;

@@ -18,7 +18,7 @@ namespace SuikaGame.Scripts.GameplaySavers
             if (!hasFocus)
             {
                 Debug.LogWarning("OnApplicationFocus");
-                _gameplaySaver.Save();
+                _gameplaySaver?.Save();
             }
         }
     }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using SuikaGame.Scripts.Entities.Factory;
@@ -11,6 +12,8 @@ namespace SuikaGame.Scripts.Entities
         private List<Entity> _entities = new(4);
 
         public IReadOnlyList<Entity> Entities => _entities;
+
+        public event Action<Entity> OnAdd;
 
         public EntitiesRepository(IEntityFactory entityFactory)
         {
@@ -36,6 +39,7 @@ namespace SuikaGame.Scripts.Entities
             newEntity.ReturnElementEvent += Remove;
             newEntity.DestroyElementEvent += Remove;
             _entities.Add(newEntity);
+            OnAdd?.Invoke(newEntity);
         }
 
         private void Remove(Entity entity)
