@@ -1,7 +1,7 @@
 using System;
 using SuikaGame.Scripts.Saves.SkinsPacks;
 
-namespace SuikaGame.Scripts.Skins
+namespace SuikaGame.Scripts.Skins.SkinPackChanging
 {
     public class SkinPackChanger : ISkinPackChanger
     {

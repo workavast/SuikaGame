@@ -1,6 +1,6 @@
 using System;
 
-namespace SuikaGame.Scripts.Skins
+namespace SuikaGame.Scripts.Skins.SkinPackChanging
 {
     public interface ISkinPackChanger
     {

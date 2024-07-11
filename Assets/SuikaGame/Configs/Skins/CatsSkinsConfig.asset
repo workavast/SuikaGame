@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a165654813ff4e2d97d4d19cd32eddca, type: 3}
   m_Name: CatsSkinsConfig
   m_EditorClassIdentifier: 
+  background: {fileID: 21300000, guid: cf9f60ab2f6eec74ab610cb66acaa93d, type: 3}
   sprites:
   - {fileID: 21300000, guid: 6297084fbf546b64790bd853a015527f, type: 3}
   - {fileID: 21300000, guid: e4b2280df5b86664e8404208065311c4, type: 3}

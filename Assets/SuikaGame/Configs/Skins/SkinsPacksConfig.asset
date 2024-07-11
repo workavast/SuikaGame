@@ -16,13 +16,19 @@ MonoBehaviour:
     cells:
     - key: 0
       value:
-        m_AssetGUID: 6909044db1124b147a46e56c2286843f
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_EditorAssetChanged: 0
+        <SkinPack>k__BackingField:
+          m_AssetGUID: 6909044db1124b147a46e56c2286843f
+          m_SubObjectName: 
+          m_SubObjectType: 
+          m_EditorAssetChanged: 0
+        <BackgroundPreview>k__BackingField: {fileID: 21300000, guid: e725c9b4a2a8aa0479a2de15997409d4, type: 3}
+        <EntitiesPreview>k__BackingField: {fileID: 21300000, guid: ed9427337e2205f47b87742d2194cc53, type: 3}
     - key: 10
       value:
-        m_AssetGUID: 0ad2f93290f638740a45e65c18a21727
-        m_SubObjectName: 
-        m_SubObjectType: 
-        m_EditorAssetChanged: 1
+        <SkinPack>k__BackingField:
+          m_AssetGUID: 0ad2f93290f638740a45e65c18a21727
+          m_SubObjectName: 
+          m_SubObjectType: 
+          m_EditorAssetChanged: 1
+        <BackgroundPreview>k__BackingField: {fileID: 21300000, guid: e75b1521afb11804b87a6d30a6d656d6, type: 3}
+        <EntitiesPreview>k__BackingField: {fileID: 21300000, guid: a12967b04069b6b4b81e5118a9d61a72, type: 3}

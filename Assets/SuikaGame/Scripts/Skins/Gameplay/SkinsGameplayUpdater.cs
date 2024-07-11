@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using SuikaGame.Scripts.Entities;
+using SuikaGame.Scripts.Skins.SkinPackChanging;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -10,13 +11,12 @@ using Zenject;
 namespace SuikaGame.Scripts.Skins
 {
     [DisallowMultipleComponent]
-    public class SkinUpdater : MonoBehaviour
+    public class SkinsGameplayUpdater : MonoBehaviour
     {
         [SerializeField] private SkinsPacksConfig skinsPacksConfig;
         
         private ISkinPackChanger _skinPackChanger;
         private IEntitiesRepository _entitiesRepository;
-        private AssetReference _prevAssetReference;
         private SkinsPackConfig _currentPackConfig;
 
         private readonly List<CancelMarker> _cancelMarkers = new();
@@ -33,10 +33,10 @@ namespace SuikaGame.Scripts.Skins
 
         private void Start() 
             => ChangeSkin();
-
+        
         private void ChangeSkin()
         {
-            var targetAssetReference = skinsPacksConfig.SkinsPacks[_skinPackChanger.ActiveSkinPack];
+            var targetAssetReference = skinsPacksConfig.SkinsPacks[_skinPackChanger.ActiveSkinPack].SkinPack;
             
             if (_cancelMarkers.Count > 0)
             {
@@ -57,21 +57,18 @@ namespace SuikaGame.Scripts.Skins
                     res.IsCanceled = false;
                 }
             }
-
+        
             StartCoroutine(LoadAsset(targetAssetReference));
         }
-
+        
         private IEnumerator LoadAsset(AssetReferenceT<SkinsPackConfig> skinsConfigReference)
         {
-            if (skinsConfigReference.IsValid())
-                yield break;
-
             var cancelMarker = new CancelMarker(skinsConfigReference);
             _cancelMarkers.Add(cancelMarker);
-
-            var handle = skinsConfigReference.LoadAssetAsync<SkinsPackConfig>();
+        
+            var handle = Addressables.LoadAssetAsync<SkinsPackConfig>(skinsConfigReference);
             yield return handle;
-
+        
             if (handle.Status == AsyncOperationStatus.Succeeded)
             {
                 if (cancelMarker.IsCanceled)
@@ -80,11 +77,12 @@ namespace SuikaGame.Scripts.Skins
                 }
                 else
                 {
+                    var prevAsset = _currentPackConfig;
                     _currentPackConfig = handle.Result;
                     ApplySprites();
                 
-                    _prevAssetReference?.ReleaseAsset();
-                    _prevAssetReference = skinsConfigReference;
+                    if(prevAsset != null)
+                        Addressables.Release(prevAsset);
                 }
             }
             
@@ -108,6 +106,8 @@ namespace SuikaGame.Scripts.Skins
 
         private void OnDestroy()
         {
+            if(_currentPackConfig != null)
+                Addressables.Release(_currentPackConfig);
             _entitiesRepository.OnAdd -= ApplySprite;
         }
         
@@ -119,6 +119,10 @@ namespace SuikaGame.Scripts.Skins
         private void LoadCats() 
             => _skinPackChanger.ChangeActiveSkinPack(SkinPackType.Cats);
 
+        [ContextMenu("RELEASE")]
+        private void Release() 
+            => Addressables.Release(_currentPackConfig);
+        
         private class CancelMarker
         {
             public bool IsCanceled;
