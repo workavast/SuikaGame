@@ -5,7 +5,7 @@ using UnityEngine.AddressableAssets;
 namespace SuikaGame.Scripts.Skins
 {
     [Serializable]
-    public class SkinPackCell
+    public class SkinPackConfigCell
     {
         [field: SerializeField] public AssetReferenceT<SkinsPackConfig> SkinPack { get; private set; }
         [field: SerializeField] public Sprite BackgroundPreview { get; private set; }

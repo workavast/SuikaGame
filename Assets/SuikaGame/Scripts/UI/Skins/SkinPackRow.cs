@@ -21,8 +21,8 @@ namespace SuikaGame.Scripts.UI.Skins
             GetComponent<Button>().onClick.AddListener(() => OnClicked?.Invoke(_skinPackType));
         }
 
-        public void SetData(SkinPackType skinPack, SkinPackCell skinPackCell)
-            => SetData(skinPack, skinPackCell.BackgroundPreview, skinPackCell.EntitiesPreview);
+        public void SetData(SkinPackType skinPack, SkinPackConfigCell skinPackConfigCell)
+            => SetData(skinPack, skinPackConfigCell.BackgroundPreview, skinPackConfigCell.EntitiesPreview);
         
         public void SetData(SkinPackType skinPack, Sprite newBackground, Sprite newBallsPreview)
         {

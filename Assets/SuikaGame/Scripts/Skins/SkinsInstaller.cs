@@ -1,6 +1,7 @@
 using System;
 using SuikaGame.Scripts.Saves;
 using SuikaGame.Scripts.Skins.SkinPackChanging;
+using SuikaGame.Scripts.Skins.SkinPackLoading;
 using UnityEngine;
 using Zenject;
 
@@ -14,6 +15,7 @@ namespace SuikaGame.Scripts.Skins
         {
             BindConfig();
             BindSkinsChanger();
+            BindSkinPackLoader();
         }
 
         private void BindConfig()
@@ -21,12 +23,17 @@ namespace SuikaGame.Scripts.Skins
             if (skinsPacksConfig == null)
                 throw new NullReferenceException("skinsPacksConfig == null");
             
-            Container.BindInstance(skinsPacksConfig).AsSingle();
+            Container.BindInstance(skinsPacksConfig).AsSingle().NonLazy();
         }
 
         private void BindSkinsChanger()
         {
             Container.BindInterfacesTo<SkinPackChanger>().FromNew().AsSingle().WithArguments(PlayerData.Instance.SkinsPacksSettings).NonLazy();
+        }
+
+        private void BindSkinPackLoader()
+        {
+            Container.BindInterfacesTo<SkinPackLoader>().FromNew().AsSingle().NonLazy();
         }
     }
 }

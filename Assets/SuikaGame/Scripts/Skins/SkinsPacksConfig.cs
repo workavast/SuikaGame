@@ -7,8 +7,8 @@ namespace SuikaGame.Scripts.Skins
     [CreateAssetMenu(fileName = nameof(SkinsPacksConfig), menuName = "SuikaGame/Configs/Skins/" + nameof(SkinsPacksConfig))]
     public class SkinsPacksConfig : ScriptableObject
     {
-        [SerializeField] private SerializableDictionary<SkinPackType, SkinPackCell> skinsPacks;
+        [SerializeField] private SerializableDictionary<SkinPackType, SkinPackConfigCell> skinsPacks;
 
-        public IReadOnlyDictionary<SkinPackType, SkinPackCell> SkinsPacks => skinsPacks; 
+        public IReadOnlyDictionary<SkinPackType, SkinPackConfigCell> SkinsPacks => skinsPacks; 
     }
 }
