@@ -1,21 +1,22 @@
 using System;
 using SuikaGame.Scripts.Skins;
+using SuikaGame.Scripts.Skins.Entities;
 
 namespace SuikaGame.Scripts.Saves.SkinsPacks
 {
     [Serializable]
     public class SkinsPacksSettingsSave
     {
-        public SkinPackType ActiveSkinPack = SkinPackType.Fruits;
+        public EntitiesSkinPackType activeEntitiesSkinPack = EntitiesSkinPackType.Fruits;
 
         public SkinsPacksSettingsSave()
         {
-            ActiveSkinPack = SkinPackType.Fruits;
+            activeEntitiesSkinPack = EntitiesSkinPackType.Fruits;
         }
         
         public SkinsPacksSettingsSave(SkinsPacksSettings settings)
         {
-            ActiveSkinPack = settings.ActiveSkinPack;
+            activeEntitiesSkinPack = settings.ActiveEntitiesSkinPack;
         }
     }
 }

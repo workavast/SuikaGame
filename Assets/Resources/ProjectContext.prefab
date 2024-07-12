@@ -133,7 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 071b1f4fb8964b5d93148a703e7b2f36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skinsPacksConfig: {fileID: 11400000, guid: 27963358c23c2954b9d73ad080b347af, type: 2}
+  entitiesSkinPacksConfig: {fileID: 11400000, guid: 27963358c23c2954b9d73ad080b347af, type: 2}
+  backgroundsSkinsConfig: {fileID: 11400000, guid: b2cb07b6c3c2be343af372be037b2e62, type: 2}
 --- !u!1 &5097536449793901347
 GameObject:
   m_ObjectHideFlags: 0

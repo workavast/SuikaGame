@@ -1,28 +1,37 @@
 using System;
 using SuikaGame.Scripts.Skins;
+using SuikaGame.Scripts.Skins.Backgrounds;
+using SuikaGame.Scripts.Skins.Entities;
 
 namespace SuikaGame.Scripts.Saves.SkinsPacks
 {
     public class SkinsPacksSettings : ISettings
     {
-        public SkinPackType ActiveSkinPack { get; private set; }
+        public EntitiesSkinPackType ActiveEntitiesSkinPack { get; private set; }
+        public BackgroundSkinType ActiveBackgroundSkin { get; private set; }
         
         public event Action OnChange;
         
         public SkinsPacksSettings()
         {
-            ActiveSkinPack = SkinPackType.Fruits;
+            ActiveEntitiesSkinPack = EntitiesSkinPackType.Fruits;
         }
 
-        public void SetActiveSkinPack(SkinPackType newActiveSkinPack)
+        public void SetActiveSkinPack(EntitiesSkinPackType newSkin)
         {
-            ActiveSkinPack = newActiveSkinPack;
+            ActiveEntitiesSkinPack = newSkin;
+            OnChange?.Invoke();
+        }
+        
+        public void SetActiveBackgroundSkin(BackgroundSkinType newSkin)
+        {
+            ActiveBackgroundSkin = newSkin;
             OnChange?.Invoke();
         }
         
         public void LoadData(SkinsPacksSettingsSave save)
         {
-            ActiveSkinPack = save.ActiveSkinPack;
+            ActiveEntitiesSkinPack = save.activeEntitiesSkinPack;
         }
     }
 }

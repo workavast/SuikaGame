@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: daa549b345d547c2b04862b9edbf27bc, type: 3}
+  m_Name: BackgroundsSkinsConfig
+  m_EditorClassIdentifier: 
+  backgroundsSkins:
+    cells:
+    - key: 0
+      value:
+        <Preview>k__BackingField: {fileID: 21300000, guid: e725c9b4a2a8aa0479a2de15997409d4, type: 3}
+        <Background>k__BackingField:
+          m_AssetGUID: 46361fa1e414b5f45923910d6d422c6b
+          m_SubObjectName: 
+          m_SubObjectType: 
+          m_EditorAssetChanged: 0
+    - key: 10
+      value:
+        <Preview>k__BackingField: {fileID: 21300000, guid: e75b1521afb11804b87a6d30a6d656d6, type: 3}
+        <Background>k__BackingField:
+          m_AssetGUID: cf9f60ab2f6eec74ab610cb66acaa93d
+          m_SubObjectName: 
+          m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_EditorAssetChanged: 0

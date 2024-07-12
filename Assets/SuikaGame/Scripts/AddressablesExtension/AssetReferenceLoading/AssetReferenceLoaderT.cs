@@ -13,7 +13,7 @@ namespace SuikaGame.Scripts.AddressablesExtension.AssetReferenceLoading
     {
         private readonly MonoBehaviour _parent;
         private readonly List<CancelMarker> _cancelMarkers = new();
-        
+
         public T Asset { get; private set; }
         public bool IsUnLoadProcess { get; private set; }
 
@@ -54,8 +54,11 @@ namespace SuikaGame.Scripts.AddressablesExtension.AssetReferenceLoading
             _parent.StartCoroutine(LoadAsset(targetAssetReference, onLoadedCallback));
         }
 
-        public void Release(Action onAllUnLoaded = null) 
-            => _parent.StartCoroutine(ReleaseAssets(onAllUnLoaded));
+        public void Release(Action onAllUnLoaded = null)
+        {
+            if(_parent != null)
+                _parent.StartCoroutine(ReleaseAssets(onAllUnLoaded));
+        }
 
         private IEnumerator LoadAsset(AssetReference skinsConfigReference, Action onLoadedCallback)
         {
@@ -118,9 +121,12 @@ namespace SuikaGame.Scripts.AddressablesExtension.AssetReferenceLoading
             if (!IsAnyNull(Asset))
             {
                 Debug.Log($"{Asset == null} {IsAnyNull(Asset)} \n {Asset}");
-                UnityEngine.AddressableAssets.Addressables.Release(Asset);
+                Addressables.Release(Asset);
                 Asset = null;
             }
+
+            if (!IsUnLoadProcess)
+                Release();
         }
         
         private static bool IsAnyNull<TValue>(TValue value) 
