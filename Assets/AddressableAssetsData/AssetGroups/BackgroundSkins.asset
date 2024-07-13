@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: BackgroundSkins
+  m_EditorClassIdentifier: 
+  m_GroupName: BackgroundSkins
+  m_Data:
+    m_SerializedData: []
+  m_GUID: bdf8ea1a3eb51014e8f55557da3d9982
+  m_SerializeEntries:
+  - m_GUID: cf9f60ab2f6eec74ab610cb66acaa93d
+    m_Address: Assets/SuikaGame/Sprites/Entities/Cats/BackgroundPrewiev.jpg
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 46361fa1e414b5f45923910d6d422c6b
+    m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/bg.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f8ba67870bc57f741b4e3747672bc7ba, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d64d5474deee0b7479600ef9718ccb3c, type: 2}
+    - {fileID: 11400000, guid: 474235600bf68aa4a961cc2f37564bc2, type: 2}

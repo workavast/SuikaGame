@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
-  m_Name: CatsSprites
+  m_Name: CatsSkinsPack
   m_EditorClassIdentifier: 
-  m_GroupName: CatsSprites
+  m_GroupName: CatsSkinsPack
   m_Data:
     m_SerializedData: []
   m_GUID: 0ff3bb962ea96ea4ab10c01c58d1a612
@@ -84,11 +84,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0ad2f93290f638740a45e65c18a21727
     m_Address: Assets/SuikaGame/Sprites/Entities/Cats/SkinsConfig.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: cf9f60ab2f6eec74ab610cb66acaa93d
-    m_Address: Assets/SuikaGame/Sprites/Entities/Cats/BackgroundPrewiev.jpg
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
