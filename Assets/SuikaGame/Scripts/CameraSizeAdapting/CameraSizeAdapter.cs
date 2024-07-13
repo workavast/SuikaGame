@@ -29,8 +29,6 @@ namespace SuikaGame.Scripts.CameraSizeAdapting
             if(Math.Abs(curAspect - _prevAspect) < 0.0001f)
                 return;
             
-            Debug.Log("SDASD");
-            
             if (_refAspect < curAspect)
             {
                 var newSize = _defaultSize * curAspect / _refAspect;
