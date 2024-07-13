@@ -21,7 +21,7 @@ namespace SuikaGame.Scripts.Saves
         public readonly ScoreSettings ScoreSettings = new();
         public readonly TutorialSettings TutorialSettings = new();
         public readonly GameplaySceneSettings GameplaySceneSettings = new();
-        public readonly SkinsPacksSettings SkinsPacksSettings = new();
+        public readonly SkinsSettings SkinsSettings = new();
 
 #if !UNITY_EDITOR && UNITY_WEBGL
         private static readonly IPlayerDataSaveAndLoader SaveAndLoader = new GamePushSaveAndLoader();
@@ -49,7 +49,7 @@ namespace SuikaGame.Scripts.Saves
             ScoreSettings.LoadData(save.scoreSettingsSave);
             TutorialSettings.LoadData(save.tutorialSettingsSave);
             GameplaySceneSettings.LoadData(save.gameplaySceneSettingsSave);
-            SkinsPacksSettings.LoadData(save.skinsPacksSettingsSave);
+            SkinsSettings.LoadData(save.skinsSettingsSave);
             
             if(!_isLoaded)
                 SubsAfterFirstLoad();
@@ -70,7 +70,7 @@ namespace SuikaGame.Scripts.Saves
                 ScoreSettings,
                 TutorialSettings,
                 GameplaySceneSettings,
-                SkinsPacksSettings
+                SkinsSettings
             };
             foreach (var setting in settings)
                 setting.OnChange += SaveData;

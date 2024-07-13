@@ -14,13 +14,14 @@ namespace SuikaGame.Scripts.Skins.Backgrounds.SkinsUpdating
             _backgroundHolder = backgroundHolder;
 
             _skinsLoader.OnBackgroundSkinLoaded += SetSkin;
-            
-            if(_skinsLoader.BackgroundSkin != null)
-                SetSkin();
+            SetSkin();
         }
 
-        private void SetSkin() 
-            => _backgroundHolder.ChangeSkin(_skinsLoader.BackgroundSkin);
+        private void SetSkin()
+        {
+            if(_skinsLoader.BackgroundSkin != null)
+                _backgroundHolder.ChangeSkin(_skinsLoader.BackgroundSkin);
+        }
 
         public void Dispose() 
             => _skinsLoader.OnBackgroundSkinLoaded -= SetSkin;

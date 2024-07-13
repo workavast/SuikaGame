@@ -3,7 +3,6 @@ using SuikaGame.Scripts.AddressablesExtension.AssetReferenceLoading;
 using SuikaGame.Scripts.CoroutineHolding;
 using SuikaGame.Scripts.Skins.Backgrounds;
 using SuikaGame.Scripts.Skins.Entities;
-using SuikaGame.Scripts.Skins.SkinsChanging;
 using UnityEngine;
 
 namespace SuikaGame.Scripts.Skins.SkinsLoading
@@ -13,7 +12,7 @@ namespace SuikaGame.Scripts.Skins.SkinsLoading
         private readonly AssetReferenceLoaderT<EntitiesSkinPackConfig> _entitiesSkinPackLoader;
         private readonly AssetReferenceLoaderT<Sprite> _backgroundSkinLoader;
         private readonly BackgroundsSkinsConfig _backgroundsSkinsConfig;
-        private readonly EntitiesSkinPacksConfig _entitiesSkinPackPacksConfig;
+        private readonly EntitiesSkinPacksConfig _entitiesSkinPacksConfig;
         private readonly ISkinsChanger _skinsChanger;
 
         public EntitiesSkinPackConfig EntitiesSkinPackConfig => _entitiesSkinPackLoader.Asset;
@@ -22,35 +21,36 @@ namespace SuikaGame.Scripts.Skins.SkinsLoading
         public event Action OnEntitiesSkinsLoaded;
         public event Action OnBackgroundSkinLoaded;
         
-        //DONT Swap CoroutineHolder to MonoBehaviour
-        public SkinsLoader(CoroutineHolder coroutineHolder, EntitiesSkinPacksConfig entitiesSkinPackPacksConfig,
+        //DONT Swap CoroutineHolder to MonoBehaviour, it used for injection by zenject
+        public SkinsLoader(CoroutineHolder coroutineHolder, EntitiesSkinPacksConfig entitiesSkinPacksConfig,
             BackgroundsSkinsConfig backgroundsSkinsConfig, ISkinsChanger skinsChanger)
         {
             _entitiesSkinPackLoader = new AssetReferenceLoaderT<EntitiesSkinPackConfig>(coroutineHolder);
             _backgroundSkinLoader = new AssetReferenceLoaderT<Sprite>(coroutineHolder);
 
-            _entitiesSkinPackPacksConfig = entitiesSkinPackPacksConfig;
+            _entitiesSkinPacksConfig = entitiesSkinPacksConfig;
             _backgroundsSkinsConfig = backgroundsSkinsConfig;
             _skinsChanger = skinsChanger;
 
-            _skinsChanger.OnActiveEntitySkinChanged += LoadEntitiesSkinPack;
-            _skinsChanger.OnActiveBackgroundChanged += LoadBackgroundSkin;
-
-            LoadEntitiesSkinPack();
-            LoadBackgroundSkin();
+            _skinsChanger.OnEntitiesSkinPackChanged += LoadEntitiesSkinPack;
+            _skinsChanger.OnBackgroundSkinChanged += LoadBackgroundSkin;
+            
+            if(_skinsChanger.IsEntitiesSkinPackInitialized)
+                LoadEntitiesSkinPack();
+            if(_skinsChanger.IsBackgroundSkinInitialized)
+                LoadBackgroundSkin();
         }
-        
+
         private void LoadEntitiesSkinPack()
         {
-            var targetAssetReference = _entitiesSkinPackPacksConfig.SkinsPacks[_skinsChanger.ActiveEntitiesSkinPack].SkinPack;
-            _entitiesSkinPackLoader.Load(targetAssetReference, SendEntitiesMessage);
+            var assetReference = _entitiesSkinPacksConfig.SkinsPacks[_skinsChanger.ActiveEntitiesSkinPack].SkinPack;
+            _entitiesSkinPackLoader.Load(assetReference, SendEntitiesMessage);
         }
 
         private void LoadBackgroundSkin()
         {
-            var targetAssetReference =
-                _backgroundsSkinsConfig.BackgroundsSkins[_skinsChanger.ActiveBackgroundSkin].Background;
-            _backgroundSkinLoader.Load(targetAssetReference, SendBackgroundMessage);
+            var assetReference = _backgroundsSkinsConfig.BackgroundsSkins[_skinsChanger.ActiveBackgroundSkin].Background;
+            _backgroundSkinLoader.Load(assetReference, SendBackgroundMessage);
         }
 
         private void SendEntitiesMessage() 
@@ -61,6 +61,9 @@ namespace SuikaGame.Scripts.Skins.SkinsLoading
         
         public void Dispose()
         {
+            _skinsChanger.OnEntitiesSkinPackChanged -= LoadEntitiesSkinPack;
+            _skinsChanger.OnBackgroundSkinChanged -= LoadBackgroundSkin;
+            
             _entitiesSkinPackLoader?.Dispose();
             _backgroundSkinLoader?.Dispose();
         }

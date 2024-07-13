@@ -16,7 +16,7 @@ namespace SuikaGame.Scripts.Saves
         public ScoreSettingsSave scoreSettingsSave;
         public TutorialSettingsSave tutorialSettingsSave;
         public GameplaySceneSettingsSave gameplaySceneSettingsSave;
-        public SkinsPacksSettingsSave skinsPacksSettingsSave;
+        public SkinsSettingsSave skinsSettingsSave;
 
         public PlayerDataSave()
         {
@@ -25,7 +25,7 @@ namespace SuikaGame.Scripts.Saves
             tutorialSettingsSave = new();
             scoreSettingsSave = new();
             gameplaySceneSettingsSave = new();
-            skinsPacksSettingsSave = new();
+            skinsSettingsSave = new();
         }
         
         public PlayerDataSave(PlayerData playerData)
@@ -35,7 +35,7 @@ namespace SuikaGame.Scripts.Saves
             scoreSettingsSave = new ScoreSettingsSave(playerData.ScoreSettings);
             tutorialSettingsSave = new TutorialSettingsSave(playerData.TutorialSettings);
             gameplaySceneSettingsSave = new GameplaySceneSettingsSave(playerData.GameplaySceneSettings);
-            skinsPacksSettingsSave = new SkinsPacksSettingsSave(playerData.SkinsPacksSettings);
+            skinsSettingsSave = new SkinsSettingsSave(playerData.SkinsSettings);
         }
     }
 }

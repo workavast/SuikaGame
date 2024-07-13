@@ -65,7 +65,7 @@ namespace SuikaGame.Scripts.AddressablesExtension.AssetReferenceLoading
             var cancelMarker = new CancelMarker(skinsConfigReference);
             _cancelMarkers.Add(cancelMarker);
 
-            var handle = UnityEngine.AddressableAssets.Addressables.LoadAssetAsync<T>(skinsConfigReference);
+            var handle = Addressables.LoadAssetAsync<T>(skinsConfigReference);
             yield return handle;
 
             if (handle.Status == AsyncOperationStatus.Succeeded)
@@ -73,7 +73,7 @@ namespace SuikaGame.Scripts.AddressablesExtension.AssetReferenceLoading
                 if (cancelMarker.IsCanceled)
                 {
                     Debug.Log($"release handle");
-                    UnityEngine.AddressableAssets.Addressables.Release(handle);
+                    Addressables.Release(handle);
                 }
                 else
                 {
@@ -83,12 +83,15 @@ namespace SuikaGame.Scripts.AddressablesExtension.AssetReferenceLoading
                     if (!IsAnyNull(prevAsset))
                     {
                         Debug.Log($"{prevAsset == null} {IsAnyNull(prevAsset)} \n {prevAsset}");
-                        UnityEngine.AddressableAssets.Addressables.Release(prevAsset);
+                        Addressables.Release(prevAsset);
                     }
                 }
             }
+            else
+            {
+                Debug.Log(handle.Status);
+            }
             
-            Debug.Log(handle.Status);
             _cancelMarkers.Remove(cancelMarker);
             onLoadedCallback?.Invoke();
             OnLoaded?.Invoke();
@@ -107,7 +110,7 @@ namespace SuikaGame.Scripts.AddressablesExtension.AssetReferenceLoading
             if (!IsAnyNull(Asset))
             {
                 Debug.Log($"{Asset == null} {IsAnyNull(Asset)} \n {Asset}");
-                UnityEngine.AddressableAssets.Addressables.Release(Asset);
+                Addressables.Release(Asset);
                 Asset = null;
             }
 

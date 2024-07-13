@@ -20,6 +20,9 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Preview
         private AssetReferenceLoaderT<Sprite> _backgroundAssetReferenceLoader;
         private SkinsPreviewModel _model;
 
+        private bool _entitiesSkinPackIsLoading;
+        private bool _backgroundSkinIsLoading;
+        
         [Inject]
         public void Construct(CoroutineHolder coroutineHolder, EntitiesSkinPacksConfig entitiesSkinPacksConfig, 
             BackgroundsSkinsConfig backgroundsSkinsConfig)
@@ -47,8 +50,9 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Preview
             if (!_entitiesSkinPacksConfig.SkinsPacks.ContainsKey(_model.EntitiesSkinPackPreview))
                 throw new ArgumentOutOfRangeException($"config doesnt contains key {_model.EntitiesSkinPackPreview}");
 
+            _entitiesSkinPackIsLoading = true;
             loadingTitle.SetActive(true);
-            _assetReferenceLoader.Load(_entitiesSkinPacksConfig.SkinsPacks[_model.EntitiesSkinPackPreview].SkinPack, ShowPreview);
+            _assetReferenceLoader.Load(_entitiesSkinPacksConfig.SkinsPacks[_model.EntitiesSkinPackPreview].SkinPack, OnEntitiesSkinPackLoaded);
         }
         
         private void SetNewBackgroundSkin()
@@ -56,12 +60,28 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Preview
             if (!_backgroundsSkinsConfig.BackgroundsSkins.ContainsKey(_model.BackgroundSkinPreview))
                 throw new ArgumentOutOfRangeException($"config doesnt contains key {_model.BackgroundSkinPreview}");
 
+            _backgroundSkinIsLoading = true;
             loadingTitle.SetActive(true);
-            _backgroundAssetReferenceLoader.Load(_backgroundsSkinsConfig.BackgroundsSkins[_model.BackgroundSkinPreview].Background, ShowPreview);   
+            _backgroundAssetReferenceLoader.Load(_backgroundsSkinsConfig.BackgroundsSkins[_model.BackgroundSkinPreview].Background, OnBackgroundSkinLoaded);
         }
 
-        private void ShowPreview()
+        private void OnEntitiesSkinPackLoaded()
         {
+            _entitiesSkinPackIsLoading = false;
+            TryShowPreview();
+        }
+        
+        private void OnBackgroundSkinLoaded()
+        {
+            _backgroundSkinIsLoading = false;
+            TryShowPreview();
+        }
+        
+        private void TryShowPreview()
+        {
+            if(_entitiesSkinPackIsLoading || _backgroundSkinIsLoading)
+                return;
+            
             backgroundPreview.SetNewSkin(_backgroundAssetReferenceLoader.Asset);
             entitiesSkinPackPreview.SetNewSkins(_assetReferenceLoader.Asset);
             loadingTitle.SetActive(false);
@@ -69,8 +89,11 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Preview
 
         private void OnDestroy()
         {
-            _model.OnEntitiesSkinPackPreviewChanged -= SetNewEntitiesSkinPack;
-            _model.OnBackgroundPreviewChanged -= SetNewBackgroundSkin;
+            if (_model != null)
+            {
+                _model.OnEntitiesSkinPackPreviewChanged -= SetNewEntitiesSkinPack;
+                _model.OnBackgroundPreviewChanged -= SetNewBackgroundSkin;    
+            }
             
             _assetReferenceLoader?.Dispose();
             _backgroundAssetReferenceLoader?.Dispose();

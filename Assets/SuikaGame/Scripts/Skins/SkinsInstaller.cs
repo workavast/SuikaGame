@@ -2,7 +2,6 @@ using System;
 using SuikaGame.Scripts.Saves;
 using SuikaGame.Scripts.Skins.Backgrounds;
 using SuikaGame.Scripts.Skins.Entities;
-using SuikaGame.Scripts.Skins.SkinsChanging;
 using SuikaGame.Scripts.Skins.SkinsLoading;
 using UnityEngine;
 using Zenject;
@@ -35,12 +34,12 @@ namespace SuikaGame.Scripts.Skins
             if (backgroundsSkinsConfig == null)
                 throw new NullReferenceException("backgroundsSkinsConfig == null");
             
-            Container.BindInstance(backgroundsSkinsConfig).AsSingle().NonLazy();
+            Container.BindInstance(backgroundsSkinsConfig).AsSingle();
         }
         
         private void BindSkinsChanger()
         {
-            Container.BindInterfacesTo<SkinsChanger>().FromNew().AsSingle().WithArguments(PlayerData.Instance.SkinsPacksSettings).NonLazy();
+            Container.Bind<ISkinsChanger>().FromInstance(PlayerData.Instance.SkinsSettings).AsSingle();
         }
 
         private void BindSkinPackLoader()
