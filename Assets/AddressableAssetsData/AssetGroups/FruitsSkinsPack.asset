@@ -17,13 +17,13 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: de1b7b114ccc7e846949b11462eeef8c
   m_SerializeEntries:
-  - m_GUID: 304a1781ca59f794eb0f1011c8773491
-    m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/fruits.png
+  - m_GUID: ee88633df1d972d42a7541e12b6f7ebf
+    m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/fruits 2.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 599e9f6f50497844291a6ae148b8c48a
-    m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/fruits2.png
+  - m_GUID: 522984123348db645b61a9f8cf6fd877
+    m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/fruits 1.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -34,6 +34,46 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6909044db1124b147a46e56c2286843f
     m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/FruitsSkinsConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 51b264bdf451c2b4ca9cd1d003a5c4d3
+    m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/fruits 3.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e782d170bc962d04daa80bacd7eefb5c
+    m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/fruits 4.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7f10a55492bcd9549b7e60cc12bb80a3
+    m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/fruits 5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: baf3cfc8ad6f4c44a85f235154e1fd9a
+    m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/fruits 6.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a5a294df5a393424c826ee89babf7cdb
+    m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/fruits 7.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c58b2c39d4dd17d479e6713732ac1e0f
+    m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/fruits 8.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a75664692e31fb45adce7f61cac86a5
+    m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/fruits 9.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a08d2ce12f49f1d44b4a1119348a136d
+    m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/fruits 10.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 167323242112108269, guid: f3650bab73082194eb48db4db862f458, type: 3}
+      propertyPath: m_SortingOrder
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3242316279419130208, guid: f3650bab73082194eb48db4db862f458, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.3
@@ -64,6 +68,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entity Variant 5
       objectReference: {fileID: 0}
+    - target: {fileID: 6917451964394582336, guid: f3650bab73082194eb48db4db862f458, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: baf3cfc8ad6f4c44a85f235154e1fd9a, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
