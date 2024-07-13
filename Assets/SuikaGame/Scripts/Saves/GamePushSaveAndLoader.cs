@@ -1,6 +1,7 @@
 ﻿using System;
 using GamePush;
 using SuikaGame.Scripts.Saves.GameplayScene;
+using SuikaGame.Scripts.Saves.SkinsPacks;
 using UnityEngine;
 
 namespace SuikaGame.Scripts.Saves
@@ -26,7 +27,8 @@ namespace SuikaGame.Scripts.Saves
                 {
                     ScoreRecord = (int)GP_Player.GetScore()
                 },
-                gameplaySceneSettingsSave = JsonUtility.FromJson<GameplaySceneSettingsSave>(GP_Player.GetString(GamePushSaveParametersNames.GameplaySave))
+                gameplaySceneSettingsSave = JsonUtility.FromJson<GameplaySceneSettingsSave>(GP_Player.GetString(GamePushSaveParametersNames.GameplaySave)),
+                skinsSettingsSave = JsonUtility.FromJson<SkinsSettingsSave>(GP_Player.GetString(GamePushSaveParametersNames.SkinsSave))
             };
 
             OnLoaded?.Invoke(save);
@@ -38,6 +40,7 @@ namespace SuikaGame.Scripts.Saves
             GP_Player.Set(GamePushSaveParametersNames.EffectsVolume, playerData.VolumeSettings.EffectsVolume);
             GP_Player.Set(GamePushSaveParametersNames.LocalizationId, playerData.LocalizationSettings.LocalizationId);
             GP_Player.Set(GamePushSaveParametersNames.GameplaySave, JsonUtility.ToJson(new GameplaySceneSettingsSave(playerData.GameplaySceneSettings)));
+            GP_Player.Set(GamePushSaveParametersNames.SkinsSave, JsonUtility.ToJson(new SkinsSettingsSave(playerData.SkinsSettings)));
             
             GP_Player.SetScore(playerData.ScoreSettings.ScoreRecord);
             
