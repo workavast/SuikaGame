@@ -10,24 +10,37 @@ namespace SuikaGame.Scripts.Saves.GameplayScene
         public int Score;
         private List<EntityModel> _entityModels;
         public IEnumerable<EntityModel> EntityModels => _entityModels;
+
+        private int _prevScore;
+        private readonly List<EntityModel> _prevEntityModels = new(8);
         
         public event Action OnChange;
 
         public GameplaySceneSettings()
         {
             Score = 0;
-            _entityModels = new List<EntityModel>();
+            _entityModels = new List<EntityModel>(8);
         }
 
         public void SetNewScore(int newSCore) 
             => Score = newSCore;
-        
+
         public void SetNewEntityModels(IEnumerable<EntityModel> entityModels) 
             => _entityModels = entityModels.ToList();
 
-        public void Apply() 
-            => OnChange?.Invoke();
-        
+        public void Apply()
+        {
+            if(_prevScore == Score && _prevEntityModels.Count <= 0 && _entityModels.Count <= 0)
+                return;
+
+            _prevScore = Score;
+            
+            _prevEntityModels.Clear();
+            _prevEntityModels.AddRange(_entityModels);
+            
+            OnChange?.Invoke();
+        }
+
         public void LoadData(GameplaySceneSettingsSave settingsSave)
         {
             if (settingsSave?.EntityModels == null)

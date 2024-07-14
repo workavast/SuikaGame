@@ -15,6 +15,9 @@ namespace SuikaGame.Scripts.Saves.Score
 
         public void SetScoreRecord(int newScoreRecord)
         {
+            if (newScoreRecord == ScoreRecord)
+                return;
+            
             ScoreRecord = newScoreRecord;
             OnChange?.Invoke();
         }

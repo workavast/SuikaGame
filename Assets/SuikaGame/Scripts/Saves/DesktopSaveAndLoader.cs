@@ -1,5 +1,6 @@
 ﻿using System;
 using Avastrad.SavingAndLoading;
+using UnityEngine;
 
 namespace SuikaGame.Scripts.Saves
 {
@@ -15,8 +16,10 @@ namespace SuikaGame.Scripts.Saves
             OnLoaded?.Invoke(save);
         }
 
-        public void Save(PlayerData playerData) 
-            => _fileSaveAndLoader.Save(new PlayerDataSave(playerData));
+        public void Save(PlayerData playerData)
+        {
+            _fileSaveAndLoader.Save(new PlayerDataSave(playerData));
+        }
 
         public void ResetSave() 
             => _fileSaveAndLoader.Save(new PlayerDataSave());

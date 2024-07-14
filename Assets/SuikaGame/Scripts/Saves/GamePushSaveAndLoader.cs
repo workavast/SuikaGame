@@ -1,6 +1,7 @@
 ﻿using System;
 using GamePush;
 using SuikaGame.Scripts.Saves.GameplayScene;
+using SuikaGame.Scripts.Saves.Localization;
 using SuikaGame.Scripts.Saves.SkinsPacks;
 using UnityEngine;
 
@@ -19,16 +20,19 @@ namespace SuikaGame.Scripts.Saves
                     MusicVolume = GP_Player.GetFloat(GamePushSaveParametersNames.MusicVolume),
                     EffectsVolume = GP_Player.GetFloat(GamePushSaveParametersNames.EffectsVolume)
                 },
-                localizationSettingsSave =
-                {
-                    LocalizationId = GP_Player.GetInt(GamePushSaveParametersNames.LocalizationId)
-                },
                 scoreSettingsSave =
                 {
                     ScoreRecord = (int)GP_Player.GetScore()
                 },
-                gameplaySceneSettingsSave = JsonUtility.FromJson<GameplaySceneSettingsSave>(GP_Player.GetString(GamePushSaveParametersNames.GameplaySave)),
-                skinsSettingsSave = JsonUtility.FromJson<SkinsSettingsSave>(GP_Player.GetString(GamePushSaveParametersNames.SkinsSave))
+                localizationSettingsSave =
+                    JsonUtility.FromJson<LocalizationSettingsSave>(
+                        GP_Player.GetString(GamePushSaveParametersNames.LocalizationSave)),
+                gameplaySceneSettingsSave =
+                    JsonUtility.FromJson<GameplaySceneSettingsSave>(
+                        GP_Player.GetString(GamePushSaveParametersNames.GameplaySave)),
+                skinsSettingsSave =
+                    JsonUtility.FromJson<SkinsSettingsSave>(
+                        GP_Player.GetString(GamePushSaveParametersNames.SkinsSave))
             };
 
             OnLoaded?.Invoke(save);
@@ -38,7 +42,7 @@ namespace SuikaGame.Scripts.Saves
         {
             GP_Player.Set(GamePushSaveParametersNames.MusicVolume, playerData.VolumeSettings.MusicVolume);
             GP_Player.Set(GamePushSaveParametersNames.EffectsVolume, playerData.VolumeSettings.EffectsVolume);
-            GP_Player.Set(GamePushSaveParametersNames.LocalizationId, playerData.LocalizationSettings.LocalizationId);
+            GP_Player.Set(GamePushSaveParametersNames.LocalizationSave, JsonUtility.ToJson(new LocalizationSettingsSave(playerData.LocalizationSettings)));
             GP_Player.Set(GamePushSaveParametersNames.GameplaySave, JsonUtility.ToJson(new GameplaySceneSettingsSave(playerData.GameplaySceneSettings)));
             GP_Player.Set(GamePushSaveParametersNames.SkinsSave, JsonUtility.ToJson(new SkinsSettingsSave(playerData.SkinsSettings)));
             

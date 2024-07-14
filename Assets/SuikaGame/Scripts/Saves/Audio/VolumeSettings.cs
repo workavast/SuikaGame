@@ -38,7 +38,6 @@ namespace SuikaGame.Scripts.Saves.Audio
                 Math.Abs(_prevMusicVolume - MusicVolume) > tolerance ||
                 Math.Abs(_prevEffectsVolume - EffectsVolume) > tolerance)
             {
-                Debug.Log("Apply");
                 _prevMasterVolume = Master;
                 _prevMusicVolume = MusicVolume;
                 _prevEffectsVolume = EffectsVolume;

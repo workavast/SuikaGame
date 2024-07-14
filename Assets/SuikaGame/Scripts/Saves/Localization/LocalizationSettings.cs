@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine;
 
 namespace SuikaGame.Scripts.Saves.Localization
 {
@@ -17,13 +18,21 @@ namespace SuikaGame.Scripts.Saves.Localization
 
         public void Initialize()
         {
+            if(Initializaed)
+                return;
+            
             Initializaed = true;
+            Debug.LogWarning("Initialize()");
             OnChange?.Invoke();
         }
 
         public void ChangeLocalization(int newLocalizationId)
         {
+            if (newLocalizationId == LocalizationId)
+                return;
+            
             LocalizationId = newLocalizationId;
+            Debug.LogWarning("ChangeLocalization(int newLocalizationId)");
             OnChange?.Invoke();
         }
 

@@ -1,4 +1,5 @@
 using System;
+using SuikaGame.Scripts.ApplicationFocus;
 using SuikaGame.Scripts.GameplaySavers.AutoSaver;
 using SuikaGame.Scripts.GameplaySavers.ManualSaver;
 using UnityEngine;
@@ -10,7 +11,6 @@ namespace SuikaGame.Scripts.GameplaySavers
     {
         [SerializeField] private AutoGameplaySaverConfig autoGameplaySaverConfig;
         [SerializeField] private ManualGameplaySaverConfig manualGameplaySaverConfig;
-        
         
         public override void InstallBindings()
         {
@@ -40,12 +40,7 @@ namespace SuikaGame.Scripts.GameplaySavers
 
         private void BindApplicationFocusSaver()
         {
-            var applicationFocusSaver = new GameObject
-            {
-                name = "ApplicationFocusSaver",
-            };
-
-            applicationFocusSaver.AddComponent<ApplicationFocusSaver>();
+            Container.BindInterfacesTo<ApplicationFocusSaver>().FromNew().AsSingle().NonLazy();
         }
     }
 }

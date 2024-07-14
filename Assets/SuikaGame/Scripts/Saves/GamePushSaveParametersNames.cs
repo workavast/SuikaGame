@@ -4,7 +4,7 @@ namespace SuikaGame.Scripts.Saves
     {
         public const string MusicVolume = "music_volume";
         public const string EffectsVolume = "effects_volume";
-        public const string LocalizationId = "localization";
+        public const string LocalizationSave = "localization_save";
         public const string GameplaySave = "gameplay_save";
         public const string SkinsSave = "skins_save";
     }

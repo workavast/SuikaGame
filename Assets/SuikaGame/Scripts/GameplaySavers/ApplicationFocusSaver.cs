@@ -1,25 +1,30 @@
-using UnityEngine;
-using Zenject;
+using System;
+using SuikaGame.Scripts.ApplicationFocus;
 
 namespace SuikaGame.Scripts.GameplaySavers
 {
-    public class ApplicationFocusSaver : MonoBehaviour
+    public class ApplicationFocusSaver : IDisposable
     {
-        private IGameplaySaver _gameplaySaver;
+        private readonly IApplicationFocusProvider _applicationFocusProvider;
+        private readonly IGameplaySaver _gameplaySaver;
 
-        [Inject]
-        public void Construct(IGameplaySaver gameplaySaver)
+        public ApplicationFocusSaver(IApplicationFocusProvider applicationFocusProvider, IGameplaySaver gameplaySaver)
         {
+            _applicationFocusProvider = applicationFocusProvider;
             _gameplaySaver = gameplaySaver;
+
+            _applicationFocusProvider.OnApplicationFocusChanged += OnApplicationFocusChanged;
         }
         
-        private void OnApplicationFocus(bool hasFocus)
+        private void OnApplicationFocusChanged(bool hasFocus)
         {
-            if (!hasFocus)
-            {
-                Debug.LogWarning("OnApplicationFocus");
+            if (!hasFocus) 
                 _gameplaySaver?.Save();
-            }
+        }
+
+        public void Dispose()
+        {
+            _applicationFocusProvider.OnApplicationFocusChanged -= OnApplicationFocusChanged;
         }
     }
 }

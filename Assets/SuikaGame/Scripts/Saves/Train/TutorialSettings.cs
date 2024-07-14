@@ -15,6 +15,9 @@ namespace SuikaGame.Scripts.Saves.Train
 
         public void SetTutorialState(bool trained)
         {
+            if (TutorialCompleted == trained)
+                return;
+            
             TutorialCompleted = trained;
             OnChange?.Invoke();
         }
