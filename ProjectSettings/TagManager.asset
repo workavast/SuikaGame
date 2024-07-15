@@ -54,3 +54,6 @@ TagManager:
   - name: VFX
     uniqueID: 1816937763
     locked: 0
+  - name: MergeProgress
+    uniqueID: 3021571085
+    locked: 0
