@@ -45,6 +45,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadingScreenPrefab: {fileID: 1000925129789069747, guid: 6aeec3a5ecf046839be3a2d94e14141e, type: 3}
+--- !u!1 &1124895981248563995
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7868411117443632372}
+  - component: {fileID: 7922308052538716805}
+  m_Layer: 0
+  m_Name: Coins
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7868411117443632372
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124895981248563995}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2777032266678878813}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7922308052538716805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124895981248563995}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ef8b40612794013889485ba53c32b75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinsConfig: {fileID: 11400000, guid: 3cca9c85ea32c354b9250e6a38d5eeb4, type: 2}
 --- !u!1 &2189225573448681324
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +264,7 @@ Transform:
   - {fileID: 2944586733936062744}
   - {fileID: 1720650263831166254}
   - {fileID: 7402048654603208980}
+  - {fileID: 7868411117443632372}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6984102403229275965
@@ -244,6 +290,7 @@ MonoBehaviour:
   - {fileID: 7051954150688295982}
   - {fileID: 5762612539062704688}
   - {fileID: 4774659719253704772}
+  - {fileID: 7922308052538716805}
   _installerPrefabs: []
   _parentNewObjectsUnderContext: 1
   _editorReflectionBakingCoverageMode: 0

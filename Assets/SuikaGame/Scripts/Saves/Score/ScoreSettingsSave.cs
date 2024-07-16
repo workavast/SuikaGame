@@ -5,7 +5,7 @@ namespace SuikaGame.Scripts.Saves.Score
     [Serializable]
     public class ScoreSettingsSave
     {
-        public int ScoreRecord = 60;
+        public int ScoreRecord = 0;
 
         public ScoreSettingsSave()
         {

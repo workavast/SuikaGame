@@ -1,5 +1,6 @@
 ﻿using System;
 using SuikaGame.Scripts.Saves.Audio;
+using SuikaGame.Scripts.Saves.Coins;
 using SuikaGame.Scripts.Saves.GameplayScene;
 using SuikaGame.Scripts.Saves.Localization;
 using SuikaGame.Scripts.Saves.Score;
@@ -17,6 +18,7 @@ namespace SuikaGame.Scripts.Saves
         public TutorialSettingsSave tutorialSettingsSave;
         public GameplaySceneSettingsSave gameplaySceneSettingsSave;
         public SkinsSettingsSave skinsSettingsSave;
+        public CoinsSettingsSave coinsSettingsSave;
 
         public PlayerDataSave()
         {
@@ -26,6 +28,7 @@ namespace SuikaGame.Scripts.Saves
             scoreSettingsSave = new();
             gameplaySceneSettingsSave = new();
             skinsSettingsSave = new();
+            coinsSettingsSave = new();
         }
         
         public PlayerDataSave(PlayerData playerData)
@@ -36,6 +39,7 @@ namespace SuikaGame.Scripts.Saves
             tutorialSettingsSave = new TutorialSettingsSave(playerData.TutorialSettings);
             gameplaySceneSettingsSave = new GameplaySceneSettingsSave(playerData.GameplaySceneSettings);
             skinsSettingsSave = new SkinsSettingsSave(playerData.SkinsSettings);
+            coinsSettingsSave = new CoinsSettingsSave(playerData.CoinsSettings);
         }
     }
 }
