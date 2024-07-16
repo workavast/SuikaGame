@@ -2,12 +2,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using SuikaGame.Scripts.Entities;
+using SuikaGame.Scripts.GameplayField;
 
 namespace SuikaGame.Scripts.Saves.GameplayScene
 {
-    public class GameplaySceneSettings : ISettings
+    public class GameplaySceneSettings : ISettings, IGameplayFieldModel
     {
-        public int Score;
+        public int Score { get; private set; }
         private List<EntityModel> _entityModels;
         public IEnumerable<EntityModel> EntityModels => _entityModels;
 
@@ -41,12 +42,13 @@ namespace SuikaGame.Scripts.Saves.GameplayScene
             OnChange?.Invoke();
         }
 
-        public void LoadData(GameplaySceneSettingsSave settingsSave)
+        public void LoadData(GameplaySceneSettingsSave save)
         {
-            if (settingsSave?.EntityModels == null)
+            Score = save.Score;
+            if (save?.EntityModels == null)
                 _entityModels = new List<EntityModel>();
             else
-                _entityModels = settingsSave.EntityModels.ToList();
+                _entityModels = save.EntityModels.ToList();
         }
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using Avastrad.EventBusFramework;
+using SuikaGame.Scripts.GameplayField;
 using SuikaGame.Scripts.Saves.Score;
 
 namespace SuikaGame.Scripts.Score
@@ -16,12 +17,14 @@ namespace SuikaGame.Scripts.Score
         public event Action<int> OnScoreChanged;
         public event Action<int> OnRecordChanged;
 
-        public ScoreCounter(IEventBus eventBus, ScoreConfig scoreConfig, ScoreSettings scoreSettings)
+        public ScoreCounter(IEventBus eventBus, ScoreConfig scoreConfig, ScoreSettings scoreSettings, 
+            IGameplayFieldReadModel gameplayFieldReadModel)
         {
             _eventBus = eventBus;
             _scoreConfig = scoreConfig;
             _scoreSettings = scoreSettings;
-
+            
+            Score = gameplayFieldReadModel.Score;
             _eventBus.Subscribe(this);
         }
 
