@@ -13,6 +13,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
         [SerializeField] private SkinPackPreviewView skinPackPreviewView;
         [SerializeField] private EntitiesSkinPacksRowsView entitiesSkinPacksRowsView;
         [SerializeField] private BackgroundsSkinsRowsView backgroundsSkinsRowsView;
+        [SerializeField] private RowsViewsSwitcher rowsViewsSwitcher;
         
         private ISkinsChanger _skinsChanger;
         private EntitiesSkinPackType _currentEntitiesSkinPackPreview;
@@ -26,9 +27,13 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
         
         private void Start()
         {
+            _model.ChangeEntityPreview(_skinsChanger.ActiveEntitiesSkinPack);
+            _model.ChangeBackgroundPreview(_skinsChanger.ActiveBackgroundSkin);
+            
             skinPackPreviewView.Initialize(_model);
             entitiesSkinPacksRowsView.Initialize(_model);
             backgroundsSkinsRowsView.Initialize(_model);
+            rowsViewsSwitcher.Initialize();
             
             Hide();
         }

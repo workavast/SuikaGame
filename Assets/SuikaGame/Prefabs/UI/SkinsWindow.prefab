@@ -590,6 +590,7 @@ MonoBehaviour:
   skinPackPreviewView: {fileID: 850653223245165742}
   entitiesSkinPacksRowsView: {fileID: 8241121525670810010}
   backgroundsSkinsRowsView: {fileID: 4072027114388141105}
+  rowsViewsSwitcher: {fileID: 6673422685575538374}
 --- !u!1 &1643763363170564081
 GameObject:
   m_ObjectHideFlags: 0
@@ -2159,7 +2160,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.5
 --- !u!1 &7967378529670337976
 GameObject:
   m_ObjectHideFlags: 0

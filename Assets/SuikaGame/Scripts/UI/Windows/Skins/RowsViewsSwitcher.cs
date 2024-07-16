@@ -8,7 +8,10 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
     {
         [SerializeField] private EntitiesSkinPacksRowsView entitiesSkinPacksRowsView;
         [SerializeField] private BackgroundsSkinsRowsView backgroundsSkinsRowsView;
-        
+
+        public void Initialize() 
+            => _OpenEntitiesSkins();
+
         public void _OpenEntitiesSkins()
         {
             entitiesSkinPacksRowsView.gameObject.SetActive(true);
