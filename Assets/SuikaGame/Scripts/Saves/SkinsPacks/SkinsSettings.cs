@@ -29,6 +29,16 @@ namespace SuikaGame.Scripts.Saves.SkinsPacks
         {
             EquippedEntitiesSkinPack = EntitiesSkinPackType.Fruits;
             EquippedBackgroundSkin = BackgroundSkinType.Fruits;
+
+            var entitiesSkinPackTypes = EnumValuesTool.GetValues<EntitiesSkinPackType>();
+            foreach (var entitiesSkinPackType in entitiesSkinPackTypes)
+                _availableEntitiesSkinPacks.Add(entitiesSkinPackType, false);
+            _availableEntitiesSkinPacks[EntitiesSkinPackType.Fruits] = true;
+            
+            var backgroundSkinTypes = EnumValuesTool.GetValues<BackgroundSkinType>();
+            foreach (var backgroundSkinType in backgroundSkinTypes)
+                _availableBackgroundSkins.Add(backgroundSkinType, false);
+            _availableBackgroundSkins[BackgroundSkinType.Fruits] = true;
         }
         
         public void EquipSkin(EntitiesSkinPackType newSkin)
