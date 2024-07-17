@@ -12,6 +12,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Backgrounds
     {
         [SerializeField] private Transform skinPacksParent;
         [SerializeField] private BackgroundSkinPreviewRow backgroundSkinPreviewRowPrefab;
+        [SerializeField] private BuyOrEquipButton buyOrEquipButton;
 
         private readonly List<BackgroundSkinPreviewRow> _rows = new(4);
         private BackgroundsSkinsConfig _backgroundsSkinsConfig;
@@ -33,6 +34,8 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Backgrounds
             _model = model;
             InitializeRows();
             SetRowsData();
+            
+            UpdateButtonState(_model.BackgroundSkinPreview);
         }
 
         public void _BuyOrEquip()
@@ -51,6 +54,8 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Backgrounds
                     _skinsChanger.EquipSkin(_model.BackgroundSkinPreview);
                 }
             }
+
+            UpdateButtonState(_model.BackgroundSkinPreview);
         }
 
         private void InitializeRows()
@@ -83,8 +88,19 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Backgrounds
                 row.OnClicked += ChangeSkinPreview;
         }
 
-        private void ChangeSkinPreview(BackgroundSkinType newSkinPack) 
-            => _model.ChangeBackgroundPreview(newSkinPack);
+        private void ChangeSkinPreview(BackgroundSkinType newSkin)
+        {
+            _model.ChangeBackgroundPreview(newSkin);
+            UpdateButtonState(newSkin);
+        }
+        
+        private void UpdateButtonState(BackgroundSkinType skin)
+        {
+            if(_skinsChanger.AvailableBackgroundSkins[skin])
+                buyOrEquipButton.SetEquipState();
+            else
+                buyOrEquipButton.SetBuyState(_backgroundsSkinsConfig.BackgroundsSkins[skin].Price);
+        }
 
         private void SetRowsData()
         {

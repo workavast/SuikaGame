@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using SuikaGame.Scripts.Coins;
@@ -12,6 +13,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
     {
         [SerializeField] private Transform skinsPacksParent;
         [SerializeField] private EntitiesSkinPackPreviewRow entitiesSkinPackPreviewRowPrefab;
+        [SerializeField] private BuyOrEquipButton buyOrEquipButton;
 
         private readonly List<EntitiesSkinPackPreviewRow> _rows = new(8);
         private EntitiesSkinPacksConfig _entitiesSkinPacksConfig;
@@ -33,6 +35,8 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
             _model = model;
             InitializeRows();
             SetRowsData();
+
+            UpdateButtonState(_model.EntitiesSkinPackPreview);
         }
         
         public void _BuyOrEquip()
@@ -51,6 +55,8 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
                     _skinsChanger.EquipSkin(_model.EntitiesSkinPackPreview);
                 }
             }
+            
+            UpdateButtonState(_model.EntitiesSkinPackPreview);
         }
         
         private void InitializeRows()
@@ -83,8 +89,19 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
                 row.OnClicked += ChangeSkinPackPreview;
         }
 
-        private void ChangeSkinPackPreview(EntitiesSkinPackType newEntitiesSkinPack) 
-            => _model.ChangeEntityPreview(newEntitiesSkinPack);
+        private void ChangeSkinPackPreview(EntitiesSkinPackType newEntitiesSkinPack)
+        {
+            _model.ChangeEntityPreview(newEntitiesSkinPack);
+            UpdateButtonState(newEntitiesSkinPack);
+        }
+
+        private void UpdateButtonState(EntitiesSkinPackType entitiesSkinPack)
+        {
+            if(_skinsChanger.AvailableEntitiesSkinPacks[entitiesSkinPack])
+                buyOrEquipButton.SetEquipState();
+            else
+                buyOrEquipButton.SetBuyState(_entitiesSkinPacksConfig.SkinsPacks[entitiesSkinPack].Price);
+        }
 
         private void SetRowsData()
         {
