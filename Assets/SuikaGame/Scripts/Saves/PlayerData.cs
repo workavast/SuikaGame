@@ -83,7 +83,7 @@ namespace SuikaGame.Scripts.Saves
         }
         
 #if UNITY_EDITOR
-        [MenuItem("StartGameJam/Reset saves")]
+        [MenuItem("SuikaGame/Reset saves")]
 #endif
         public static void ResetSave()
             => SaveAndLoader.ResetSave();
