@@ -11,6 +11,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
     public class SkinsWindow : MonoBehaviour
     {
         [SerializeField] private SkinPackPreviewView skinPackPreviewView;
+        [SerializeField] private BackgroundPreviewView backgroundPreviewView;
         [SerializeField] private EntitiesSkinPacksRowsView entitiesSkinPacksRowsView;
         [SerializeField] private BackgroundsSkinsRowsView backgroundsSkinsRowsView;
         [SerializeField] private RowsViewsSwitcher rowsViewsSwitcher;
@@ -27,21 +28,16 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
         
         private void Start()
         {
-            _model.ChangeEntityPreview(_skinsChanger.ActiveEntitiesSkinPack);
-            _model.ChangeBackgroundPreview(_skinsChanger.ActiveBackgroundSkin);
+            _model.ChangeEntityPreview(_skinsChanger.EquippedEntitiesSkinPack);
+            _model.ChangeBackgroundPreview(_skinsChanger.EquippedBackgroundSkin);
             
             skinPackPreviewView.Initialize(_model);
+            backgroundPreviewView.Initialize(_model);
             entitiesSkinPacksRowsView.Initialize(_model);
             backgroundsSkinsRowsView.Initialize(_model);
             rowsViewsSwitcher.Initialize();
             
             Hide();
-        }
-
-        public void ApplyPreviewSkins()
-        {
-            _skinsChanger.SetEntitiesSkinPack(_model.EntitiesSkinPackPreview);
-            _skinsChanger.SetBackgroundSkin(_model.BackgroundSkinPreview);
         }
 
         public void Show() 

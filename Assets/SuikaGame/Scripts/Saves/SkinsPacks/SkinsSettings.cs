@@ -1,4 +1,6 @@
 using System;
+using System.Collections.Generic;
+using Avastrad.EnumValuesLibrary;
 using SuikaGame.Scripts.Skins;
 using SuikaGame.Scripts.Skins.Backgrounds;
 using SuikaGame.Scripts.Skins.Entities;
@@ -7,56 +9,93 @@ namespace SuikaGame.Scripts.Saves.SkinsPacks
 {
     public class SkinsSettings : ISettings, ISkinsChanger
     {
-        public EntitiesSkinPackType ActiveEntitiesSkinPack { get; private set; }
-        public BackgroundSkinType ActiveBackgroundSkin { get; private set; }
+        private readonly Dictionary<EntitiesSkinPackType, bool> _availableEntitiesSkinPacks = new();
+        private readonly Dictionary<BackgroundSkinType, bool> _availableBackgroundSkins = new();
+        
+        public EntitiesSkinPackType EquippedEntitiesSkinPack { get; private set; }
+        public BackgroundSkinType EquippedBackgroundSkin { get; private set; }
         public bool IsEntitiesSkinPackInitialized { get; private set; }
         public bool IsBackgroundSkinInitialized { get; private set; }
-
-        public event Action OnChange;
-        public event Action OnEntitiesSkinPackChanged;
-        public event Action OnBackgroundSkinChanged;
+        public IReadOnlyDictionary<EntitiesSkinPackType, bool> AvailableEntitiesSkinPacks => _availableEntitiesSkinPacks;
+        public IReadOnlyDictionary<BackgroundSkinType, bool> AvailableBackgroundSkins => _availableBackgroundSkins;
         
+        public event Action OnChange;
+        public event Action OnEntitiesSkinPackEquipped;
+        public event Action OnBackgroundSkinEquipped;
+        public event Action OnBackgroundSkinUnlocked;
+        public event Action OnEntitiesSkinPackUnlocked;
+
         public SkinsSettings()
         {
-            ActiveEntitiesSkinPack = EntitiesSkinPackType.Fruits;
-            ActiveBackgroundSkin = BackgroundSkinType.Fruits;
+            EquippedEntitiesSkinPack = EntitiesSkinPackType.Fruits;
+            EquippedBackgroundSkin = BackgroundSkinType.Fruits;
         }
         
-        public void SetEntitiesSkinPack(EntitiesSkinPackType newSkin)
+        public void EquipSkin(EntitiesSkinPackType newSkin)
         {
-            if(ActiveEntitiesSkinPack == newSkin)
+            if(EquippedEntitiesSkinPack == newSkin)
                 return;
             
-            ActiveEntitiesSkinPack = newSkin;
+            EquippedEntitiesSkinPack = newSkin;
             OnChange?.Invoke();
-            OnEntitiesSkinPackChanged?.Invoke();
+            OnEntitiesSkinPackEquipped?.Invoke();
         }
 
-        public void SetBackgroundSkin(BackgroundSkinType newSkin)
+        public void EquipSkin(BackgroundSkinType newSkin)
         { 
-            if(ActiveBackgroundSkin == newSkin)
+            if(EquippedBackgroundSkin == newSkin)
                 return;
             
-            ActiveBackgroundSkin = newSkin;
+            EquippedBackgroundSkin = newSkin;
             OnChange?.Invoke();
-            OnBackgroundSkinChanged?.Invoke();
+            OnBackgroundSkinEquipped?.Invoke();
         }
-        
+
+        public void UnlockSkin(EntitiesSkinPackType skin)
+        {
+            if (_availableEntitiesSkinPacks[skin])
+                return;
+
+            _availableEntitiesSkinPacks[skin] = true;
+            OnEntitiesSkinPackUnlocked?.Invoke();
+        }
+
+        public void UnlockSkin(BackgroundSkinType skin)
+        {
+            if (_availableBackgroundSkins[skin])
+                return;
+
+            _availableBackgroundSkins[skin] = true;
+            OnBackgroundSkinUnlocked?.Invoke();
+        }
+
         public void LoadData(SkinsSettingsSave save)
         {
-            var prevEntitiesSkinPack = ActiveEntitiesSkinPack;
-            var prevBackgroundSkin = ActiveBackgroundSkin;
+            var prevEntitiesSkinPack = EquippedEntitiesSkinPack;
+            var prevBackgroundSkin = EquippedBackgroundSkin;
             
-            ActiveEntitiesSkinPack = save.activeEntitiesSkinPack;
-            ActiveBackgroundSkin = save.activeBackgroundSkin;
+            EquippedEntitiesSkinPack = save.activeEntitiesSkinPack;
+            EquippedBackgroundSkin = save.activeBackgroundSkin;
             
-            if(prevEntitiesSkinPack != ActiveEntitiesSkinPack || !IsEntitiesSkinPackInitialized)
-                OnEntitiesSkinPackChanged?.Invoke();
-            if(prevBackgroundSkin != ActiveBackgroundSkin || !IsBackgroundSkinInitialized)
-                OnBackgroundSkinChanged?.Invoke();
+            if(prevEntitiesSkinPack != EquippedEntitiesSkinPack || !IsEntitiesSkinPackInitialized)
+                OnEntitiesSkinPackEquipped?.Invoke();
+            if(prevBackgroundSkin != EquippedBackgroundSkin || !IsBackgroundSkinInitialized)
+                OnBackgroundSkinEquipped?.Invoke();
             
             IsEntitiesSkinPackInitialized = true;
             IsBackgroundSkinInitialized = true;
+            
+            var entitiesSkinPackTypes = EnumValuesTool.GetValues<EntitiesSkinPackType>();
+            foreach (var entitiesSkinPackType in entitiesSkinPackTypes)
+                _availableEntitiesSkinPacks.Add(entitiesSkinPackType, false);
+            foreach (var skinPack in save.AvailableEntitiesSkinPacks)
+                _availableEntitiesSkinPacks[skinPack.Key] = skinPack.IsAvailable;
+
+            var backgroundSkinTypes = EnumValuesTool.GetValues<BackgroundSkinType>();
+            foreach (var backgroundSkinType in backgroundSkinTypes)
+                _availableBackgroundSkins.Add(backgroundSkinType, false);
+            foreach (var backgroundSkin in save.AvailableBackgroundSkins)
+                _availableBackgroundSkins[backgroundSkin.Key] = backgroundSkin.IsAvailable;
         }
     }
 }

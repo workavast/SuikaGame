@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using SuikaGame.Scripts.Coins;
+using SuikaGame.Scripts.Skins;
 using SuikaGame.Scripts.Skins.Backgrounds;
 using UnityEngine;
 using Zenject;
@@ -14,11 +16,16 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Backgrounds
         private readonly List<BackgroundSkinPreviewRow> _rows = new(4);
         private BackgroundsSkinsConfig _backgroundsSkinsConfig;
         private SkinsPreviewModel _model;
-
+        private ICoinsController _coinsModel;
+        private ISkinsChanger _skinsChanger;
+            
         [Inject]
-        public void Construct(BackgroundsSkinsConfig backgroundsSkinsConfig)
+        public void Construct(BackgroundsSkinsConfig backgroundsSkinsConfig, ICoinsController coinsModel, 
+            ISkinsChanger skinsChanger)
         {
             _backgroundsSkinsConfig = backgroundsSkinsConfig;
+            _coinsModel = coinsModel;
+            _skinsChanger = skinsChanger;
         }
 
         public void Initialize(SkinsPreviewModel model)
@@ -27,7 +34,25 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Backgrounds
             InitializeRows();
             SetRowsData();
         }
-        
+
+        public void _BuyOrEquip()
+        {
+            if (_skinsChanger.AvailableBackgroundSkins[_model.BackgroundSkinPreview])
+            {
+                _skinsChanger.EquipSkin(_model.BackgroundSkinPreview);
+            }
+            else
+            {
+                var skinConfigCell = _backgroundsSkinsConfig.BackgroundsSkins[_model.BackgroundSkinPreview];
+                if (_coinsModel.IsCanBuy(skinConfigCell.Price))
+                {
+                    _coinsModel.ChangeCoinsValue(-skinConfigCell.Price);
+                    _skinsChanger.UnlockSkin(_model.BackgroundSkinPreview);
+                    _skinsChanger.EquipSkin(_model.BackgroundSkinPreview);
+                }
+            }
+        }
+
         private void InitializeRows()
         {
             foreach (var row in _rows)
@@ -70,7 +95,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Backgrounds
             for (int i = 0; i < _backgroundsSkinsConfig.BackgroundsSkins.Count && i < _rows.Count; i++)
             {
                 var key = backgroundSkinTypes[i];
-                _rows[i].SetData(key, _backgroundsSkinsConfig.BackgroundsSkins[key]);
+                _rows[i].SetData(_skinsChanger, key, _backgroundsSkinsConfig.BackgroundsSkins[key]);
             }
         }
     }

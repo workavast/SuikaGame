@@ -1,5 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
+using SuikaGame.Scripts.Coins;
+using SuikaGame.Scripts.Skins;
 using SuikaGame.Scripts.Skins.Entities;
 using UnityEngine;
 using Zenject;
@@ -11,21 +13,44 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
         [SerializeField] private Transform skinsPacksParent;
         [SerializeField] private EntitiesSkinPackPreviewRow entitiesSkinPackPreviewRowPrefab;
 
-        private EntitiesSkinPacksConfig _entitiesSkinPacksConfig;
         private readonly List<EntitiesSkinPackPreviewRow> _rows = new(8);
+        private EntitiesSkinPacksConfig _entitiesSkinPacksConfig;
         private SkinsPreviewModel _model;
-
+        private ICoinsController _coinsModel;
+        private ISkinsChanger _skinsChanger;
+        
         [Inject]
-        public void Construct(EntitiesSkinPacksConfig entitiesSkinPacksConfig)
+        public void Construct(EntitiesSkinPacksConfig entitiesSkinPacksConfig, ICoinsController coinsModel, 
+            ISkinsChanger skinsChanger)
         {
             _entitiesSkinPacksConfig = entitiesSkinPacksConfig;
+            _coinsModel = coinsModel;
+            _skinsChanger = skinsChanger;
         }
         
         public void Initialize(SkinsPreviewModel model)
         {
             _model = model;
             InitializeRows();
-            LoadSkinsPacksRows();
+            SetRowsData();
+        }
+        
+        public void _BuyOrEquip()
+        {
+            if (_skinsChanger.AvailableEntitiesSkinPacks[_model.EntitiesSkinPackPreview])
+            {
+                _skinsChanger.EquipSkin(_model.EntitiesSkinPackPreview);
+            }
+            else
+            {
+                var skinConfigCell = _entitiesSkinPacksConfig.SkinsPacks[_model.EntitiesSkinPackPreview];
+                if (_coinsModel.IsCanBuy(skinConfigCell.Price))
+                {
+                    _coinsModel.ChangeCoinsValue(-skinConfigCell.Price);
+                    _skinsChanger.UnlockSkin(_model.EntitiesSkinPackPreview);
+                    _skinsChanger.EquipSkin(_model.EntitiesSkinPackPreview);
+                }
+            }
         }
         
         private void InitializeRows()
@@ -43,11 +68,9 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
                 Destroy(existRows[i].gameObject);
             }
 
-            for (int i = counter-1; i >= 0; i--)
-            {
+            for (int i = counter-1; i >= 0; i--) 
                 existRows.RemoveAt(i);
-            }            
-            
+
             _rows.Clear();
             _rows.AddRange(existRows);
             for (int i = existRowsCount; i < _entitiesSkinPacksConfig.SkinsPacks.Count; i++)
@@ -63,7 +86,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
         private void ChangeSkinPackPreview(EntitiesSkinPackType newEntitiesSkinPack) 
             => _model.ChangeEntityPreview(newEntitiesSkinPack);
 
-        private void LoadSkinsPacksRows()
+        private void SetRowsData()
         {
             if(_entitiesSkinPacksConfig.SkinsPacks.Count != _rows.Count)
                 InitializeRows();
@@ -72,7 +95,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
             for (int i = 0; i < _entitiesSkinPacksConfig.SkinsPacks.Count && i < _rows.Count; i++)
             {
                 var key = skinsPacks[i];
-                _rows[i].SetData(key, _entitiesSkinPacksConfig.SkinsPacks[key]);
+                _rows[i].SetData(_skinsChanger, key, _entitiesSkinPacksConfig.SkinsPacks[key]);
             }
         }
     }

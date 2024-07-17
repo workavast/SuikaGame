@@ -16,6 +16,7 @@ MonoBehaviour:
     cells:
     - key: 0
       value:
+        <Price>k__BackingField: 0
         <Preview>k__BackingField: {fileID: 21300000, guid: 1ea5e997f7fc11349a04a3ad02f3d1f9, type: 3}
         <SkinPack>k__BackingField:
           m_AssetGUID: 6909044db1124b147a46e56c2286843f
@@ -24,6 +25,7 @@ MonoBehaviour:
           m_EditorAssetChanged: 0
     - key: 10
       value:
+        <Price>k__BackingField: 125
         <Preview>k__BackingField: {fileID: 21300000, guid: a12967b04069b6b4b81e5118a9d61a72, type: 3}
         <SkinPack>k__BackingField:
           m_AssetGUID: 0ad2f93290f638740a45e65c18a21727

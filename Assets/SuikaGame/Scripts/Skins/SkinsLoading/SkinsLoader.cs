@@ -32,8 +32,8 @@ namespace SuikaGame.Scripts.Skins.SkinsLoading
             _backgroundsSkinsConfig = backgroundsSkinsConfig;
             _skinsChanger = skinsChanger;
 
-            _skinsChanger.OnEntitiesSkinPackChanged += LoadEntitiesSkinPack;
-            _skinsChanger.OnBackgroundSkinChanged += LoadBackgroundSkin;
+            _skinsChanger.OnEntitiesSkinPackEquipped += LoadEntitiesSkinPack;
+            _skinsChanger.OnBackgroundSkinEquipped += LoadBackgroundSkin;
             
             if(_skinsChanger.IsEntitiesSkinPackInitialized)
                 LoadEntitiesSkinPack();
@@ -43,13 +43,13 @@ namespace SuikaGame.Scripts.Skins.SkinsLoading
 
         private void LoadEntitiesSkinPack()
         {
-            var assetReference = _entitiesSkinPacksConfig.SkinsPacks[_skinsChanger.ActiveEntitiesSkinPack].SkinPack;
+            var assetReference = _entitiesSkinPacksConfig.SkinsPacks[_skinsChanger.EquippedEntitiesSkinPack].SkinPack;
             _entitiesSkinPackLoader.Load(assetReference, SendEntitiesMessage);
         }
 
         private void LoadBackgroundSkin()
         {
-            var assetReference = _backgroundsSkinsConfig.BackgroundsSkins[_skinsChanger.ActiveBackgroundSkin].Background;
+            var assetReference = _backgroundsSkinsConfig.BackgroundsSkins[_skinsChanger.EquippedBackgroundSkin].Background;
             _backgroundSkinLoader.Load(assetReference, SendBackgroundMessage);
         }
 
@@ -61,8 +61,8 @@ namespace SuikaGame.Scripts.Skins.SkinsLoading
         
         public void Dispose()
         {
-            _skinsChanger.OnEntitiesSkinPackChanged -= LoadEntitiesSkinPack;
-            _skinsChanger.OnBackgroundSkinChanged -= LoadBackgroundSkin;
+            _skinsChanger.OnEntitiesSkinPackEquipped -= LoadEntitiesSkinPack;
+            _skinsChanger.OnBackgroundSkinEquipped -= LoadBackgroundSkin;
             
             _entitiesSkinPackLoader?.Dispose();
             _backgroundSkinLoader?.Dispose();
