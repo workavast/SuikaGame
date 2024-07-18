@@ -95,15 +95,9 @@ namespace SuikaGame.Scripts.Saves.SkinsPacks
             IsEntitiesSkinPackInitialized = true;
             IsBackgroundSkinInitialized = true;
             
-            var entitiesSkinPackTypes = EnumValuesTool.GetValues<EntitiesSkinPackType>();
-            foreach (var entitiesSkinPackType in entitiesSkinPackTypes)
-                _availableEntitiesSkinPacks.Add(entitiesSkinPackType, false);
             foreach (var skinPack in save.AvailableEntitiesSkinPacks)
                 _availableEntitiesSkinPacks[skinPack.Key] = skinPack.IsAvailable;
-
-            var backgroundSkinTypes = EnumValuesTool.GetValues<BackgroundSkinType>();
-            foreach (var backgroundSkinType in backgroundSkinTypes)
-                _availableBackgroundSkins.Add(backgroundSkinType, false);
+            
             foreach (var backgroundSkin in save.AvailableBackgroundSkins)
                 _availableBackgroundSkins[backgroundSkin.Key] = backgroundSkin.IsAvailable;
         }
