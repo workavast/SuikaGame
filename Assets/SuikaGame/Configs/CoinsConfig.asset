@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: CoinsConfig
   m_EditorClassIdentifier: 
   <CoinsPerScore>k__BackingField: 0.001
+  <CoinsPerRewardedAd>k__BackingField: 250

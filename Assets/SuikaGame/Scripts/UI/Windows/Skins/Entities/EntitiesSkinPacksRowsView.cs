@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Avastrad.UI.UI_System;
 using SuikaGame.Scripts.Coins;
 using SuikaGame.Scripts.Skins;
 using SuikaGame.Scripts.Skins.Entities;
@@ -53,6 +54,10 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
                     _coinsModel.ChangeCoinsValue(-skinConfigCell.Price);
                     _skinsChanger.UnlockSkin(_model.EntitiesSkinPackPreview);
                     _skinsChanger.EquipSkin(_model.EntitiesSkinPackPreview);
+                }
+                else
+                {
+                    UI_Controller.ToggleScreen(ScreenType.RewardedAd, true);
                 }
             }
             

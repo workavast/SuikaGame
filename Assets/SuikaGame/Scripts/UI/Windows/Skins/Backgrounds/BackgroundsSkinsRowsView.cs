@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using Avastrad.UI.UI_System;
 using SuikaGame.Scripts.Coins;
 using SuikaGame.Scripts.Skins;
 using SuikaGame.Scripts.Skins.Backgrounds;
@@ -52,6 +53,10 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Backgrounds
                     _coinsModel.ChangeCoinsValue(-skinConfigCell.Price);
                     _skinsChanger.UnlockSkin(_model.BackgroundSkinPreview);
                     _skinsChanger.EquipSkin(_model.BackgroundSkinPreview);
+                }
+                else
+                {
+                    UI_Controller.ToggleScreen(ScreenType.RewardedAd, true);
                 }
             }
 

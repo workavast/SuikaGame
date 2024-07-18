@@ -2,7 +2,7 @@ namespace SuikaGame.Scripts.Coins
 {
     public interface ICoinsController
     {
-        public void AddCoinsByScore(int score);
+        public int AddCoinsByScore(int score);
 
         public void ChangeCoinsValue(int changeValue);
 

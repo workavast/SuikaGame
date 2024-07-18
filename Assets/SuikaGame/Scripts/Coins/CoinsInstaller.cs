@@ -14,6 +14,7 @@ namespace SuikaGame.Scripts.Coins
             BindConfig();
             BindSettings();
             BindController();
+            BindRewarding();
         }
 
         private void BindConfig()
@@ -32,6 +33,11 @@ namespace SuikaGame.Scripts.Coins
         private void BindController()
         {
             Container.BindInterfacesTo<CoinsController>().FromNew().AsSingle().NonLazy();
+        }
+        
+        private void BindRewarding()
+        {
+            Container.BindInterfacesAndSelfTo<CoinsRewarding>().FromNew().AsSingle().NonLazy();
         }
     }
 }

@@ -60,9 +60,10 @@ namespace Avastrad.UI.UI_System
                     return GetScreen<GameplaySettingsWindow>();
                 case ScreenType.GameplayEnd:
                     return GetScreen<GameplayEndWindow>();
+                case ScreenType.RewardedAd:
+                    return GetScreen<RewardAdWindow>();
                 default:
-                    Debug.LogWarning("Error: invalid parameter in SetWindow(ScreenEnum screen)");
-                    return default;
+                    throw new ArgumentOutOfRangeException($"invalid parameter: {screenType}");
             }
         }
     }

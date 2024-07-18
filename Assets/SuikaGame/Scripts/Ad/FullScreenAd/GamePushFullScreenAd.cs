@@ -10,8 +10,8 @@ namespace SuikaGame.Scripts.Ad.FullScreenAd
 
         public GamePushFullScreenAd()
         {
-            GP_Ads.OnAdsStart += () => OnAdStart?.Invoke();
-            GP_Ads.OnAdsClose += (_) => OnAdClose?.Invoke();
+            GP_Ads.OnFullscreenStart += () => OnAdStart?.Invoke();
+            GP_Ads.OnFullscreenClose += (_) => OnAdClose?.Invoke();
         }
         
         public void TryShow()
