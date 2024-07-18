@@ -1,10 +1,10 @@
+using Avastrad.UI.UI_System;
 using SuikaGame.Scripts.Entities;
 using SuikaGame.Scripts.Entities.Spawning;
 using SuikaGame.Scripts.EntityMaxSizeCounting;
 using SuikaGame.Scripts.GameOverDetection;
 using SuikaGame.Scripts.GameplaySavers;
 using SuikaGame.Scripts.Score;
-using SuikaGame.Scripts.UI;
 using UnityEngine;
 using Zenject;
 
@@ -12,8 +12,6 @@ namespace SuikaGame.Scripts.GameControlling
 {
     public class GameController : MonoBehaviour, IGameReseter
     {
-        [SerializeField] private EndScreen endScreen;
-        
         private IEntitySpawner _entitySpawner;
         private IEntitiesRepository _entitiesRepository;
         private IScoreCounter _scoreCounter;
@@ -44,7 +42,7 @@ namespace SuikaGame.Scripts.GameControlling
             _entityMaxSizeCounter.Reset();
             _entitiesRepository.Reset();
             _entitySpawner.Reset();
-            endScreen.Hide();
+            UI_Controller.ToggleScreen(ScreenType.GameplayEnd, false);
             
             _gameplaySaver.Save();
         }

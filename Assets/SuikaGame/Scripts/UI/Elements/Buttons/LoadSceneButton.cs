@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace SuikaGame.Scripts.UI.Elements
+namespace SuikaGame.Scripts.UI.Elements.Buttons
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(Button))]

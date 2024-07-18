@@ -2,7 +2,7 @@ using System;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace SuikaGame.UI
+namespace SuikaGame.Scripts.UI.Elements.Buttons
 {
     public class ExtendedButton : Button
     {

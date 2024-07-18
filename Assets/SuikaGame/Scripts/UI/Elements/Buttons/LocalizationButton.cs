@@ -2,7 +2,7 @@ using SuikaGame.Scripts.Localization.Changer;
 using UnityEngine.UI;
 using Zenject;
 
-namespace SuikaGame.Scripts.UI.Elements
+namespace SuikaGame.Scripts.UI.Elements.Buttons
 {
     public class LocalizationButton : Button
     {

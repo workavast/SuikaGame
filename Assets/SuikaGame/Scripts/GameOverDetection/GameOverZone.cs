@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using Avastrad.UI.UI_System;
 using SuikaGame.Scripts.Entities;
 using SuikaGame.Scripts.UI;
+using SuikaGame.Scripts.UI.Windows;
 using UnityEngine;
 
 namespace SuikaGame.Scripts.GameOverDetection
@@ -10,7 +12,6 @@ namespace SuikaGame.Scripts.GameOverDetection
     {
         [SerializeField] private StartEntityVelocityConfig startEntityVelocityConfig;
         [SerializeField] private GameOverZoneConfig gameOverZoneConfig;
-        [SerializeField] private EndScreen endScreen;
 
         private bool _gameIsOver;
         private readonly List<Pair> _pairs = new(2);
@@ -147,7 +148,7 @@ namespace SuikaGame.Scripts.GameOverDetection
                 {
                     Debug.Log($"GAME OVER");
                     _gameIsOver = true;
-                    endScreen.Show();
+                    UI_Controller.ToggleScreen(ScreenType.GameplayEnd, true);
                     return;
                 }
         }

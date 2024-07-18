@@ -1,14 +1,15 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Avastrad.UI.UI_System.Example;
+using SuikaGame.Scripts.UI.Windows;
+using SuikaGame.Scripts.UI.Windows.Skins;
 using UnityEngine;
 
 namespace Avastrad.UI.UI_System
 {
     public class UI_ScreenRepository : MonoBehaviour
     {
-        private Dictionary<Type, UI_ScreenBase> _screens;
+        private readonly Dictionary<Type, UI_ScreenBase> _screens = new();
     
         public static UI_ScreenRepository Instance;
         public static IReadOnlyList<UI_ScreenBase> Screens => Instance._screens.Values.ToArray();
@@ -23,32 +24,42 @@ namespace Avastrad.UI.UI_System
 
             Instance = this;
 
-            _screens = new Dictionary<Type, UI_ScreenBase>();
-
-            UI_ScreenBase[] uiScreens = FindObjectsOfType<UI_ScreenBase>(true);
-            foreach (UI_ScreenBase screen in uiScreens) _screens.Add(screen.GetType(), screen);
+            var screens = FindObjectsOfType<UI_ScreenBase>(true);
+            foreach (var screen in screens) 
+                _screens.Add(screen.GetType(), screen);
         }
 
-        public static TScreen GetScreen<TScreen>() where TScreen : UI_ScreenBase
+        public static TScreen GetScreen<TScreen>() 
+            where TScreen : UI_ScreenBase
         {
-            if (Instance == null) throw new NullReferenceException($"Instance is null");
+            if (Instance == null) 
+                throw new NullReferenceException($"Instance is null");
         
-            if(Instance._screens.TryGetValue(typeof(TScreen), out UI_ScreenBase screen)) return (TScreen)screen;
+            if(Instance._screens.TryGetValue(typeof(TScreen), out var screen)) 
+                return (TScreen)screen;
 
             return default;
         }
-        public static UI_ScreenBase GetScreenByEnum(ScreenEnum screenEnum)
-        {
-            if (Instance == null) throw new NullReferenceException($"Instance is null");
         
-            switch (screenEnum)
+        public static UI_ScreenBase GetScreenByEnum(ScreenType screenType)
+        {
+            if (Instance == null) 
+                throw new NullReferenceException($"Instance is null");
+        
+            switch (screenType)
             {
-                case ScreenEnum.FirstScreen:
-                    return GetScreen<UI_FirstScreen>();
-                case ScreenEnum.SecondScreen:
-                    return GetScreen<UI_SecondScreen>();
-                case ScreenEnum.ThirdScreen:
-                    return GetScreen<UI_ThirdScreen>();
+                case ScreenType.MainMenu:
+                    return GetScreen<MainMenuWindow>();
+                case ScreenType.MainMenuSettings:
+                    return GetScreen<MainMenuSettingsWindow>();
+                case ScreenType.Skins:
+                    return GetScreen<SkinsWindow>();
+                case ScreenType.Gameplay:
+                    return GetScreen<GameplayWindow>();
+                case ScreenType.GameplaySettings:
+                    return GetScreen<GameplaySettingsWindow>();
+                case ScreenType.GameplayEnd:
+                    return GetScreen<GameplayEndWindow>();
                 default:
                     Debug.LogWarning("Error: invalid parameter in SetWindow(ScreenEnum screen)");
                     return default;

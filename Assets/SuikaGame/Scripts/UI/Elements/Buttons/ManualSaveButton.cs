@@ -1,11 +1,10 @@
-using System;
 using SuikaGame.Scripts.GameplaySavers.ManualSaver;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace SuikaGame.Scripts.UI.Elements
+namespace SuikaGame.Scripts.UI.Elements.Buttons
 {
     [RequireComponent(typeof(Button))]
     public class ManualSaveButton : MonoBehaviour

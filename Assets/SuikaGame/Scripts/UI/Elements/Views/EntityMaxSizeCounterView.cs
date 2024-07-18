@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace SuikaGame.UI
+namespace SuikaGame.Scripts.UI.Elements.Views
 {
     public class EntityMaxSizeCounterView : MonoBehaviour
     {

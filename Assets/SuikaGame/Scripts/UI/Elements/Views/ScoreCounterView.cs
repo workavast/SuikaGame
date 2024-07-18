@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using Zenject;
 
-namespace SuikaGame.Scripts.UI
+namespace SuikaGame.Scripts.UI.Elements.Views
 {
     [DisallowMultipleComponent]
     [RequireComponent(typeof(TMP_Text))]

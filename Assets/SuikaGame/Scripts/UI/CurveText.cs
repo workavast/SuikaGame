@@ -1,8 +1,7 @@
-using System;
 using TMPro;
 using UnityEngine;
 
-namespace SuikaGame.Scripts
+namespace SuikaGame.Scripts.UI
 {
     public class CurveText : MonoBehaviour
     {

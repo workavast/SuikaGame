@@ -3,7 +3,7 @@ using SuikaGame.Scripts.Score;
 using UnityEngine;
 using Zenject;
 
-namespace SuikaGame.Scripts.UI
+namespace SuikaGame.Scripts.UI.Elements
 {
     public class NewRecordTitle : MonoBehaviour
     {

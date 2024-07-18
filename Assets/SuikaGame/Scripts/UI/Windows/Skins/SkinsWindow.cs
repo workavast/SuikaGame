@@ -1,3 +1,4 @@
+using Avastrad.UI.UI_System;
 using SuikaGame.Scripts.Skins;
 using SuikaGame.Scripts.Skins.Entities;
 using SuikaGame.Scripts.UI.Windows.Skins.Backgrounds;
@@ -8,7 +9,7 @@ using Zenject;
 
 namespace SuikaGame.Scripts.UI.Windows.Skins
 {
-    public class SkinsWindow : MonoBehaviour
+    public class SkinsWindow : UI_ScreenBase
     {
         [SerializeField] private SkinPackPreviewView skinPackPreviewView;
         [SerializeField] private BackgroundPreviewView backgroundPreviewView;
@@ -25,8 +26,8 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
         {
             _skinsChanger = skinsChanger;
         }
-        
-        private void Start()
+
+        public override void Initialize()
         {
             _model.ChangeEntityPreview(_skinsChanger.EquippedEntitiesSkinPack);
             _model.ChangeBackgroundPreview(_skinsChanger.EquippedBackgroundSkin);
@@ -39,11 +40,5 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
             
             Hide();
         }
-
-        public void Show() 
-            => gameObject.SetActive(true);
-
-        public void Hide() 
-            => gameObject.SetActive(false);
     }
 }
