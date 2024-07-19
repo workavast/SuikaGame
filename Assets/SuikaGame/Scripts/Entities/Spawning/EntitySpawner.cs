@@ -83,6 +83,7 @@ namespace SuikaGame.Scripts.Entities.Spawning
             var newVelocity = (parentVelocity + childVelocity) * mass / entity.Mass;
             entity.Activate();
             entity.SetVelocity(newVelocity);
+            _eventBus.Invoke(new MergeEvent(sizeIndex));
         }
 
         private void SpawnEntity()

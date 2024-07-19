@@ -5,7 +5,7 @@ using SuikaGame.Scripts.Saves.Score;
 
 namespace SuikaGame.Scripts.Score
 {
-    public class ScoreCounter : IScoreCounter, IDisposable, IEventReceiver<EntityCollisionEvent>
+    public class ScoreCounter : IScoreCounter, IDisposable, IEventReceiver<MergeEvent>
     {
         public EventBusReceiverIdentifier EventBusReceiverIdentifier { get; } = new();
         private readonly IEventBus _eventBus;
@@ -43,9 +43,9 @@ namespace SuikaGame.Scripts.Score
             OnScoreChanged?.Invoke(Score);        
         }
         
-        public void OnEvent(EntityCollisionEvent t)
+        public void OnEvent(MergeEvent t)
         {
-            Score += _scoreConfig.GetScore(t.Parent.SizeIndex);
+            Score += _scoreConfig.GetScore(t.SizeIndex);
             OnScoreChanged?.Invoke(Score);
         }
 
