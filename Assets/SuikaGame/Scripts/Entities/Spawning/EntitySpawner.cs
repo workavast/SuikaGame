@@ -69,6 +69,9 @@ namespace SuikaGame.Scripts.Entities.Spawning
             if (t.Parent.SizeIndex >= _entitiesConfig.Prefabs.Count - 1)
                 return;
 
+            if (!t.Parent.IsActive || !t.Child.IsActive)
+                return;
+
             var sizeIndex = 1 + t.Parent.SizeIndex;
             var childPos = t.Child.transform.position;
 
@@ -76,6 +79,8 @@ namespace SuikaGame.Scripts.Entities.Spawning
             var parentVelocity = t.Parent.Velocity;
             var childVelocity = t.Child.Velocity;
             
+            t.Parent.DeActivate();
+            t.Child.DeActivate();
             t.Parent.ManualReturnInPool();
             t.Child.ManualReturnInPool();
 
