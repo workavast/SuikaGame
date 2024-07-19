@@ -11,7 +11,7 @@ using Zenject;
 
 namespace SuikaGame.Scripts.GameplayControlling
 {
-    public class GameplayController : MonoBehaviour, IGameReseter
+    public class GameplayController : IGameplayController, IGameReseter
     {
         private IEntitySpawner _entitySpawner;
         private IEntitiesRepository _entitiesRepository;
@@ -37,8 +37,10 @@ namespace SuikaGame.Scripts.GameplayControlling
             _gameOverZone.OnGameIsOver += OnGameIsOver;
         }
 
-        private void Start() 
-            => InitializeGame();
+        public void Initialize()
+        {
+            _entitySpawner.Initialize();
+        }
         
         public void ResetGame()
         {
@@ -53,13 +55,8 @@ namespace SuikaGame.Scripts.GameplayControlling
             _entitySpawner.Reset();
             UI_Controller.SetSingleScreen(ScreenType.Gameplay);
             
-            InitializeGame();
+            Initialize();
             _gameplaySaver.Save();
-        }
-        
-        private void InitializeGame()
-        {
-            _entitySpawner.Initialize();
         }
         
         private void ApplySessionResult()

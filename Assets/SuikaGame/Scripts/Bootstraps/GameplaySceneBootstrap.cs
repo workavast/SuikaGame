@@ -1,4 +1,5 @@
 using SuikaGame.Scripts.Entities.Factory;
+using SuikaGame.Scripts.GameplayControlling;
 using SuikaGame.Scripts.GameplayField;
 using SuikaGame.Scripts.Loading;
 using SuikaGame.Scripts.Saves;
@@ -12,13 +13,16 @@ namespace SuikaGame.Scripts.Bootstraps
         private ISceneLoader _sceneLoader;
         private IEntityFactory _entityFactory;
         private IGameplayFieldReadModel _gameplayFieldReadModel;
+        private IGameplayController _gameplayController;
         
         [Inject]
-        public void Construct(ISceneLoader sceneLoader, IEntityFactory entityFactory, IGameplayFieldReadModel gameplayFieldReadModel)
+        public void Construct(ISceneLoader sceneLoader, IEntityFactory entityFactory, 
+            IGameplayFieldReadModel gameplayFieldReadModel, IGameplayController gameplayController)
         {
             _sceneLoader = sceneLoader;
             _entityFactory = entityFactory;
             _gameplayFieldReadModel = gameplayFieldReadModel;
+            _gameplayController = gameplayController;
         }
 
         private void Start()
@@ -26,6 +30,7 @@ namespace SuikaGame.Scripts.Bootstraps
             Debug.Log("-||- GameplaySceneBootstrap");
             
             LoadPrevGameplaySession();
+            _gameplayController.Initialize();
             _sceneLoader.Initialize(false);
         }
         

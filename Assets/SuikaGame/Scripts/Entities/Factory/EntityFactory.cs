@@ -30,8 +30,7 @@ namespace SuikaGame.Scripts.Entities.Factory
         {
             _pool.ExtractElement(index, out var entity);
             
-            entity.transform.position = position;
-            entity.transform.rotation = new Quaternion(0, 0, rotation, 1);
+            entity.transform.SetPositionAndRotation(position, new Quaternion(0, 0, rotation, 1));
 
             OnCreate?.Invoke(entity);
             
