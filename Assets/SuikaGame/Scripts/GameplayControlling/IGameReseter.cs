@@ -1,4 +1,4 @@
-namespace SuikaGame.Scripts.GameControlling
+namespace SuikaGame.Scripts.GameplayControlling
 {
     public interface IGameReseter
     {

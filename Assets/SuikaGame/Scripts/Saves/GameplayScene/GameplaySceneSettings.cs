@@ -44,11 +44,14 @@ namespace SuikaGame.Scripts.Saves.GameplayScene
 
         public void LoadData(GameplaySceneSettingsSave save)
         {
-            Score = save.Score;
+            _prevScore = Score = save.Score;
             if (save?.EntityModels == null)
                 _entityModels = new List<EntityModel>();
             else
                 _entityModels = save.EntityModels.ToList();
+            
+            _prevEntityModels.Clear();
+            _prevEntityModels.AddRange(_entityModels);
         }
     }
 }

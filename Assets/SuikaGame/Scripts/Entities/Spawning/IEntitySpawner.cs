@@ -7,8 +7,10 @@ namespace SuikaGame.Scripts.Entities.Spawning
     {
         public event Action OnSpawnEntity;
         public event Action OnDeSpawnEntity;
-        public event Action<Vector2> OnMoveEntity; 
+        public event Action<Vector2> OnMoveEntity;
 
+        public void Initialize();
+        
         public void Reset();
     }
 }

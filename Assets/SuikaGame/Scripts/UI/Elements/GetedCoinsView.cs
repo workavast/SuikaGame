@@ -25,7 +25,7 @@ namespace SuikaGame.Scripts.UI.Elements
         
         public void SetValue(int score)
         {
-            _getedCoinsValue = _coinsController.AddCoinsByScore(score);
+            _getedCoinsValue = _coinsController.ScoreToCoins(score);
             tmpText.text = _getedCoinsValue.ToString();
         }
 

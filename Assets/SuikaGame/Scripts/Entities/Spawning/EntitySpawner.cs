@@ -39,8 +39,8 @@ namespace SuikaGame.Scripts.Entities.Spawning
             _input = input;
             
             _eventBus.Subscribe(this);
-            
-            _pauseTimer = new Timer(spawnerConfig.PauseTime, spawnerConfig.PauseTime);
+
+            _pauseTimer = new Timer(spawnerConfig.PauseTime, spawnerConfig.PauseTime, true);
             _pauseTimer.OnTimerEnd += SpawnEntity;
 
             _input.Pressed += MoveEntity;
@@ -48,15 +48,22 @@ namespace SuikaGame.Scripts.Entities.Spawning
             _input.Release += DropEntity;
         }
         
-        private void Start() 
-            => SpawnEntity();
+        public void Initialize()
+        {
+            _pauseTimer.Reset();
+            _pauseTimer.SetCurrentTime(_pauseTimer.MaxTime);
+            SpawnEntity();
+        }
 
         private void Update() 
             => _pauseTimer.Tick(Time.deltaTime);
 
-        public void Reset() 
-            => SpawnEntity();
-        
+        public void Reset()
+        {
+            _pauseTimer.SetPause();
+            _currentEntity = null;
+        }
+
         public void OnEvent(EntityCollisionEvent t)
         {
             if (t.Parent.SizeIndex >= _entitiesConfig.Prefabs.Count - 1)
@@ -80,6 +87,9 @@ namespace SuikaGame.Scripts.Entities.Spawning
 
         private void SpawnEntity()
         {
+            if (_currentEntity != null)
+                return;
+
             var sizeIndex = spawnerConfig.GetSizeIndex(_entityMaxSizeCounter.CurrentMaxSize);
             _currentEntity = _entityFactory.Create(sizeIndex, transform.position);
             _currentEntity.DeActivate();

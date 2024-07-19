@@ -27,17 +27,14 @@ namespace SuikaGame.Scripts.UI.Windows
             gameObject.SetActive(true);
             TryShow();
         }
-        
+
         private void TryShow()
         {
             gotCoinsView.SetValue(_scoreCounter.Score);
             if (_scoreCounter.Record <= _scoreCounter.Score)
-            {
-                _scoreCounter.ApplyRecord();
                 newRecordTitle.Show();
-            }
             else
-                Hide();
+                newRecordTitle.Hide();
         }
     }
 }

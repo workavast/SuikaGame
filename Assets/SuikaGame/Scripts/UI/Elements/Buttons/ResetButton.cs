@@ -1,4 +1,4 @@
-using SuikaGame.Scripts.GameControlling;
+using SuikaGame.Scripts.GameplayControlling;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;

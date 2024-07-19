@@ -7,7 +7,11 @@ namespace SuikaGame.Scripts.ApplicationFocus
     {
         public event Action<bool> OnApplicationFocusChanged;
 
-        private void OnApplicationFocus(bool hasFocus) 
-            => OnApplicationFocusChanged?.Invoke(hasFocus);
+        private void OnApplicationFocus(bool hasFocus)
+        {
+#if !UNITY_EDITOR
+            OnApplicationFocusChanged?.Invoke(hasFocus);
+#endif
+        }
     }
 }

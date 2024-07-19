@@ -11,13 +11,12 @@ namespace SuikaGame.Scripts.Coins
             _coinsConfig = coinsConfig;
         }
 
-        public int AddCoinsByScore(int score)
-        {
-            var coins = (int)(score * _coinsConfig.CoinsPerScore);
-            ChangeCoinsValue(coins);
-            return coins;
-        }
-        
+        public void AddCoinsByScore(int score) 
+            => ChangeCoinsValue(ScoreToCoins(score));
+
+        public int ScoreToCoins(int score) 
+            => (int)(score * _coinsConfig.CoinsPerScore);
+
         public void ChangeCoinsValue(int changeValue) 
             => _coinsSettings.ChangeCoinsValue(changeValue);
 

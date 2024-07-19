@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using Avastrad.UI.UI_System;
 using SuikaGame.Scripts.Entities;
-using SuikaGame.Scripts.UI;
-using SuikaGame.Scripts.UI.Windows;
 using UnityEngine;
 
 namespace SuikaGame.Scripts.GameOverDetection
@@ -13,20 +11,21 @@ namespace SuikaGame.Scripts.GameOverDetection
         [SerializeField] private StartEntityVelocityConfig startEntityVelocityConfig;
         [SerializeField] private GameOverZoneConfig gameOverZoneConfig;
 
-        private bool _gameIsOver;
         private readonly List<Pair> _pairs = new(2);
         private readonly List<Entity> _movedEntities = new(2);
         private readonly List<int> _removeBuffer = new(4);
 
         public int CurTime { get; private set; } = -1;
+        public bool GameIsOver { get; private set; }
 
         public event Action OnEnterEntities;
         public event Action OnTimerUpdate;
         public event Action OnOutEntities;
+        public event Action OnGameIsOver;
 
         private void Update()
         {
-            if (_gameIsOver)
+            if (GameIsOver)
                 return;
 
             CheckMovingEntities();
@@ -79,10 +78,10 @@ namespace SuikaGame.Scripts.GameOverDetection
                     }
             }
         }
-
+        
         public void Reset()
         {
-            _gameIsOver = false;
+            GameIsOver = false;
             CurTime = -1;
         }
 
@@ -147,8 +146,8 @@ namespace SuikaGame.Scripts.GameOverDetection
                 if (_pairs[i].Timer >= gameOverZoneConfig.Time)
                 {
                     Debug.Log($"GAME OVER");
-                    _gameIsOver = true;
-                    UI_Controller.ToggleScreen(ScreenType.GameplayEnd, true);
+                    GameIsOver = true;
+                    OnGameIsOver?.Invoke();
                     return;
                 }
         }

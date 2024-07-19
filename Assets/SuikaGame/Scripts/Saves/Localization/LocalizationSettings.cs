@@ -22,7 +22,6 @@ namespace SuikaGame.Scripts.Saves.Localization
                 return;
             
             Initializaed = true;
-            Debug.LogWarning("Initialize()");
             OnChange?.Invoke();
         }
 
@@ -32,7 +31,6 @@ namespace SuikaGame.Scripts.Saves.Localization
                 return;
             
             LocalizationId = newLocalizationId;
-            Debug.LogWarning("ChangeLocalization(int newLocalizationId)");
             OnChange?.Invoke();
         }
 
