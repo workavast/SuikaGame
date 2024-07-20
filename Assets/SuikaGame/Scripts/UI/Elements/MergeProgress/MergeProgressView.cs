@@ -3,7 +3,7 @@ using SuikaGame.Scripts.Skins.SkinsLoading;
 using UnityEngine;
 using Zenject;
 
-namespace SuikaGame.Scripts.MergeProgress
+namespace SuikaGame.Scripts.UI.Elements.MergeProgress
 {
     public class MergeProgressView : MonoBehaviour
     {

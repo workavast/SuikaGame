@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SuikaGame.Scripts.MergeProgress
+namespace SuikaGame.Scripts.UI.Elements.MergeProgress
 {
     public class MergeProgressCell : MonoBehaviour
     {

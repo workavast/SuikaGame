@@ -1694,6 +1694,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenType: 20
+  show: 1
 --- !u!1 &427557539
 GameObject:
   m_ObjectHideFlags: 0
@@ -3507,6 +3508,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenType: 20
+  show: 0
 --- !u!1 &981781441
 GameObject:
   m_ObjectHideFlags: 0
@@ -3655,6 +3657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenType: 70
+  show: 0
 --- !u!1 &1101848973
 GameObject:
   m_ObjectHideFlags: 0
@@ -5040,6 +5043,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   screenType: 30
+  show: 1
 --- !u!1 &1657422646
 GameObject:
   m_ObjectHideFlags: 0
