@@ -11,28 +11,33 @@ namespace SuikaGame.Scripts.DevTools
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.Alpha0)) 
-                _entityFactory.Create(0, transform.position);
+                Spawn(0);
             if (Input.GetKeyDown(KeyCode.Alpha1)) 
-                _entityFactory.Create(1, transform.position);
+                Spawn(1);
             if (Input.GetKeyDown(KeyCode.Alpha2)) 
-                _entityFactory.Create(2, transform.position);
+                Spawn(2);
             if (Input.GetKeyDown(KeyCode.Alpha3)) 
-                _entityFactory.Create(3, transform.position);
+                Spawn(3);
             if (Input.GetKeyDown(KeyCode.Alpha4)) 
-                _entityFactory.Create(4, transform.position);
+                Spawn(4);
             if (Input.GetKeyDown(KeyCode.Alpha5)) 
-                _entityFactory.Create(5, transform.position);
+                Spawn(5);
             if (Input.GetKeyDown(KeyCode.Alpha6)) 
-                _entityFactory.Create(6, transform.position);
+                Spawn(6);
             if (Input.GetKeyDown(KeyCode.Alpha7)) 
-                _entityFactory.Create(7, transform.position);
+                Spawn(7);
             if (Input.GetKeyDown(KeyCode.Alpha8)) 
-                _entityFactory.Create(8, transform.position);
+                Spawn(8);
             if (Input.GetKeyDown(KeyCode.Alpha9)) 
-                _entityFactory.Create(9, transform.position);
+                Spawn(9);
             if (Input.GetKeyDown(KeyCode.A)) 
-                _entityFactory.Create(10, transform.position);
-            
+                Spawn(10);
+        }
+        
+        private void Spawn(int sizeIndex)
+        {
+            var entity = _entityFactory.Create(sizeIndex, transform.position);
+            entity.Activate();
         }
     }
 }
