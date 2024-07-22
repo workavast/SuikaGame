@@ -2,7 +2,7 @@ using Avastrad.UI.UI_System;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace SuikaGame.Scripts.UI.Elements.Buttons
+namespace SuikaGame.Scripts.UI.Windows.Elements
 {
     [DisallowMultipleComponent, RequireComponent(typeof(Button))]
     public class WindowSwitcherButton : MonoBehaviour
