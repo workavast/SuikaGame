@@ -53,7 +53,7 @@ namespace SuikaGame.Scripts.GameplayControlling
             _entityMaxSizeCounter.Reset();
             _entitiesRepository.Reset();
             _entitySpawner.Reset();
-            UI_Controller.SetSingleScreen(ScreenType.Gameplay);
+            UI_Controller.SetSingleScreens(new[] { ScreenType.Gameplay, ScreenType.BottomMenu });
             
             Initialize();
             _gameplaySaver.Save();

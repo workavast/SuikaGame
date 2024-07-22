@@ -62,6 +62,8 @@ namespace Avastrad.UI.UI_System
                     return GetScreen<GameplayEndWindow>();
                 case ScreenType.RewardedAd:
                     return GetScreen<RewardAdWindow>();
+                case ScreenType.BottomMenu:
+                    return GetScreen<BottomMenu>();
                 default:
                     throw new ArgumentOutOfRangeException($"invalid parameter: {screenType}");
             }

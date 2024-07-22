@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Avastrad.UI.UI_System
@@ -11,6 +12,15 @@ namespace Avastrad.UI.UI_System
                 screen.Initialize();
         }
 
+        public static void SetSingleScreens(IEnumerable<ScreenType> screenTypes)
+        {
+            foreach (var screen in UI_ScreenRepository.Screens) 
+                screen.Hide();
+
+            foreach (var screen in screenTypes) 
+                ToggleScreen(screen, true);
+        }
+        
         public static void SetSingleScreen(ScreenType screenType)
         {
             foreach (var screen in UI_ScreenRepository.Screens) 

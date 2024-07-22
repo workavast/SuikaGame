@@ -8,6 +8,7 @@ namespace Avastrad.UI.UI_System
         Gameplay = 40,
         GameplaySettings = 50,
         GameplayEnd = 60,
-        RewardedAd =70
+        RewardedAd = 70,
+        BottomMenu = 80
     }
 }
