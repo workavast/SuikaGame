@@ -1,10 +1,8 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using Avastrad.UI.UI_System;
-using SuikaGame.Scripts.Coins;
 using SuikaGame.Scripts.Skins;
 using SuikaGame.Scripts.Skins.Entities;
+using SuikaGame.Scripts.UI.Windows.Skins.BuyOrEquiping;
 using UnityEngine;
 using Zenject;
 
@@ -19,15 +17,12 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
         private readonly List<EntitiesSkinPackPreviewRow> _rows = new(8);
         private EntitiesSkinPacksConfig _entitiesSkinPacksConfig;
         private SkinsPreviewModel _model;
-        private ICoinsController _coinsModel;
         private ISkinsChanger _skinsChanger;
         
         [Inject]
-        public void Construct(EntitiesSkinPacksConfig entitiesSkinPacksConfig, ICoinsController coinsModel, 
-            ISkinsChanger skinsChanger)
+        public void Construct(EntitiesSkinPacksConfig entitiesSkinPacksConfig, ISkinsChanger skinsChanger)
         {
             _entitiesSkinPacksConfig = entitiesSkinPacksConfig;
-            _coinsModel = coinsModel;
             _skinsChanger = skinsChanger;
         }
         
@@ -36,32 +31,6 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
             _model = model;
             InitializeRows();
             SetRowsData();
-
-            UpdateButtonState(_model.EntitiesSkinPackPreview);
-        }
-        
-        public void _BuyOrEquip()
-        {
-            if (_skinsChanger.AvailableEntitiesSkinPacks[_model.EntitiesSkinPackPreview])
-            {
-                _skinsChanger.EquipSkin(_model.EntitiesSkinPackPreview);
-            }
-            else
-            {
-                var skinConfigCell = _entitiesSkinPacksConfig.SkinsPacks[_model.EntitiesSkinPackPreview];
-                if (_coinsModel.IsCanBuy(skinConfigCell.Price))
-                {
-                    _coinsModel.ChangeCoinsValue(-skinConfigCell.Price);
-                    _skinsChanger.UnlockSkin(_model.EntitiesSkinPackPreview);
-                    _skinsChanger.EquipSkin(_model.EntitiesSkinPackPreview);
-                }
-                else
-                {
-                    UI_Controller.ToggleScreen(ScreenType.RewardedAd, true);
-                }
-            }
-            
-            UpdateButtonState(_model.EntitiesSkinPackPreview);
         }
         
         private void InitializeRows()
@@ -94,19 +63,8 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
                 row.OnClicked += ChangeSkinPackPreview;
         }
 
-        private void ChangeSkinPackPreview(EntitiesSkinPackType newEntitiesSkinPack)
-        {
-            _model.ChangeEntityPreview(newEntitiesSkinPack);
-            UpdateButtonState(newEntitiesSkinPack);
-        }
-
-        private void UpdateButtonState(EntitiesSkinPackType entitiesSkinPack)
-        {
-            if(_skinsChanger.AvailableEntitiesSkinPacks[entitiesSkinPack])
-                buyOrEquipButton.SetEquipState();
-            else
-                buyOrEquipButton.SetBuyState(_entitiesSkinPacksConfig.SkinsPacks[entitiesSkinPack].Price);
-        }
+        private void ChangeSkinPackPreview(EntitiesSkinPackType newEntitiesSkinPack) 
+            => _model.ChangeEntityPreview(newEntitiesSkinPack);
 
         private void SetRowsData()
         {

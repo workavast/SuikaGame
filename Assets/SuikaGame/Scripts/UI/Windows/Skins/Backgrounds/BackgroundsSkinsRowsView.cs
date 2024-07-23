@@ -1,7 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using Avastrad.UI.UI_System;
-using SuikaGame.Scripts.Coins;
 using SuikaGame.Scripts.Skins;
 using SuikaGame.Scripts.Skins.Backgrounds;
 using UnityEngine;
@@ -13,20 +11,16 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Backgrounds
     {
         [SerializeField] private Transform skinPacksParent;
         [SerializeField] private BackgroundSkinPreviewRow backgroundSkinPreviewRowPrefab;
-        [SerializeField] private BuyOrEquipButton buyOrEquipButton;
 
         private readonly List<BackgroundSkinPreviewRow> _rows = new(4);
         private BackgroundsSkinsConfig _backgroundsSkinsConfig;
         private SkinsPreviewModel _model;
-        private ICoinsController _coinsModel;
         private ISkinsChanger _skinsChanger;
             
         [Inject]
-        public void Construct(BackgroundsSkinsConfig backgroundsSkinsConfig, ICoinsController coinsModel, 
-            ISkinsChanger skinsChanger)
+        public void Construct(BackgroundsSkinsConfig backgroundsSkinsConfig, ISkinsChanger skinsChanger)
         {
             _backgroundsSkinsConfig = backgroundsSkinsConfig;
-            _coinsModel = coinsModel;
             _skinsChanger = skinsChanger;
         }
 
@@ -35,34 +29,8 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Backgrounds
             _model = model;
             InitializeRows();
             SetRowsData();
-            
-            UpdateButtonState(_model.BackgroundSkinPreview);
         }
-
-        public void _BuyOrEquip()
-        {
-            if (_skinsChanger.AvailableBackgroundSkins[_model.BackgroundSkinPreview])
-            {
-                _skinsChanger.EquipSkin(_model.BackgroundSkinPreview);
-            }
-            else
-            {
-                var skinConfigCell = _backgroundsSkinsConfig.BackgroundsSkins[_model.BackgroundSkinPreview];
-                if (_coinsModel.IsCanBuy(skinConfigCell.Price))
-                {
-                    _coinsModel.ChangeCoinsValue(-skinConfigCell.Price);
-                    _skinsChanger.UnlockSkin(_model.BackgroundSkinPreview);
-                    _skinsChanger.EquipSkin(_model.BackgroundSkinPreview);
-                }
-                else
-                {
-                    UI_Controller.ToggleScreen(ScreenType.RewardedAd, true);
-                }
-            }
-
-            UpdateButtonState(_model.BackgroundSkinPreview);
-        }
-
+        
         private void InitializeRows()
         {
             foreach (var row in _rows)
@@ -93,19 +61,8 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Backgrounds
                 row.OnClicked += ChangeSkinPreview;
         }
 
-        private void ChangeSkinPreview(BackgroundSkinType newSkin)
-        {
-            _model.ChangeBackgroundPreview(newSkin);
-            UpdateButtonState(newSkin);
-        }
-        
-        private void UpdateButtonState(BackgroundSkinType skin)
-        {
-            if(_skinsChanger.AvailableBackgroundSkins[skin])
-                buyOrEquipButton.SetEquipState();
-            else
-                buyOrEquipButton.SetBuyState(_backgroundsSkinsConfig.BackgroundsSkins[skin].Price);
-        }
+        private void ChangeSkinPreview(BackgroundSkinType newSkin) 
+            => _model.ChangeBackgroundPreview(newSkin);
 
         private void SetRowsData()
         {

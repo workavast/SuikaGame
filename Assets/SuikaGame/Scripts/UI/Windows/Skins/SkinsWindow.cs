@@ -2,6 +2,7 @@ using Avastrad.UI.UI_System;
 using SuikaGame.Scripts.Skins;
 using SuikaGame.Scripts.Skins.Entities;
 using SuikaGame.Scripts.UI.Windows.Skins.Backgrounds;
+using SuikaGame.Scripts.UI.Windows.Skins.BuyOrEquiping;
 using SuikaGame.Scripts.UI.Windows.Skins.Entities;
 using SuikaGame.Scripts.UI.Windows.Skins.Preview;
 using UnityEngine;
@@ -16,6 +17,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
         [SerializeField] private EntitiesSkinPacksRowsView entitiesSkinPacksRowsView;
         [SerializeField] private BackgroundsSkinsRowsView backgroundsSkinsRowsView;
         [SerializeField] private RowsViewsSwitcher rowsViewsSwitcher;
+        [SerializeField] private BuyOrEquipButton buyOrEquipButton;
         
         private ISkinsChanger _skinsChanger;
         private EntitiesSkinPackType _currentEntitiesSkinPackPreview;
@@ -36,8 +38,9 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
             backgroundPreviewView.Initialize(_model);
             entitiesSkinPacksRowsView.Initialize(_model);
             backgroundsSkinsRowsView.Initialize(_model);
+            buyOrEquipButton.Initialize(_model);
             rowsViewsSwitcher.Initialize();
-            
+                
             Hide();
         }
     }

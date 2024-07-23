@@ -10,8 +10,8 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
 
         public BackgroundSkinType BackgroundSkinPreview { get; private set; }
 
-        public event Action OnEntitiesSkinPackPreviewChanged;
-        public event Action OnBackgroundPreviewChanged;
+        public event Action<EntitiesSkinPackType> OnEntitiesSkinPackPreviewChanged;
+        public event Action<BackgroundSkinType> OnBackgroundPreviewChanged;
         
         public void ChangeEntityPreview(EntitiesSkinPackType newSkin)
         {
@@ -19,7 +19,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
                 return;
             
             EntitiesSkinPackPreview = newSkin;
-            OnEntitiesSkinPackPreviewChanged?.Invoke();
+            OnEntitiesSkinPackPreviewChanged?.Invoke(EntitiesSkinPackPreview);
         }
         
         public void ChangeBackgroundPreview(BackgroundSkinType newSkin)
@@ -28,7 +28,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
                 return;
             
             BackgroundSkinPreview = newSkin;
-            OnBackgroundPreviewChanged?.Invoke();
+            OnBackgroundPreviewChanged?.Invoke(BackgroundSkinPreview);
         }
     }
 }

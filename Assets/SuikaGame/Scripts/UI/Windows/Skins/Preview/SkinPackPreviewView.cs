@@ -30,16 +30,16 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Preview
 
             _model.OnEntitiesSkinPackPreviewChanged += SetNewEntitiesSkinPack;
             
-            SetNewEntitiesSkinPack();
+            SetNewEntitiesSkinPack(_model.EntitiesSkinPackPreview);
         }
         
-        private void SetNewEntitiesSkinPack()
+        private void SetNewEntitiesSkinPack(EntitiesSkinPackType newSkinPackType)
         {
-            if (!_entitiesSkinPacksConfig.SkinsPacks.ContainsKey(_model.EntitiesSkinPackPreview))
-                throw new ArgumentOutOfRangeException($"config doesnt contains key {_model.EntitiesSkinPackPreview}");
+            if (!_entitiesSkinPacksConfig.SkinsPacks.ContainsKey(newSkinPackType))
+                throw new ArgumentOutOfRangeException($"config doesnt contains key {newSkinPackType}");
 
             loadingTitle.Show();
-            _assetReferenceLoader.Load(_entitiesSkinPacksConfig.SkinsPacks[_model.EntitiesSkinPackPreview].SkinPack, ShowPreview);
+            _assetReferenceLoader.Load(_entitiesSkinPacksConfig.SkinsPacks[newSkinPackType].SkinPack, ShowPreview);
         }
         
         private void ShowPreview()

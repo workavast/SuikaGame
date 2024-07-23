@@ -30,16 +30,16 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Preview
 
             _model.OnBackgroundPreviewChanged += SetNewBackgroundSkin;
             
-            SetNewBackgroundSkin();
+            SetNewBackgroundSkin(_model.BackgroundSkinPreview);
         }
         
-        private void SetNewBackgroundSkin()
+        private void SetNewBackgroundSkin(BackgroundSkinType newSkinType)
         {
-            if (!_backgroundsSkinsConfig.BackgroundsSkins.ContainsKey(_model.BackgroundSkinPreview))
-                throw new ArgumentOutOfRangeException($"config doesnt contains key {_model.BackgroundSkinPreview}");
+            if (!_backgroundsSkinsConfig.BackgroundsSkins.ContainsKey(newSkinType))
+                throw new ArgumentOutOfRangeException($"config doesnt contains key {newSkinType}");
 
             loadingTitle.Show();
-            _backgroundAssetReferenceLoader.Load(_backgroundsSkinsConfig.BackgroundsSkins[_model.BackgroundSkinPreview].Background, ShowPreview);
+            _backgroundAssetReferenceLoader.Load(_backgroundsSkinsConfig.BackgroundsSkins[newSkinType].Background, ShowPreview);
         }
 
         private void ShowPreview()
