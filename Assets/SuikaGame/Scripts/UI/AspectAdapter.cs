@@ -12,6 +12,9 @@ namespace SuikaGame.Scripts.UI
         private float _prevAspect = -1;
         private float _defaultAspect;
         private float _defaultWidth;
+        private int _prevHight = -1;
+        private int _prevWidth = -1;
+        private bool _updateSize;
         
         private void Start()
         {
@@ -21,22 +24,36 @@ namespace SuikaGame.Scripts.UI
             var canvasScaler = GetComponentInParent<CanvasScaler>();
             _defaultAspect = canvasScaler.referenceResolution.y / canvasScaler.referenceResolution.x;
             _canvasRect = canvasScaler.GetComponent<RectTransform>();
+            _prevHight = Screen.height;
+            _prevWidth = Screen.width;
         }
 
-        private void Update()
+        private void LateUpdate()
             => TryFixSize();
 
         private void TryFixSize()
         {
             var currentAspect = (float)Screen.height / Screen.width;
-            if (Math.Abs(_prevAspect - currentAspect) < 0.00001f)
-                return;
-            
-            _prevAspect = currentAspect;
-            if (1 > currentAspect || currentAspect > _defaultAspect)
-                _rectTransform.sizeDelta = new Vector2(_defaultWidth, 0);
+
+            if (_updateSize)
+            {
+                _prevHight = Screen.height;
+                _prevWidth = Screen.width;
+                _prevAspect = currentAspect;
+                if (1 > currentAspect || currentAspect > _defaultAspect)
+                    _rectTransform.sizeDelta = new Vector2(_defaultWidth, 0);
+                else
+                    _rectTransform.sizeDelta = new Vector2(_canvasRect.sizeDelta.x, 0);
+
+                _updateSize = false;
+            }
             else
-                _rectTransform.sizeDelta = new Vector2(_canvasRect.sizeDelta.x, 0);
+            {
+                if (_prevWidth == Screen.width && _prevHight == Screen.height && Math.Abs(_prevAspect - currentAspect) < 0.00001f)
+                    return;
+
+                _updateSize = true;
+            }
         }
     }
 }

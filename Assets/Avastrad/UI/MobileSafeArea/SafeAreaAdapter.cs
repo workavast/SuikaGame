@@ -1,19 +1,18 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Avastrad.UI.MobileSafeArea
 {
     [RequireComponent(typeof(RectTransform))]
     public class SafeAreaAdapter: MonoBehaviour
     {
-        [SerializeField] private bool adaptX = true;
-        [SerializeField] private bool adaptY = true;
-
-        private bool _prevAdaptX;
-        private bool _prevAdaptY;
+        [SerializeField] private Pair adaptXAnchors = new(true, true);
+        [SerializeField] private Pair adaptYAnchors = new(true, true);
         
+        private Pair _prevAdaptX;
+        private Pair _prevAdaptY;
         private Vector2 _defaultAnchorMin;
         private Vector2 _defaultAnchorMax;
-
         private RectTransform _rectTransform;
         private ScreenOrientation _prevOrientation;
         private Vector2Int _prevScreenSize;
@@ -21,8 +20,8 @@ namespace Avastrad.UI.MobileSafeArea
 
         private void Awake()
         {
-            _prevAdaptX = adaptX;
-            _prevAdaptY = adaptY;
+            _prevAdaptX = adaptXAnchors;
+            _prevAdaptY = adaptYAnchors;
             
             _rectTransform = GetComponent<RectTransform>();
             _defaultAnchorMin = _rectTransform.anchorMin;
@@ -44,35 +43,33 @@ namespace Avastrad.UI.MobileSafeArea
             var safeZone = Screen.safeArea;
             
             if(safeZone != _prevRect || Screen.width != _prevScreenSize.x || Screen.height != _prevScreenSize.y
-                || Screen.orientation != _prevOrientation || _prevAdaptX != adaptX || _prevAdaptY != adaptY)
+                || Screen.orientation != _prevOrientation || _prevAdaptX != adaptXAnchors || _prevAdaptY != adaptYAnchors)
             {
                 var anchorMin = safeZone.position;
                 var anchorMax = safeZone.position + safeZone.size;
 
-                if (adaptX)
-                {
+                if (adaptXAnchors.MinAnchor)
                     anchorMin.x /= Screen.width;
-                    anchorMax.x /= Screen.width;
-                }
                 else
-                {
                     anchorMin.x = _defaultAnchorMin.x;
-                    anchorMax.x = _defaultAnchorMax.x;
-                }
-
-                if (adaptY)
-                {
-                    anchorMin.y /= Screen.height;
-                    anchorMax.y /= Screen.height;
-                }
+                    
+                if (adaptXAnchors.MinAnchor)
+                    anchorMax.x /= Screen.width;
                 else
-                {
+                    anchorMax.x = _defaultAnchorMax.x;
+ 
+                if (adaptYAnchors.MinAnchor) 
+                    anchorMin.y /= Screen.height;
+                else
                     anchorMin.y = _defaultAnchorMin.y;
-                    anchorMax.y = _defaultAnchorMax.y;
-                }
 
-                _prevAdaptX = adaptX;
-                _prevAdaptY = adaptY;
+                if (adaptYAnchors.MaxAnchor) 
+                    anchorMax.y /= Screen.height;
+                else
+                    anchorMax.y = _defaultAnchorMax.y;
+
+                _prevAdaptX = adaptXAnchors;
+                _prevAdaptY = adaptYAnchors;
                 
                 _rectTransform.anchorMin = anchorMin;
                 _rectTransform.anchorMax = anchorMax;
@@ -82,6 +79,25 @@ namespace Avastrad.UI.MobileSafeArea
                 _prevScreenSize.y = Screen.height;
                 _prevRect = safeZone;
             }
+        }
+        
+        [Serializable]
+        private struct Pair
+        {
+            [field: SerializeField] public bool MinAnchor { get; private set; }
+            [field: SerializeField] public bool MaxAnchor { get; private set; }
+
+            public Pair(bool minAnchor, bool maxAnchor)
+            {
+                MinAnchor = minAnchor;
+                MaxAnchor = maxAnchor;
+            }
+
+            public static bool operator ==(Pair pairLeft, Pair pairRight) 
+                => pairLeft.MinAnchor == pairRight.MinAnchor && pairLeft.MaxAnchor == pairRight.MaxAnchor;
+
+            public static bool operator !=(Pair pairLeft, Pair pairRight) 
+                => !(pairLeft == pairRight);
         }
     }
 }

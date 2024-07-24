@@ -12,15 +12,19 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
     {
         [SerializeField] private Image preview;
         [SerializeField] private PriceView priceView;
+        [SerializeField] private Image frame;
+        [SerializeField] private Color activeRowColor;
 
-        private EntitiesSkinPackType _entitiesSkinPackType;
+        public EntitiesSkinPackType EntitiesSkinPackType { get; private set; }
         private ISkinsChanger _skinsChanger;
+        private Color _unActiveColor;
 
         public event Action<EntitiesSkinPackType> OnClicked;
         
         private void Awake()
         {
-            GetComponent<Button>().onClick.AddListener(() => OnClicked?.Invoke(_entitiesSkinPackType));
+            GetComponent<Button>().onClick.AddListener(() => OnClicked?.Invoke(EntitiesSkinPackType));
+            _unActiveColor = frame.color;
         }
 
         public void SetData(ISkinsChanger skinsChanger, EntitiesSkinPackType entitiesSkinPackType, EntitiesSkinPackConfigCell entitiesSkinPackConfigCell)
@@ -32,14 +36,17 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
                 _skinsChanger.OnEntitiesSkinPackUnlocked -= TogglePriceVisibility;
 
             _skinsChanger = skinsChanger;
-            _entitiesSkinPackType = entitiesSkinPackType;
+            EntitiesSkinPackType = entitiesSkinPackType;
             preview.sprite = newSkinPackPreview;
             priceView.SetPrice(newPrice);
             _skinsChanger.OnEntitiesSkinPackUnlocked += TogglePriceVisibility;
             TogglePriceVisibility();
         }
-        
+
+        public void ToggleActivity(bool isActive) 
+            => frame.color = isActive ? activeRowColor : _unActiveColor;
+
         private void TogglePriceVisibility() 
-            => priceView.ToggleVisibility(!_skinsChanger.AvailableEntitiesSkinPacks[_entitiesSkinPackType]);
+            => priceView.ToggleVisibility(!_skinsChanger.AvailableEntitiesSkinPacks[EntitiesSkinPackType]);
     }
 }

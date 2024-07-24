@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Linq;
 using SuikaGame.Scripts.Skins;
 using SuikaGame.Scripts.Skins.Entities;
-using SuikaGame.Scripts.UI.Windows.Skins.BuyOrEquiping;
 using UnityEngine;
 using Zenject;
 
@@ -12,12 +11,12 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
     {
         [SerializeField] private Transform skinsPacksParent;
         [SerializeField] private EntitiesSkinPackPreviewRow entitiesSkinPackPreviewRowPrefab;
-        [SerializeField] private BuyOrEquipButton buyOrEquipButton;
 
         private readonly List<EntitiesSkinPackPreviewRow> _rows = new(8);
         private EntitiesSkinPacksConfig _entitiesSkinPacksConfig;
         private SkinsPreviewModel _model;
         private ISkinsChanger _skinsChanger;
+        private EntitiesSkinPackPreviewRow _activeRow;
         
         [Inject]
         public void Construct(EntitiesSkinPacksConfig entitiesSkinPacksConfig, ISkinsChanger skinsChanger)
@@ -29,6 +28,8 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
         public void Initialize(SkinsPreviewModel model)
         {
             _model = model;
+            _model.OnEntitiesSkinPackPreviewChanged += UpdateActiveRow;
+            
             InitializeRows();
             SetRowsData();
         }
@@ -61,8 +62,20 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
 
             foreach (var row in _rows)
                 row.OnClicked += ChangeSkinPackPreview;
+
+            UpdateActiveRow(_model.EntitiesSkinPackPreview);
         }
 
+        private void UpdateActiveRow(EntitiesSkinPackType skinPackType)
+        {
+            if (_activeRow != null) 
+                _activeRow.ToggleActivity(false);
+
+            _activeRow = _rows.Find(r => r.EntitiesSkinPackType == skinPackType);
+            if (_activeRow != null) 
+                _activeRow.ToggleActivity(true);
+        }
+        
         private void ChangeSkinPackPreview(EntitiesSkinPackType newEntitiesSkinPack) 
             => _model.ChangeEntityPreview(newEntitiesSkinPack);
 
@@ -77,6 +90,11 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
                 var key = skinsPacks[i];
                 _rows[i].SetData(_skinsChanger, key, _entitiesSkinPacksConfig.SkinsPacks[key]);
             }
+        }
+
+        private void OnDestroy()
+        {
+            _model.OnEntitiesSkinPackPreviewChanged -= UpdateActiveRow;
         }
     }
 }

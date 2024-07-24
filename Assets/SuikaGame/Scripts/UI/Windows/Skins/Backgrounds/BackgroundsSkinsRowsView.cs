@@ -16,7 +16,8 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Backgrounds
         private BackgroundsSkinsConfig _backgroundsSkinsConfig;
         private SkinsPreviewModel _model;
         private ISkinsChanger _skinsChanger;
-            
+        private BackgroundSkinPreviewRow _activeRow;
+
         [Inject]
         public void Construct(BackgroundsSkinsConfig backgroundsSkinsConfig, ISkinsChanger skinsChanger)
         {
@@ -27,6 +28,8 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Backgrounds
         public void Initialize(SkinsPreviewModel model)
         {
             _model = model;
+            _model.OnBackgroundPreviewChanged += UpdateActiveRow;
+            
             InitializeRows();
             SetRowsData();
         }
@@ -59,8 +62,20 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Backgrounds
 
             foreach (var row in _rows)
                 row.OnClicked += ChangeSkinPreview;
+
+            UpdateActiveRow(_model.BackgroundSkinPreview);
         }
 
+        private void UpdateActiveRow(BackgroundSkinType skinPackType)
+        {
+            if (_activeRow != null) 
+                _activeRow.ToggleActivity(false);
+
+            _activeRow = _rows.Find(r => r.BackgroundSkinType == skinPackType);
+            if (_activeRow != null) 
+                _activeRow.ToggleActivity(true);
+        }
+        
         private void ChangeSkinPreview(BackgroundSkinType newSkin) 
             => _model.ChangeBackgroundPreview(newSkin);
 
@@ -75,6 +90,11 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Backgrounds
                 var key = backgroundSkinTypes[i];
                 _rows[i].SetData(_skinsChanger, key, _backgroundsSkinsConfig.BackgroundsSkins[key]);
             }
+        }
+
+        private void OnDestroy()
+        {
+            _model.OnBackgroundPreviewChanged -= UpdateActiveRow;
         }
     }
 }
