@@ -14,7 +14,8 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
         [SerializeField] private PriceView priceView;
         [SerializeField] private Image frame;
         [SerializeField] private Color activeRowColor;
-
+        [SerializeField] private GameObject useMark; 
+        
         public EntitiesSkinPackType EntitiesSkinPackType { get; private set; }
         private ISkinsChanger _skinsChanger;
         private Color _unActiveColor;
@@ -40,11 +41,16 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
             preview.sprite = newSkinPackPreview;
             priceView.SetPrice(newPrice);
             _skinsChanger.OnEntitiesSkinPackUnlocked += TogglePriceVisibility;
+            _skinsChanger.OnEntitiesSkinPackEquipped += UpdateEquipMark;
             TogglePriceVisibility();
+            UpdateEquipMark();
         }
 
         public void ToggleActivity(bool isActive) 
             => frame.color = isActive ? activeRowColor : _unActiveColor;
+
+        private void UpdateEquipMark() 
+            => useMark.SetActive(_skinsChanger.EquippedEntitiesSkinPack == EntitiesSkinPackType);
 
         private void TogglePriceVisibility() 
             => priceView.ToggleVisibility(!_skinsChanger.AvailableEntitiesSkinPacks[EntitiesSkinPackType]);

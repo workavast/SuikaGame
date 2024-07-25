@@ -45,7 +45,9 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.BuyOrEquiping
 
         public override void UpdateButtonState()
         {
-            if(_skinsChanger.AvailableEntitiesSkinPacks[Type])
+            if (_skinsChanger.EquippedEntitiesSkinPack == Type)
+                BuyOrEquipButton.SetEquippedState();
+            else if(_skinsChanger.AvailableEntitiesSkinPacks[Type])
                 BuyOrEquipButton.SetEquipState();
             else
                 BuyOrEquipButton.SetBuyState(_entitiesSkinPacksConfig.SkinsPacks[Type].Price);

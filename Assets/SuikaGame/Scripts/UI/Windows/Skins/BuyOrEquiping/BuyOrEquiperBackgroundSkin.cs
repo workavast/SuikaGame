@@ -45,7 +45,9 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.BuyOrEquiping
 
         public override void UpdateButtonState()
         {
-            if(_skinsChanger.AvailableBackgroundSkins[Type])
+            if (_skinsChanger.EquippedBackgroundSkin == Type)
+                BuyOrEquipButton.SetEquippedState();
+            else if(_skinsChanger.AvailableBackgroundSkins[Type])
                 BuyOrEquipButton.SetEquipState();
             else
                 BuyOrEquipButton.SetBuyState(_backgroundsSkinsConfig.BackgroundsSkins[Type].Price);

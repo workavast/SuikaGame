@@ -140,6 +140,7 @@ MonoBehaviour:
   priceView: {fileID: 6725503199991402288}
   frame: {fileID: 4135453334488940063}
   activeRowColor: {r: 1, g: 1, b: 1, a: 1}
+  useMark: {fileID: 9123369732663016474}
 --- !u!114 &4135453334488940063 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1785445020568616569, guid: 2b206590070d4184c86401194b78697f, type: 3}
@@ -162,3 +163,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a1a09acd03849f1a08d4d8a5d4e3d1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &9123369732663016474 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6863345385985571964, guid: 2b206590070d4184c86401194b78697f, type: 3}
+  m_PrefabInstance: {fileID: 2423842790171574374}
+  m_PrefabAsset: {fileID: 0}

@@ -14,6 +14,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Backgrounds
         [SerializeField] private PriceView priceView;
         [SerializeField] private Image frame;
         [SerializeField] private Color activeRowColor;
+        [SerializeField] private GameObject useMark; 
 
         public BackgroundSkinType BackgroundSkinType { get; private set; }
         private ISkinsChanger _skinsChanger;
@@ -40,12 +41,17 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Backgrounds
             preview.sprite = newBackgroundPreview;
             priceView.SetPrice(newPrice);
             _skinsChanger.OnBackgroundSkinUnlocked += TogglePriceVisibility;
+            _skinsChanger.OnBackgroundSkinEquipped += UpdateEquipMark;
             TogglePriceVisibility();
+            UpdateEquipMark();
         }
 
         public void ToggleActivity(bool isActive) 
             => frame.color = isActive ? activeRowColor : _unActiveColor;
 
+        private void UpdateEquipMark() 
+            => useMark.SetActive(_skinsChanger.EquippedBackgroundSkin == BackgroundSkinType);
+        
         private void TogglePriceVisibility() 
             => priceView.ToggleVisibility(!_skinsChanger.AvailableBackgroundSkins[BackgroundSkinType]);
     }

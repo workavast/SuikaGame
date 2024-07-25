@@ -6,22 +6,22 @@ namespace Avastrad.UI.MobileSafeArea
     [RequireComponent(typeof(RectTransform))]
     public class SafeAreaAdapter: MonoBehaviour
     {
-        [SerializeField] private Pair adaptXAnchors = new(true, true);
-        [SerializeField] private Pair adaptYAnchors = new(true, true);
+        [SerializeField] private Pair isAdaptXAnchors = new(true, true);
+        [SerializeField] private Pair isAdaptYAnchors = new(true, true);
         
-        private Pair _prevAdaptX;
-        private Pair _prevAdaptY;
+        private Pair _prevIsAdaptX;
+        private Pair _prevIsAdaptY;
         private Vector2 _defaultAnchorMin;
         private Vector2 _defaultAnchorMax;
         private RectTransform _rectTransform;
         private ScreenOrientation _prevOrientation;
         private Vector2Int _prevScreenSize;
-        private Rect _prevRect;
+        private Rect _prevSafeAreaRect;
 
         private void Awake()
         {
-            _prevAdaptX = adaptXAnchors;
-            _prevAdaptY = adaptYAnchors;
+            _prevIsAdaptX = isAdaptXAnchors;
+            _prevIsAdaptY = isAdaptYAnchors;
             
             _rectTransform = GetComponent<RectTransform>();
             _defaultAnchorMin = _rectTransform.anchorMin;
@@ -34,50 +34,53 @@ namespace Avastrad.UI.MobileSafeArea
         }
 
 #if UNITY_EDITOR
-        private void FixedUpdate() 
+        private void LateUpdate() 
             => AdaptUiForSafeZone();
 #endif
 
         private void AdaptUiForSafeZone()
         {
-            var safeZone = Screen.safeArea;
+            var safeAreaRect = Screen.safeArea;
             
-            if(safeZone != _prevRect || Screen.width != _prevScreenSize.x || Screen.height != _prevScreenSize.y
-                || Screen.orientation != _prevOrientation || _prevAdaptX != adaptXAnchors || _prevAdaptY != adaptYAnchors)
+            if(safeAreaRect != _prevSafeAreaRect || 
+               Screen.width != _prevScreenSize.x || 
+               Screen.height != _prevScreenSize.y || 
+               Screen.orientation != _prevOrientation || 
+               _prevIsAdaptX != isAdaptXAnchors || 
+               _prevIsAdaptY != isAdaptYAnchors)
             {
-                var anchorMin = safeZone.position;
-                var anchorMax = safeZone.position + safeZone.size;
+                var anchorMin = safeAreaRect.position;
+                var anchorMax = safeAreaRect.position + safeAreaRect.size;
 
-                if (adaptXAnchors.MinAnchor)
+                if (isAdaptXAnchors.MinAnchor)
                     anchorMin.x /= Screen.width;
                 else
                     anchorMin.x = _defaultAnchorMin.x;
                     
-                if (adaptXAnchors.MinAnchor)
+                if (isAdaptXAnchors.MaxAnchor)
                     anchorMax.x /= Screen.width;
                 else
                     anchorMax.x = _defaultAnchorMax.x;
  
-                if (adaptYAnchors.MinAnchor) 
+                if (isAdaptYAnchors.MinAnchor) 
                     anchorMin.y /= Screen.height;
                 else
                     anchorMin.y = _defaultAnchorMin.y;
 
-                if (adaptYAnchors.MaxAnchor) 
+                if (isAdaptYAnchors.MaxAnchor) 
                     anchorMax.y /= Screen.height;
                 else
                     anchorMax.y = _defaultAnchorMax.y;
 
-                _prevAdaptX = adaptXAnchors;
-                _prevAdaptY = adaptYAnchors;
-                
                 _rectTransform.anchorMin = anchorMin;
                 _rectTransform.anchorMax = anchorMax;
                 
+                _prevIsAdaptX = isAdaptXAnchors;
+                _prevIsAdaptY = isAdaptYAnchors;
                 _prevOrientation = Screen.orientation;
                 _prevScreenSize.x = Screen.width;
                 _prevScreenSize.y = Screen.height;
-                _prevRect = safeZone;
+                _prevSafeAreaRect = safeAreaRect;
             }
         }
         
@@ -98,6 +101,19 @@ namespace Avastrad.UI.MobileSafeArea
 
             public static bool operator !=(Pair pairLeft, Pair pairRight) 
                 => !(pairLeft == pairRight);
+            
+            public override bool Equals(object obj)
+            {
+                if (obj is Pair)
+                {
+                    var pair = (Pair)obj;
+                    return this == pair;
+                }
+                return false;
+            }
+
+            public override int GetHashCode() 
+                => (MinAnchor, MaxAnchor).GetHashCode();
         }
     }
 }

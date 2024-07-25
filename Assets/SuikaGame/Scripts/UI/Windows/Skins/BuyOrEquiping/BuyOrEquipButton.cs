@@ -14,6 +14,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.BuyOrEquiping
         [SerializeField] private TMP_Text price;
         [SerializeField] private GameObject buyBlock;
         [SerializeField] private GameObject equipBlock;
+        [SerializeField] private GameObject equippedBlock;
         
         private BuyOrEquiperEntitiesSkinPack _buyOrEquiperEntitiesSkinPack;
         private BuyOrEquiperBackgroundSkin _buyOrEquiperBackgroundSkin;
@@ -45,12 +46,21 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.BuyOrEquiping
             price.text = newPrice.ToString();
             buyBlock.SetActive(true);
             equipBlock.SetActive(false);
+            equippedBlock.SetActive(false);
         }
 
         public void SetEquipState()
         {
             buyBlock.SetActive(false);
             equipBlock.SetActive(true);
+            equippedBlock.SetActive(false);
+        }
+        
+        public void SetEquippedState()
+        {
+            buyBlock.SetActive(false);
+            equipBlock.SetActive(false);
+            equippedBlock.SetActive(true);
         }
         
         public void _BuyOrEquip() 

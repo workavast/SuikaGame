@@ -1,4 +1,5 @@
 using Avastrad.UI.UI_System;
+using SuikaGame.Scripts.Game;
 using SuikaGame.Scripts.Skins;
 using SuikaGame.Scripts.Skins.Entities;
 using SuikaGame.Scripts.UI.Windows.Skins.Backgrounds;
@@ -28,7 +29,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
         {
             _skinsChanger = skinsChanger;
         }
-
+        
         public override void Initialize()
         {
             _model.ChangeEntityPreview(_skinsChanger.EquippedEntitiesSkinPack);
@@ -42,6 +43,18 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
             rowsViewsSwitcher.Initialize();
                 
             Hide();
+        }
+        
+        public override void Show()
+        {
+            GamePauser.Pause();
+            gameObject.SetActive(true);
+        }
+
+        public override void Hide()
+        {
+            GamePauser.Continue();
+            gameObject.SetActive(false);
         }
     }
 }
