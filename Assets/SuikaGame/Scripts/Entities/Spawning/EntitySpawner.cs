@@ -9,12 +9,13 @@ using Zenject;
 
 namespace SuikaGame.Scripts.Entities.Spawning
 {
-    public class EntitySpawner : MonoBehaviour, IEntitySpawner, IEventReceiver<EntityCollisionEvent>
+    public class EntitySpawner : MonoBehaviour, IEntitySpawner, INextEntitySpawner, IEventReceiver<EntityCollisionEvent>
     {
         [SerializeField] private StartEntityVelocityConfig startEntityVelocityConfig;
         [SerializeField] private SpawnerConfig spawnerConfig;
 
         public EventBusReceiverIdentifier EventBusReceiverIdentifier { get; } = new();
+        public int NextEntitySizeIndex { get; private set; }
 
         private IInput _input;
         private IEventBus _eventBus;
@@ -27,6 +28,7 @@ namespace SuikaGame.Scripts.Entities.Spawning
         public event Action OnSpawnEntity;
         public event Action OnDeSpawnEntity;
         public event Action<Vector2> OnMoveEntity;
+        public event Action<int> OnNextEntitySizeIndexChange;
         
         [Inject]
         public void Construct(IEventBus eventBus, IEntityFactory entityFactory,
@@ -96,8 +98,9 @@ namespace SuikaGame.Scripts.Entities.Spawning
             if (_currentEntity != null)
                 return;
 
-            var sizeIndex = spawnerConfig.GetSizeIndex(_entityMaxSizeCounter.CurrentMaxSize);
-            _currentEntity = _entityFactory.Create(sizeIndex, transform.position);
+            _currentEntity = _entityFactory.Create(NextEntitySizeIndex, transform.position);
+            NextEntitySizeIndex = spawnerConfig.GetSizeIndex(_entityMaxSizeCounter.CurrentMaxSize);
+            OnNextEntitySizeIndexChange?.Invoke(NextEntitySizeIndex);
             _currentEntity.DeActivate();
             OnSpawnEntity?.Invoke();
             OnMoveEntity?.Invoke(transform.position);
