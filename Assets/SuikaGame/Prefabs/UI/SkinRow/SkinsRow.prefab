@@ -676,7 +676,7 @@ GameObject:
   - component: {fileID: 4969726863541457200}
   - component: {fileID: 4540179022916504078}
   m_Layer: 0
-  m_Name: CoinIcon
+  m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -729,7 +729,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: eb594e5302b5148c49895d08b74d73ce, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fcd46b828c2bd48caa3e4b4e0614a556, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -1006,7 +1006,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: a779b38098fc44264b31817b3dca64ba, type: 3}
+  m_Sprite: {fileID: 21300000, guid: cb9ac5c430df5468c8ecf26434823ecb, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
