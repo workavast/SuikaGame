@@ -1,5 +1,4 @@
 using SuikaGame.Scripts.GameplaySavers.ManualSaver;
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -10,7 +9,6 @@ namespace SuikaGame.Scripts.UI.Elements.Buttons
     public class ManualSaveButton : MonoBehaviour
     {
         [SerializeField] private GameObject unAllowSave;
-        [SerializeField] private TMP_Text timerView;
         
         private IManualGameplaySaver _manualGameplaySaver;
         
@@ -34,13 +32,6 @@ namespace SuikaGame.Scripts.UI.Elements.Buttons
                 UnBlockButton();
             else
                 BlockButton();
-        }
-
-        private void Update()
-        {
-            timerView.text =
-                (_manualGameplaySaver.ReadOnlyTimer.MaxTime - _manualGameplaySaver.ReadOnlyTimer.CurrentTime)
-                .ToString();
         }
 
         private void UnBlockButton() 
