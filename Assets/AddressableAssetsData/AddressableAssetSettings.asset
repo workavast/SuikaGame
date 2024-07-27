@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: e0f6793582fbef04d8cbf2673a573080
   m_currentHash:
     serializedVersion: 2
-    Hash: a17cfb466fac770b0c28f57527a4a289
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -53,6 +53,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a4d3189f1d72d5346904afd383ab0529, type: 2}
   - {fileID: 11400000, guid: 88a7eebca68d47348b0bf6d760c6b822, type: 2}
   - {fileID: 11400000, guid: 0aaaf2d166c488b44b64895e7e3fe07b, type: 2}
+  - {fileID: 11400000, guid: 0df75cfa1bcc7f1498e20038bcf66ea4, type: 2}
+  - {fileID: 11400000, guid: a4338b4fbd1aa2d4cb69f0eb68053c52, type: 2}
+  - {fileID: 11400000, guid: be2da8330a4ef644bb8ae8a53a2fe76a, type: 2}
+  - {fileID: 11400000, guid: 08831d62b919cb049ac5c5d817daf27a, type: 2}
+  - {fileID: 11400000, guid: 07a9d256061a9854da59d0972f8037cc, type: 2}
+  - {fileID: 11400000, guid: 76bbf1c7a9dc6d14480120f6d6d48f02, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -97,6 +103,12 @@ MonoBehaviour:
     - Locale
     - Locale-en
     - Locale-ru
+    - Locale-fr-FR
+    - Locale-tr
+    - Locale-de
+    - Locale-it
+    - Locale-pt
+    - Locale-es
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: 61af7ec5e4cc3b64cbeceef620195233, type: 2}

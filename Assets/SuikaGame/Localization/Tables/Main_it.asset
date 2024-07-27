@@ -9,80 +9,76 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
-  m_Name: Main Shared Data
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: Main_it
   m_EditorClassIdentifier: 
-  m_TableCollectionName: Main
-  m_TableCollectionNameGuidString: bfcdc5b1d7421144abefd45f7262c103
-  m_Entries:
+  m_LocaleId:
+    m_Code: it
+  m_SharedData: {fileID: 11400000, guid: bfcdc5b1d7421144abefd45f7262c103, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
   - m_Id: 18981519360
-    m_Key: MusicVolume
+    m_Localized: Volume di musica
     m_Metadata:
       m_Items: []
   - m_Id: 60698066944
-    m_Key: EffectsVolume
+    m_Localized: Volume Effetti
     m_Metadata:
       m_Items: []
   - m_Id: 7474706724880384
-    m_Key: NotEnoughtCoins
+    m_Localized: Non hai abbastanza monete, ma puoi ottenere monete extra per guardare
+      l'annuncio
     m_Metadata:
       m_Items: []
   - m_Id: 7474799968452608
-    m_Key: CancelAdditionalCoins
+    m_Localized: Annullare
     m_Metadata:
       m_Items: []
   - m_Id: 7474952007778304
-    m_Key: NewRecord
+    m_Localized: Nuovo record!!
     m_Metadata:
       m_Items: []
   - m_Id: 7475147714002944
-    m_Key: LeaderboardPosition
+    m_Localized: 'Posizione Leaderboard:'
     m_Metadata:
       m_Items: []
   - m_Id: 7475268086333440
-    m_Key: CoinsReceived
+    m_Localized: 'Monete ricevute:'
     m_Metadata:
       m_Items: []
   - m_Id: 7475418187890688
-    m_Key: Score
+    m_Localized: 'Punteggio:'
     m_Metadata:
       m_Items: []
   - m_Id: 7475568725655552
-    m_Key: Balls
+    m_Localized: Palline
     m_Metadata:
       m_Items: []
   - m_Id: 7475626925817856
-    m_Key: Backgrounds
+    m_Localized: Sfondo
     m_Metadata:
       m_Items: []
   - m_Id: 7475675160313856
-    m_Key: Loading
+    m_Localized: Caricamento
     m_Metadata:
       m_Items: []
   - m_Id: 7475750724894720
-    m_Key: OpenFor
+    m_Localized: 'Aprire dietro:'
     m_Metadata:
       m_Items: []
   - m_Id: 7475833906331648
-    m_Key: Equip
+    m_Localized: Selezionare
     m_Metadata:
       m_Items: []
   - m_Id: 7475891141804032
-    m_Key: Equipped
+    m_Localized: Scelto
     m_Metadata:
       m_Items: []
   - m_Id: 7476016157229056
-    m_Key: NextEntity
+    m_Localized: 'Seguente:'
     m_Metadata:
       m_Items: []
-  m_Metadata:
-    m_Items: []
-  m_KeyGenerator:
-    rid: 7237071450020773912
   references:
     version: 2
-    RefIds:
-    - rid: 7237071450020773912
-      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables, asm: Unity.Localization}
-      data:
-        m_CustomEpoch: 1720293521002
+    RefIds: []

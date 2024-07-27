@@ -19,11 +19,64 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 18981519360
-    m_Localized: MusicVolume
+    m_Localized: Music Volume
     m_Metadata:
       m_Items: []
   - m_Id: 60698066944
     m_Localized: Effects Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7474799968452608
+    m_Localized: Cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7474952007778304
+    m_Localized: New Record!!
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7475147714002944
+    m_Localized: 'Leaderboard position:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7475268086333440
+    m_Localized: 'Coins received:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7475418187890688
+    m_Localized: 'Score:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7475568725655552
+    m_Localized: Balls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7475626925817856
+    m_Localized: Backgrounds
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7475675160313856
+    m_Localized: Loading
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7475750724894720
+    m_Localized: 'Open for:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7475833906331648
+    m_Localized: Equip
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7475891141804032
+    m_Localized: Equipped
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7476016157229056
+    m_Localized: 'Next:'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7474706724880384
+    m_Localized: You don't have enough coins, but you can get extra coins for watching
+      ad
     m_Metadata:
       m_Items: []
   references:
