@@ -2,6 +2,7 @@ using Avastrad.UI.UI_System;
 using SuikaGame.Scripts.Game;
 using SuikaGame.Scripts.Skins;
 using SuikaGame.Scripts.Skins.Entities;
+using SuikaGame.Scripts.UI.Elements.AnimationBlocks;
 using SuikaGame.Scripts.UI.Windows.Skins.Backgrounds;
 using SuikaGame.Scripts.UI.Windows.Skins.BuyOrEquiping;
 using SuikaGame.Scripts.UI.Windows.Skins.Entities;
@@ -13,6 +14,12 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
 {
     public class SkinsWindow : UI_ScreenBase
     {
+        [SerializeField] private AnimationFadeBlock backgroundFadeBlock;
+        [SerializeField] private AnimationFadeBlock previewFadeBlock;
+        [SerializeField] private AnimationMoveBlock scrollsMoveBlock;
+        [SerializeField] private AnimationMoveBlock upTitleMoveBlock;
+
+        [Space]
         [SerializeField] private SkinPackPreviewView skinPackPreviewView;
         [SerializeField] private BackgroundPreviewView backgroundPreviewView;
         [SerializeField] private EntitiesSkinPacksRowsView entitiesSkinPacksRowsView;
@@ -41,7 +48,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
             backgroundsSkinsRowsView.Initialize(_model);
             buyOrEquipButton.Initialize(_model);
             rowsViewsSwitcher.Initialize();
-                
+            
             Hide();
         }
         
@@ -49,12 +56,23 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
         {
             GamePauser.Pause();
             gameObject.SetActive(true);
+            
+            backgroundFadeBlock.Show();
+            previewFadeBlock.Show();
+            scrollsMoveBlock.Show();
+            upTitleMoveBlock.Show();
         }
 
         public override void Hide()
         {
-            GamePauser.Continue();
-            gameObject.SetActive(false);
+            backgroundFadeBlock.Hide();
+            previewFadeBlock.Hide();
+            scrollsMoveBlock.Hide(() =>
+            {
+                gameObject.SetActive(false);
+                GamePauser.Continue();
+            });
+            upTitleMoveBlock.Hide();
         }
     }
 }
