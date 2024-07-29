@@ -14,8 +14,8 @@ namespace Avastrad.UI.UI_System
 
         public static void SetSingleScreens(IEnumerable<ScreenType> screenTypes)
         {
-            foreach (var screen in UI_ScreenRepository.Screens) 
-                screen.Hide();
+            foreach (var screen in UI_ScreenRepository.Screens)
+                TryToggleScreen(screen, false);
 
             foreach (var screen in screenTypes) 
                 ToggleScreen(screen, true);
@@ -32,14 +32,18 @@ namespace Avastrad.UI.UI_System
         public static void ToggleScreen(ScreenType screenType, bool show)
         {
             var screen = UI_ScreenRepository.GetScreenByEnum(screenType);
+            TryToggleScreen(screen, show);
+        }
 
-            if (screen.isActiveAndEnabled != show)
-            {
-                if (show)
-                    screen.Show();
-                else
-                    screen.Hide();
-            }
+        private static void TryToggleScreen(UI_ScreenBase screen, bool show)
+        {
+            if (screen.isActiveAndEnabled == show) 
+                return;
+            
+            if (show)
+                screen.Show();
+            else
+                screen.Hide();
         }
     }
 }
