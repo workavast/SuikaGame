@@ -97,13 +97,17 @@ namespace SuikaGame.Scripts.Entities.Spawning
         {
             if (_currentEntity != null)
                 return;
-
+            
             _currentEntity = _entityFactory.Create(NextEntitySizeIndex, transform.position);
             NextEntitySizeIndex = spawnerConfig.GetSizeIndex(_entityMaxSizeCounter.CurrentMaxSize);
             OnNextEntitySizeIndexChange?.Invoke(NextEntitySizeIndex);
             _currentEntity.DeActivate();
             OnSpawnEntity?.Invoke();
-            OnMoveEntity?.Invoke(transform.position);
+            
+            if (_input.IsHold)
+                MoveEntity(_input.HoldPoint);
+            else
+                OnMoveEntity?.Invoke(transform.position);
         }
         
         private void DropEntity(Vector2 point)

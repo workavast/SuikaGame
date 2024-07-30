@@ -9,6 +9,9 @@ namespace SuikaGame.Scripts.UI
         IDragHandler, IPointerUpHandler, IPointerDownHandler
     {
         private bool _pointerIsIn;
+
+        public bool IsHold { get; private set; }
+        public Vector2 HoldPoint { get; private set; }
         
         public event Action<Vector2> Pressed;
         public event Action<Vector2> Hold;
@@ -23,8 +26,9 @@ namespace SuikaGame.Scripts.UI
         public void OnPointerDown(PointerEventData eventData)
         {
             var spawnPoint = eventData.position;
-            var gamePoint = Camera.main.ScreenToWorldPoint(spawnPoint);
-            Pressed?.Invoke(gamePoint);
+            HoldPoint = Camera.main.ScreenToWorldPoint(spawnPoint);
+            IsHold = true;
+            Pressed?.Invoke(HoldPoint);
         }
         
         public void OnPointerUp(PointerEventData eventData)
@@ -33,15 +37,16 @@ namespace SuikaGame.Scripts.UI
                 return;
 
             var spawnPoint = eventData.position;
-            var gamePoint = Camera.main.ScreenToWorldPoint(spawnPoint);
-            Release?.Invoke(gamePoint);
+            HoldPoint = Camera.main.ScreenToWorldPoint(spawnPoint);
+            IsHold = false;
+            Release?.Invoke(HoldPoint);
         }
 
         public void OnDrag(PointerEventData eventData)
         {
             var spawnPoint = eventData.position;
-            var gamePoint = Camera.main.ScreenToWorldPoint(spawnPoint);
-            Hold?.Invoke(gamePoint);
+            HoldPoint = Camera.main.ScreenToWorldPoint(spawnPoint);
+            Hold?.Invoke(HoldPoint);
         }
     }
 }
