@@ -1,8 +1,8 @@
 using SuikaGame.Scripts.Entities.Factory;
 using SuikaGame.Scripts.GameplayControlling;
 using SuikaGame.Scripts.GameplayField;
-using SuikaGame.Scripts.Loading;
-using SuikaGame.Scripts.Saves;
+using SuikaGame.Scripts.GameplayField.Model;
+using SuikaGame.Scripts.ScenesLoading;
 using UnityEngine;
 using Zenject;
 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using SuikaGame.Scripts.Entities;
 using SuikaGame.Scripts.GameplayField;
+using SuikaGame.Scripts.GameplayField.Model;
 
 namespace SuikaGame.Scripts.Saves.GameplayScene
 {

@@ -3,6 +3,7 @@ using SuikaGame.Scripts.AddressablesExtension.AssetReferenceLoading;
 using SuikaGame.Scripts.CoroutineHolding;
 using SuikaGame.Scripts.Skins.Backgrounds;
 using UnityEngine;
+using UnityEngine.UI;
 using Zenject;
 
 namespace SuikaGame.Scripts.UI.Windows.Skins.Preview
@@ -10,7 +11,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Preview
     public class BackgroundPreviewView : MonoBehaviour
     {
         [SerializeField] private LoadingTitle loadingTitle;
-        [SerializeField] private BackgroundSkinPreview backgroundPreview;
+        [SerializeField] private Image backgroundPreview;
         
         private BackgroundsSkinsConfig _backgroundsSkinsConfig;
         private AssetReferenceLoaderT<Sprite> _backgroundAssetReferenceLoader;
@@ -44,7 +45,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Preview
 
         private void ShowPreview()
         {
-            backgroundPreview.SetNewSkin(_backgroundAssetReferenceLoader.Asset);
+            backgroundPreview.sprite = _backgroundAssetReferenceLoader.Asset;
             loadingTitle.Hide();
         }
 

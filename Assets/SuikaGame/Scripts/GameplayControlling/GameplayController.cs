@@ -1,10 +1,11 @@
 using Avastrad.UI.UI_System;
 using SuikaGame.Scripts.Coins;
 using SuikaGame.Scripts.Entities;
+using SuikaGame.Scripts.Entities.MaxSizeCounting;
 using SuikaGame.Scripts.Entities.Spawning;
-using SuikaGame.Scripts.EntityMaxSizeCounting;
 using SuikaGame.Scripts.GameOverDetection;
-using SuikaGame.Scripts.GameplaySavers;
+using SuikaGame.Scripts.GameplayField.Hiding;
+using SuikaGame.Scripts.GameplayField.Savers;
 using SuikaGame.Scripts.Score;
 using UnityEngine;
 using Zenject;
@@ -13,18 +14,18 @@ namespace SuikaGame.Scripts.GameplayControlling
 {
     public class GameplayController : IGameplayController, IGameReseter
     {
-        private IEntitySpawner _entitySpawner;
-        private IEntitiesRepository _entitiesRepository;
-        private IScoreCounter _scoreCounter;
-        private IEntityMaxSizeCounter _entityMaxSizeCounter;
-        private IGameOverZone _gameOverZone;
-        private IGameplaySaver _gameplaySaver;
-        private ICoinsController _coinsController;
-        
-        [Inject]
-        public void Construct(IEntitySpawner entitySpawner, IEntitiesRepository entitiesRepository, 
+        private readonly IEntitySpawner _entitySpawner;
+        private readonly IEntitiesRepository _entitiesRepository;
+        private readonly IScoreCounter _scoreCounter;
+        private readonly IEntityMaxSizeCounter _entityMaxSizeCounter;
+        private readonly IGameOverZone _gameOverZone;
+        private readonly IGameplaySaver _gameplaySaver;
+        private readonly ICoinsController _coinsController;
+        private readonly GameplayFieldVfxHider _gameplayFieldVfxHider;
+
+        public GameplayController(IEntitySpawner entitySpawner, IEntitiesRepository entitiesRepository, 
             IScoreCounter scoreCounter, IEntityMaxSizeCounter entityMaxSizeCounter, IGameOverZone gameOverZone,
-            IGameplaySaver gameplaySaver, ICoinsController coinsController)
+            IGameplaySaver gameplaySaver, ICoinsController coinsController, GameplayFieldVfxHider gameplayFieldVfxHider)
         {
             _entitySpawner = entitySpawner;
             _entitiesRepository = entitiesRepository;
@@ -33,6 +34,7 @@ namespace SuikaGame.Scripts.GameplayControlling
             _gameOverZone = gameOverZone;
             _gameplaySaver = gameplaySaver;
             _coinsController = coinsController;
+            _gameplayFieldVfxHider = gameplayFieldVfxHider;
 
             _gameOverZone.OnGameIsOver += OnGameIsOver;
         }
@@ -48,6 +50,7 @@ namespace SuikaGame.Scripts.GameplayControlling
                 ApplySessionResult();
 
             Debug.Log($"RESET");
+            _gameplayFieldVfxHider.HideGameField();
             _gameOverZone.Reset();
             _scoreCounter.Reset();
             _entityMaxSizeCounter.Reset();

@@ -1,6 +1,8 @@
 using System;
 using Avastrad.EventBusFramework;
+using SuikaGame.Scripts.GameOverDetection;
 using SuikaGame.Scripts.GameplayField;
+using SuikaGame.Scripts.GameplayField.Model;
 using SuikaGame.Scripts.Saves.Score;
 
 namespace SuikaGame.Scripts.Score
@@ -11,6 +13,7 @@ namespace SuikaGame.Scripts.Score
         private readonly IEventBus _eventBus;
         private readonly ScoreConfig _scoreConfig;
         private readonly ScoreSettings _scoreSettings;
+        private readonly IGameOverZone _gameOverZone;
 
         public int Score { get; private set; }
         public int Record => _scoreSettings.ScoreRecord;
@@ -18,12 +21,13 @@ namespace SuikaGame.Scripts.Score
         public event Action<int> OnRecordChanged;
 
         public ScoreCounter(IEventBus eventBus, ScoreConfig scoreConfig, ScoreSettings scoreSettings, 
-            IGameplayFieldReadModel gameplayFieldReadModel)
+            IGameplayFieldReadModel gameplayFieldReadModel, IGameOverZone gameOverZone)
         {
             _eventBus = eventBus;
             _scoreConfig = scoreConfig;
             _scoreSettings = scoreSettings;
-            
+            _gameOverZone = gameOverZone;
+
             Score = gameplayFieldReadModel.Score;
             _eventBus.Subscribe(this);
         }
@@ -45,6 +49,9 @@ namespace SuikaGame.Scripts.Score
         
         public void OnEvent(MergeEvent t)
         {
+            if (_gameOverZone.GameIsOver)
+                return;
+
             Score += _scoreConfig.GetScore(t.SizeIndex);
             OnScoreChanged?.Invoke(Score);
         }

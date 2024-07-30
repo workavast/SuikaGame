@@ -1,9 +1,9 @@
 using Avastrad.UI.UI_System;
-using SuikaGame.Scripts.Game;
 using SuikaGame.Scripts.Score;
 using SuikaGame.Scripts.UI.AnimationBlocks;
 using SuikaGame.Scripts.UI.AnimationBlocks.Blocks;
 using SuikaGame.Scripts.UI.Elements;
+using SuikaGame.Scripts.UI.Elements.Views;
 using UnityEngine;
 using Zenject;
 
@@ -31,12 +31,11 @@ namespace SuikaGame.Scripts.UI.Windows
             _animationBlocksHolder = new AnimationBlocksHolder(new IAnimationBlock[]
                 { backgroundFadeBlock, animationScaleBlock });
            
-            HideInstantly(false);
+            HideInstantly();
         }
 
         public override void Show()
         {
-            GamePauser.Pause();
             gameObject.SetActive(true);
             gotCoinsView.SetValue(_scoreCounter.Score);
             TryShowRecordTitle();
@@ -45,22 +44,13 @@ namespace SuikaGame.Scripts.UI.Windows
 
         public override void Hide()
         {
-            _animationBlocksHolder.Hide(() =>
-            {
-                gameObject.SetActive(false);
-                GamePauser.Continue();
-            });
+            _animationBlocksHolder.Hide(() => gameObject.SetActive(false));
         }
-        
-        public override void HideInstantly() 
-            => HideInstantly(true);
 
-        private void HideInstantly(bool withGameContinue)
+        public override void HideInstantly()
         {
             _animationBlocksHolder.HideInstantly();
             gameObject.SetActive(false);
-            if (withGameContinue) 
-                GamePauser.Continue();
         }
 
         private void TryShowRecordTitle()

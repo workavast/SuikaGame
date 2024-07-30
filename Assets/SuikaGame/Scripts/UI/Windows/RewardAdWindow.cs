@@ -1,7 +1,7 @@
 using Avastrad.UI.UI_System;
 using SuikaGame.Scripts.Ad.RewardedAd;
 using SuikaGame.Scripts.Coins;
-using SuikaGame.Scripts.Game;
+using SuikaGame.Scripts.GamePausing;
 using SuikaGame.Scripts.UI.AnimationBlocks;
 using SuikaGame.Scripts.UI.AnimationBlocks.Blocks;
 using SuikaGame.Scripts.UI.Elements.Buttons;

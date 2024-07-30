@@ -2,7 +2,7 @@ using System;
 using Avastrad.CustomTimer;
 using Avastrad.EventBusFramework;
 using SuikaGame.Scripts.Entities.Factory;
-using SuikaGame.Scripts.EntityMaxSizeCounting;
+using SuikaGame.Scripts.Entities.MaxSizeCounting;
 using SuikaGame.Scripts.InputDetection;
 using UnityEngine;
 using Zenject;

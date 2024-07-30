@@ -1,9 +1,9 @@
 using System;
 using System.Collections;
 using GamePush;
-using SuikaGame.Scripts.Loading;
 using SuikaGame.Scripts.Localization;
 using SuikaGame.Scripts.Saves;
+using SuikaGame.Scripts.ScenesLoading;
 using UnityEngine;
 using Zenject;
 

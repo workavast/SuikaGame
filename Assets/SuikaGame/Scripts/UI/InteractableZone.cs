@@ -3,7 +3,7 @@ using SuikaGame.Scripts.InputDetection;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace SuikaGame.UI
+namespace SuikaGame.Scripts.UI
 {
     public class InteractableZone : MonoBehaviour, IInput, IPointerEnterHandler, IPointerExitHandler, 
         IDragHandler, IPointerUpHandler, IPointerDownHandler

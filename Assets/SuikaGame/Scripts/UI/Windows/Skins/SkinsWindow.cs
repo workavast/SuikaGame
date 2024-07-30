@@ -1,5 +1,5 @@
 using Avastrad.UI.UI_System;
-using SuikaGame.Scripts.Game;
+using SuikaGame.Scripts.GamePausing;
 using SuikaGame.Scripts.Skins;
 using SuikaGame.Scripts.Skins.Entities;
 using SuikaGame.Scripts.UI.AnimationBlocks;

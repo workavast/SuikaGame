@@ -1,9 +1,8 @@
 using System.Collections.Generic;
 using System.Linq;
-using SuikaGame.Scripts.Entities.Spawning;
 using UnityEngine;
 
-namespace SuikaGame.Scripts
+namespace SuikaGame.Scripts.Entities.Spawning
 {
     [CreateAssetMenu(fileName = nameof(SpawnerConfig), menuName = "SuikaGame/Configs/" + nameof(SpawnerConfig))]
     public class SpawnerConfig : ScriptableObject

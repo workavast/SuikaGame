@@ -1,8 +1,8 @@
-using UnityEngine;
-using UnityEditor;
 using TMPro;
+using UnityEditor;
+using UnityEngine;
 
-namespace SuikaGame.Scripts.UI.Editor
+namespace SuikaGame.Scripts.UI.FontsChanging.Editor
 {
     public class ChangeAllFontsEditor : EditorWindow
     {

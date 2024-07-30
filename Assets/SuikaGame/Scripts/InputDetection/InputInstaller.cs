@@ -1,5 +1,5 @@
 using System;
-using SuikaGame.UI;
+using SuikaGame.Scripts.UI;
 using Zenject;
 
 namespace SuikaGame.Scripts.InputDetection

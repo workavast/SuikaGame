@@ -1,4 +1,4 @@
-using SuikaGame.Scripts.Loading;
+using SuikaGame.Scripts.ScenesLoading;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;

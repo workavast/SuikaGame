@@ -1,4 +1,4 @@
-using SuikaGame.Scripts.EntityMaxSizeCounting;
+using SuikaGame.Scripts.Entities.MaxSizeCounting;
 using TMPro;
 using UnityEngine;
 using Zenject;

@@ -1,7 +1,7 @@
 using System;
 using SuikaGame.Scripts.Entities.Factory;
+using SuikaGame.Scripts.Entities.MaxSizeCounting;
 using SuikaGame.Scripts.Entities.Spawning;
-using SuikaGame.Scripts.EntityMaxSizeCounting;
 using UnityEngine;
 using Zenject;
 
