@@ -2,7 +2,8 @@ using Avastrad.UI.UI_System;
 using SuikaGame.Scripts.Game;
 using SuikaGame.Scripts.Skins;
 using SuikaGame.Scripts.Skins.Entities;
-using SuikaGame.Scripts.UI.Elements.AnimationBlocks;
+using SuikaGame.Scripts.UI.AnimationBlocks;
+using SuikaGame.Scripts.UI.AnimationBlocks.Blocks;
 using SuikaGame.Scripts.UI.Windows.Skins.Backgrounds;
 using SuikaGame.Scripts.UI.Windows.Skins.BuyOrEquiping;
 using SuikaGame.Scripts.UI.Windows.Skins.Entities;
@@ -18,7 +19,6 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
         [SerializeField] private AnimationFadeBlock previewFadeBlock;
         [SerializeField] private AnimationMoveBlock scrollsMoveBlock;
         [SerializeField] private AnimationMoveBlock upTitleMoveBlock;
-
         [Space]
         [SerializeField] private SkinPackPreviewView skinPackPreviewView;
         [SerializeField] private BackgroundPreviewView backgroundPreviewView;
@@ -29,6 +29,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
         
         private ISkinsChanger _skinsChanger;
         private EntitiesSkinPackType _currentEntitiesSkinPackPreview;
+        private AnimationBlocksHolder _animationBlocksHolder;
         private readonly SkinsPreviewModel _model = new();
 
         [Inject]
@@ -48,31 +49,38 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
             backgroundsSkinsRowsView.Initialize(_model);
             buyOrEquipButton.Initialize(_model);
             rowsViewsSwitcher.Initialize();
+
+            _animationBlocksHolder = new AnimationBlocksHolder(new IAnimationBlock[]
+                { backgroundFadeBlock, previewFadeBlock, scrollsMoveBlock, upTitleMoveBlock });
             
-            Hide();
+            HideInstantly(false);
         }
         
         public override void Show()
         {
             GamePauser.Pause();
             gameObject.SetActive(true);
-            
-            backgroundFadeBlock.Show();
-            previewFadeBlock.Show();
-            scrollsMoveBlock.Show();
-            upTitleMoveBlock.Show();
+            _animationBlocksHolder.Show();
         }
 
         public override void Hide()
         {
-            backgroundFadeBlock.Hide();
-            previewFadeBlock.Hide();
-            scrollsMoveBlock.Hide(() =>
+            _animationBlocksHolder.Hide(() =>
             {
                 gameObject.SetActive(false);
                 GamePauser.Continue();
             });
-            upTitleMoveBlock.Hide();
+        }
+        
+        public override void HideInstantly() 
+            => HideInstantly(true);
+
+        private void HideInstantly(bool withGameContinue)
+        {
+            _animationBlocksHolder.HideInstantly();
+            gameObject.SetActive(false);
+            if (withGameContinue) 
+                GamePauser.Continue();
         }
     }
 }

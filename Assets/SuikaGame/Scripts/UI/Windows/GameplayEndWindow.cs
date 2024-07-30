@@ -1,7 +1,9 @@
 using Avastrad.UI.UI_System;
+using SuikaGame.Scripts.Game;
 using SuikaGame.Scripts.Score;
+using SuikaGame.Scripts.UI.AnimationBlocks;
+using SuikaGame.Scripts.UI.AnimationBlocks.Blocks;
 using SuikaGame.Scripts.UI.Elements;
-using SuikaGame.Scripts.UI.Elements.AnimationBlocks;
 using UnityEngine;
 using Zenject;
 
@@ -16,7 +18,8 @@ namespace SuikaGame.Scripts.UI.Windows
         [SerializeField] private GetedCoinsView gotCoinsView;
 
         private IScoreCounter _scoreCounter;
-        
+        private AnimationBlocksHolder _animationBlocksHolder;
+
         [Inject]
         public void Construct(IScoreCounter scoreCounter)
         {
@@ -24,25 +27,44 @@ namespace SuikaGame.Scripts.UI.Windows
         }
 
         public override void Initialize()
-            => Hide();
-        
+        {
+            _animationBlocksHolder = new AnimationBlocksHolder(new IAnimationBlock[]
+                { backgroundFadeBlock, animationScaleBlock });
+           
+            HideInstantly(false);
+        }
+
         public override void Show()
         {
+            GamePauser.Pause();
             gameObject.SetActive(true);
-            TryShow();
-            backgroundFadeBlock.Show();
-            animationScaleBlock.Show();
+            gotCoinsView.SetValue(_scoreCounter.Score);
+            TryShowRecordTitle();
+            _animationBlocksHolder.Show();
         }
 
         public override void Hide()
         {
-            backgroundFadeBlock.Hide();
-            animationScaleBlock.Hide(() => gameObject.SetActive(false));
+            _animationBlocksHolder.Hide(() =>
+            {
+                gameObject.SetActive(false);
+                GamePauser.Continue();
+            });
+        }
+        
+        public override void HideInstantly() 
+            => HideInstantly(true);
+
+        private void HideInstantly(bool withGameContinue)
+        {
+            _animationBlocksHolder.HideInstantly();
+            gameObject.SetActive(false);
+            if (withGameContinue) 
+                GamePauser.Continue();
         }
 
-        private void TryShow()
+        private void TryShowRecordTitle()
         {
-            gotCoinsView.SetValue(_scoreCounter.Score);
             if (_scoreCounter.Record <= _scoreCounter.Score)
                 newRecordTitle.Show();
             else

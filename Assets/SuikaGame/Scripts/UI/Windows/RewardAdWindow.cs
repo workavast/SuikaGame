@@ -1,7 +1,9 @@
 using Avastrad.UI.UI_System;
 using SuikaGame.Scripts.Ad.RewardedAd;
 using SuikaGame.Scripts.Coins;
-using SuikaGame.Scripts.UI.Elements.AnimationBlocks;
+using SuikaGame.Scripts.Game;
+using SuikaGame.Scripts.UI.AnimationBlocks;
+using SuikaGame.Scripts.UI.AnimationBlocks.Blocks;
 using SuikaGame.Scripts.UI.Elements.Buttons;
 using UnityEngine;
 using Zenject;
@@ -14,9 +16,10 @@ namespace SuikaGame.Scripts.UI.Windows
         [Space]
         [SerializeField] private AnimationFadeBlock animationFadeBlock;
         [SerializeField] private AnimationScaleBlock animationScaleBlock;
-        
+
         private IRewardedAd _rewardedAd;
         private CoinsConfig _coinsConfig;
+        private AnimationBlocksHolder _animationBlocksHolder;
 
         [Inject]
         public void Construct(IRewardedAd rewardedAd, CoinsConfig coinsConfig)
@@ -29,23 +32,40 @@ namespace SuikaGame.Scripts.UI.Windows
 
         public override void Initialize()
         {
-            Hide();
+            _animationBlocksHolder = new AnimationBlocksHolder(new IAnimationBlock[]
+                { animationFadeBlock, animationScaleBlock });
             
             adButton.SetText($"+{_coinsConfig.CoinsPerRewardedAd}");
             adButton.OnClick += ShowRewardAd;
+
+            HideInstantly(false);
         }
         
         public override void Show()
         {
+            GamePauser.Pause();
             gameObject.SetActive(true);
-            animationFadeBlock.Show();
-            animationScaleBlock.Show();
+            _animationBlocksHolder.Show();
         }
 
         public override void Hide()
         {
-            animationFadeBlock.Hide();
-            animationScaleBlock.Hide(() => gameObject.SetActive(false));
+            _animationBlocksHolder.Hide(() =>
+            {
+                gameObject.SetActive(false);
+                GamePauser.Continue();
+            });
+        }
+
+        public override void HideInstantly() 
+            => HideInstantly(true);
+
+        private void HideInstantly(bool withGameContinue)
+        {
+            _animationBlocksHolder.HideInstantly();
+            gameObject.SetActive(false);
+            if (withGameContinue) 
+                GamePauser.Continue();
         }
 
         private void ShowRewardAd() 

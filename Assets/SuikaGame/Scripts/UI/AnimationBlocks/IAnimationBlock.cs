@@ -1,6 +1,6 @@
 using System;
 
-namespace SuikaGame.Scripts.UI.Elements.AnimationBlocks
+namespace SuikaGame.Scripts.UI.AnimationBlocks
 {
     public interface IAnimationBlock
     {
@@ -8,5 +8,6 @@ namespace SuikaGame.Scripts.UI.Elements.AnimationBlocks
 
         public void Show(Action onCompleted = null);
         public void Hide(Action onCompleted = null);
+        public void HideInstantly();
     }
 }

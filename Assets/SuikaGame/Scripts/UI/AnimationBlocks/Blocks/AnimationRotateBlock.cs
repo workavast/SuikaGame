@@ -2,7 +2,7 @@ using System;
 using DG.Tweening;
 using UnityEngine;
 
-namespace SuikaGame.Scripts.UI.Elements.AnimationBlocks
+namespace SuikaGame.Scripts.UI.AnimationBlocks.Blocks
 {
     [Serializable]
     public class AnimationRotateBlock : IAnimationBlock
@@ -58,6 +58,14 @@ namespace SuikaGame.Scripts.UI.Elements.AnimationBlocks
                         _tween = null;
                         onCompleted?.Invoke();
                     });
+        }
+
+        public void HideInstantly()
+        {
+            if (_tween.IsActive())
+                _tween.Kill();
+            
+            block.rotation = Quaternion.Euler(new Vector3(0, 0, 360 * directionHide * rotationsHideCount));
         }
     }
 }

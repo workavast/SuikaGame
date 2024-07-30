@@ -48,10 +48,6 @@ namespace Avastrad.UI.UI_System
         
             switch (screenType)
             {
-                case ScreenType.MainMenu:
-                    return GetScreen<MainMenuWindow>();
-                case ScreenType.MainMenuSettings:
-                    return GetScreen<MainMenuSettingsWindow>();
                 case ScreenType.Skins:
                     return GetScreen<SkinsWindow>();
                 case ScreenType.Gameplay:

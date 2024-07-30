@@ -2,21 +2,21 @@ using System;
 using DG.Tweening;
 using UnityEngine;
 
-namespace SuikaGame.Scripts.UI.Elements.AnimationBlocks
+namespace SuikaGame.Scripts.UI.AnimationBlocks.Blocks
 {
     [Serializable]
-    public class AnimationMoveBlock : IAnimationBlock
+    public class AnimationFadeBlock : IAnimationBlock
     {
-        [SerializeField] private RectTransform block;
+        [SerializeField] private CanvasGroup block;
         [Space]
-        [SerializeField] private RectTransform showPoint;
-        [SerializeField, Min(0)] private float showDuration = 0.3f;
+        [SerializeField, Range(0, 1)] private float showAlpha = 1f;
+        [SerializeField] private float showDuration = 0.3f;
         [SerializeField] private Ease easeShow = Ease.OutSine;
         [Space]
-        [SerializeField] private RectTransform hidePoint;
-        [SerializeField, Min(0)] private float hideDuration = 0.3f;
+        [SerializeField, Range(0, 1)] private float hideAlpha = 0f;
+        [SerializeField] private float hideDuration = 0.3f;
         [SerializeField] private Ease easeHide = Ease.InSine;
-        
+
         private Tween _tween;
         
         public bool IsActive => _tween.IsActive();
@@ -26,11 +26,13 @@ namespace SuikaGame.Scripts.UI.Elements.AnimationBlocks
             if (_tween.IsActive())
                 _tween.Kill();
 
-            var durationPercentage = (showPoint.localPosition - block.localPosition).magnitude / 
-                             (showPoint.localPosition - hidePoint.localPosition).magnitude;
+            var durationPercentage = 1f;
+            var dif = showAlpha - hideAlpha;
+            if (dif != 0) 
+                durationPercentage -= (block.alpha - hideAlpha) / dif;
             
             _tween = block
-                    .DOLocalMove(showPoint.localPosition, showDuration * durationPercentage)
+                    .DOFade(showAlpha, showDuration * durationPercentage)
                     .SetLink(block.gameObject)
                     .SetEase(easeShow)
                     .OnKill(() => _tween = null)
@@ -45,12 +47,13 @@ namespace SuikaGame.Scripts.UI.Elements.AnimationBlocks
         {
             if (_tween.IsActive())
                 _tween.Kill();
-            
-            var durationPercentage = (block.localPosition - hidePoint.localPosition).magnitude / 
-                             (showPoint.localPosition - hidePoint.localPosition).magnitude;
-            
+
+            var durationPercentage = 1f;
+            var dif = showAlpha - hideAlpha;
+            if (dif != 0) 
+                durationPercentage = (block.alpha - hideAlpha) / dif;
             _tween = block
-                    .DOLocalMove(hidePoint.localPosition, hideDuration * durationPercentage)
+                    .DOFade(hideAlpha, hideDuration * durationPercentage)
                     .SetLink(block.gameObject)
                     .SetEase(easeHide)
                     .OnKill(() => _tween = null)
@@ -59,6 +62,14 @@ namespace SuikaGame.Scripts.UI.Elements.AnimationBlocks
                         _tween = null;
                         onCompleted?.Invoke();
                     });
+        }
+
+        public void HideInstantly()
+        {
+            if (_tween.IsActive())
+                _tween.Kill();
+            
+            block.alpha = hideAlpha;
         }
     }
 }
