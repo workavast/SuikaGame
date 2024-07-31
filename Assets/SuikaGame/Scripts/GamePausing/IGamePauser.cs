@@ -1,6 +1,6 @@
 namespace SuikaGame.Scripts.GamePausing
 {
-    public interface IGame
+    public interface IGamePauser
     {
         
     }

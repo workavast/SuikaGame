@@ -1,9 +1,12 @@
 using System;
 using Avastrad.CustomTimer;
 using Avastrad.EventBusFramework;
+using SuikaGame.Scripts.Audio.Sources;
+using SuikaGame.Scripts.Audio.Sources.Factory;
 using SuikaGame.Scripts.Entities.Factory;
 using SuikaGame.Scripts.Entities.MaxSizeCounting;
 using SuikaGame.Scripts.InputDetection;
+using SuikaGame.Scripts.Vfx;
 using UnityEngine;
 using Zenject;
 
@@ -21,6 +24,8 @@ namespace SuikaGame.Scripts.Entities.Spawning
         private IEventBus _eventBus;
         private IEntityFactory _entityFactory;
         private IEntityMaxSizeCounter _entityMaxSizeCounter;
+        private IVfxFactory _vfxFactory;
+        private IAudioFactory _audioFactory;
         private EntitiesConfig _entitiesConfig;
         private Timer _pauseTimer;
         private Entity _currentEntity;
@@ -32,13 +37,16 @@ namespace SuikaGame.Scripts.Entities.Spawning
         
         [Inject]
         public void Construct(IEventBus eventBus, IEntityFactory entityFactory,
-            IEntityMaxSizeCounter entityMaxSizeCounter, IInput input, EntitiesConfig entitiesConfig)
+            IEntityMaxSizeCounter entityMaxSizeCounter, IInput input, IVfxFactory vfxFactory, 
+            IAudioFactory audioFactory, EntitiesConfig entitiesConfig)
         {
             _eventBus = eventBus;
             _entityFactory = entityFactory;
             _entitiesConfig = entitiesConfig;
             _entityMaxSizeCounter = entityMaxSizeCounter;
             _input = input;
+            _vfxFactory = vfxFactory;
+            _audioFactory = audioFactory;
             
             _eventBus.Subscribe(this);
 
@@ -80,6 +88,10 @@ namespace SuikaGame.Scripts.Entities.Spawning
             var mass = t.Parent.Mass;
             var parentVelocity = t.Parent.Velocity;
             var childVelocity = t.Child.Velocity;
+            
+            _vfxFactory.Create(VfxType.Smoke, t.Parent.transform.position, t.Parent.transform.localScale.x);
+            _vfxFactory.Create(VfxType.Smoke, t.Child.transform.position, t.Child.transform.localScale.x);
+            _audioFactory.Create(AudioSourceType.MergeEffect, transform.position);
             
             t.Parent.DeActivate();
             t.Child.DeActivate();
@@ -134,6 +146,7 @@ namespace SuikaGame.Scripts.Entities.Spawning
             _currentEntity.transform.position = pos;
             OnMoveEntity?.Invoke(pos);
         }
+        
         private void OnDestroy()
         {
             _eventBus?.UnSubscribe(this);

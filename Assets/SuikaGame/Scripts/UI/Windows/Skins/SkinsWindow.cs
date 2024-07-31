@@ -58,7 +58,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
         
         public override void Show()
         {
-            GamePauser.Pause();
+            LocalGamePause.Pause();
             gameObject.SetActive(true);
             _animationBlocksHolder.Show();
         }
@@ -68,7 +68,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
             _animationBlocksHolder.Hide(() =>
             {
                 gameObject.SetActive(false);
-                GamePauser.Continue();
+                LocalGamePause.Continue();
             });
         }
         
@@ -80,7 +80,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
             _animationBlocksHolder.HideInstantly();
             gameObject.SetActive(false);
             if (withGameContinue) 
-                GamePauser.Continue();
+                LocalGamePause.Continue();
         }
     }
 }

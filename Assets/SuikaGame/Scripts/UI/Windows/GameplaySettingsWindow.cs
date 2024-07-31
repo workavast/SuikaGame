@@ -23,7 +23,7 @@ namespace SuikaGame.Scripts.UI.Windows
 
         public override void Show()
         {
-            GamePauser.Pause();
+            LocalGamePause.Pause();
             gameObject.SetActive(true);
             _animationBlocksHolder.Show();
         }
@@ -33,7 +33,7 @@ namespace SuikaGame.Scripts.UI.Windows
             _animationBlocksHolder.Hide(() =>
             {
                 gameObject.SetActive(false);
-                GamePauser.Continue();
+                LocalGamePause.Continue();
             });
         }
         
@@ -45,7 +45,7 @@ namespace SuikaGame.Scripts.UI.Windows
             _animationBlocksHolder.HideInstantly();
             gameObject.SetActive(false);
             if (withGameContinue) 
-                GamePauser.Continue();
+                LocalGamePause.Continue();
         }
     }
 }
