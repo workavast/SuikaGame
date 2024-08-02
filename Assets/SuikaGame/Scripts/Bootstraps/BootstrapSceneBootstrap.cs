@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using GamePush;
+using SuikaGame.Scripts.Audio;
 using SuikaGame.Scripts.Localization;
 using SuikaGame.Scripts.Saves;
 using SuikaGame.Scripts.ScenesLoading;
@@ -14,11 +15,13 @@ namespace SuikaGame.Scripts.Bootstraps
         [SerializeField] private int sceneIndexForLoadingAfterInitializations;
         
         private ISceneLoader _sceneLoader;
+        private AudioVolumeChanger _audioVolumeChanger;
         
         [Inject]
-        public void Construct(ISceneLoader sceneLoader)
+        public void Construct(ISceneLoader sceneLoader, AudioVolumeChanger audioVolumeChanger)
         {
             _sceneLoader = sceneLoader;
+            _audioVolumeChanger = audioVolumeChanger;
         }
         
         private void Start()
@@ -26,8 +29,9 @@ namespace SuikaGame.Scripts.Bootstraps
             Debug.Log("-||- BootstrapSceneBootstrap start");
             InitializeGamePush(() => 
                 InitializeSave(() => 
-                    InitializeLanguage(
-                        LoadNextScene)));
+                    InitializeLanguage( () => 
+                        InitializeAudio(
+                            LoadNextScene))));
         }
 
         private void InitializeGamePush(Action onComplete)
@@ -59,6 +63,12 @@ namespace SuikaGame.Scripts.Bootstraps
             localizationInitializer.InitLocalizationSettings(PlayerData.Instance.LocalizationSettings, onComplete);
         }
 
+        private void InitializeAudio(Action onComplete)
+        {
+            _audioVolumeChanger.StartInit();
+            onComplete?.Invoke();
+        }
+        
         private void LoadNextScene()
         {
             Debug.Log("LoadNextScene started");

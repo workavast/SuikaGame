@@ -6,14 +6,14 @@ namespace SuikaGame.Scripts.Saves.Audio
     public sealed class VolumeSettingsSave
     {
         public float MasterVolume = 1f;
-        public float MusicVolume = 0.8f;
-        public float EffectsVolume = 0.8f;
+        public float MusicVolume = 0.75f;
+        public float EffectsVolume = 0.75f;
 
         public VolumeSettingsSave()
         {
             MasterVolume = 1;
-            MusicVolume = 0.8f;
-            EffectsVolume = 0.8f;
+            MusicVolume = 0.75f;
+            EffectsVolume = 0.75f;
         }
         
         public VolumeSettingsSave(VolumeSettings settings)

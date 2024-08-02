@@ -18,8 +18,8 @@ namespace SuikaGame.Scripts.Saves.Audio
         public VolumeSettings()
         {
             Master = 1;
-            MusicVolume = 0.8f;
-            EffectsVolume = 0.8f;
+            MusicVolume = 0.75f;
+            EffectsVolume = 0.75f;
         }
     
         public void ChangeMasterVolume(float newVolume) 
