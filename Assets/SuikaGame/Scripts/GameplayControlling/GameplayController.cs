@@ -8,7 +8,6 @@ using SuikaGame.Scripts.GameplayField.Hiding;
 using SuikaGame.Scripts.GameplayField.Savers;
 using SuikaGame.Scripts.Score;
 using UnityEngine;
-using Zenject;
 
 namespace SuikaGame.Scripts.GameplayControlling
 {

@@ -24,7 +24,7 @@ namespace SuikaGame.Scripts.Audio.Sources.Factory
             _pool = new Pool<AudioSourceHolder, AudioSourceType>(InstantiateEntity);
         }
         
-        public void Create(AudioSourceType audioSourceType, Vector2 position)
+        public void Create(AudioSourceType audioSourceType, Vector2 position = new())
         {
             _pool.ExtractElement(audioSourceType, out var someAudioSource);
             

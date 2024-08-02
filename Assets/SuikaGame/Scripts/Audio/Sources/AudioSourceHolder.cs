@@ -1,6 +1,7 @@
 using System;
 using Avastrad.CustomTimer;
 using Avastrad.PoolSystem;
+using SuikaGame.Scripts.GamePausing;
 using UnityEngine;
 
 namespace SuikaGame.Scripts.Audio.Sources
@@ -9,6 +10,7 @@ namespace SuikaGame.Scripts.Audio.Sources
     public class AudioSourceHolder : MonoBehaviour, IPoolable<AudioSourceHolder, AudioSourceType>
     {
         [field: SerializeField] public AudioSourceType PoolId { get; private set; }
+        [SerializeField] private bool useLocalPause = true;
         
         private AudioSource _audioSource;
         private Timer _existTimer;
@@ -19,12 +21,13 @@ namespace SuikaGame.Scripts.Audio.Sources
         private void Awake()
         {
             _audioSource = GetComponent<AudioSource>();
-            _existTimer = new Timer(_audioSource.clip.length + 0.1f);
+            
+            _existTimer = new Timer(_audioSource.clip.length);
             _existTimer.OnTimerEnd += () => ReturnElementEvent?.Invoke(this);
         }
 
         private void Update() 
-            => _existTimer.Tick(Time.deltaTime);
+            => _existTimer.Tick(useLocalPause ? Time.deltaTime : Time.unscaledDeltaTime);
 
         public void SetPitch(float newPitch) 
             => _audioSource.pitch = newPitch;
@@ -34,6 +37,18 @@ namespace SuikaGame.Scripts.Audio.Sources
 #if UNITY_EDITOR
             gameObject.SetActive(true);
 #endif
+
+            if (useLocalPause)
+            {
+                LocalGamePause.OnPaused += Pause;
+                LocalGamePause.OnContinued += Continue;
+            }
+            else
+            {
+                GlobalGamePause.OnPaused += Pause;
+                GlobalGamePause.OnContinued += Continue;
+            }
+            
             _existTimer.Reset();
             _audioSource.Play();
         }
@@ -42,9 +57,24 @@ namespace SuikaGame.Scripts.Audio.Sources
         {
             _existTimer.SetPause();
             _audioSource.Stop();
+            
+            LocalGamePause.OnPaused -= Pause;
+            LocalGamePause.OnContinued -= Continue;
+            GlobalGamePause.OnPaused -= Pause;
+            GlobalGamePause.OnContinued -= Continue;
+            
 #if UNITY_EDITOR
             gameObject.SetActive(false);
 #endif
         }
+
+        private void Pause() 
+            => _audioSource.Pause();
+
+        private void Continue() 
+            => _audioSource.Play();
+
+        private void OnDestroy() 
+            => DestroyElementEvent?.Invoke(this);
     }
 }

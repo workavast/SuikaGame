@@ -24,3 +24,13 @@ MonoBehaviour:
         <AudioSourceHolderPrefab>k__BackingField: {fileID: 4655009965057114621, guid: 9bb01cd3166759c4e93e7dbeefc33db8, type: 3}
         <Pitch>k__BackingField: 1
         <PitchRange>k__BackingField: 0.1
+    - key: 20
+      value:
+        <AudioSourceHolderPrefab>k__BackingField: {fileID: 4655009965057114621, guid: dc93c169f1a81e4409814ca5c805bc5d, type: 3}
+        <Pitch>k__BackingField: 1
+        <PitchRange>k__BackingField: 0.1
+    - key: 30
+      value:
+        <AudioSourceHolderPrefab>k__BackingField: {fileID: 4655009965057114621, guid: 08b13a822bbe6e14d9dfff4e02f4d083, type: 3}
+        <Pitch>k__BackingField: 1
+        <PitchRange>k__BackingField: 0.1

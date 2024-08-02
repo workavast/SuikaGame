@@ -1,4 +1,3 @@
-using SuikaGame.Scripts.Ad;
 using SuikaGame.Scripts.GamePausing;
 using UnityEngine;
 
