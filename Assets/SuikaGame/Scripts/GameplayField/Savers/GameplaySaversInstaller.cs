@@ -20,6 +20,7 @@ namespace SuikaGame.Scripts.GameplayField.Savers
             BindAutoGameplaySaver();
             BindManualGameplaySaver();
             BindApplicationFocusSaver();
+            BindApplicationPauseSaver();
         }
 
         private void BindGameplaySaver()
@@ -40,6 +41,11 @@ namespace SuikaGame.Scripts.GameplayField.Savers
         private void BindApplicationFocusSaver()
         {
             Container.BindInterfacesTo<ApplicationFocusSaver>().FromNew().AsSingle().NonLazy();
+        }
+        
+        private void BindApplicationPauseSaver()
+        {
+            Container.BindInterfacesTo<ApplicationPauseSaver>().FromNew().AsSingle().NonLazy();
         }
     }
 }
