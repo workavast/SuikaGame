@@ -44,19 +44,20 @@ namespace SuikaGame.Scripts.GamePausing
         {
             if (isPause)
             {
-                GlobalGamePause.Continue();
-                LocalGamePause.Continue();
+                GlobalGamePause.Pause();
+                LocalGamePause.Pause();
             }
             else
             {
-                GlobalGamePause.Pause();
-                LocalGamePause.Pause();
+                GlobalGamePause.Continue();
+                LocalGamePause.Continue();
             }
         }
         
         public void Dispose()
         {
             _applicationFocusProvider.OnApplicationFocusChanged -= OnApplicationFocusChanged;
+            _applicationPauseProvider.OnApplicationPauseChanged -= OnApplicationPauseChanged;
 
             GP_Game.OnPause -= GlobalGamePause.Pause;
             GP_Game.OnResume -= GlobalGamePause.Continue;
