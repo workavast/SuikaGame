@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 namespace SuikaGame.Scripts.GamePausing
 {

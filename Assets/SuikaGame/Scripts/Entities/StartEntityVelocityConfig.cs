@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SuikaGame.Scripts
+namespace SuikaGame.Scripts.Entities
 {
     [CreateAssetMenu(fileName = nameof(StartEntityVelocityConfig), menuName = "SuikaGame/Configs/" + nameof(StartEntityVelocityConfig))]
     public class StartEntityVelocityConfig : ScriptableObject
