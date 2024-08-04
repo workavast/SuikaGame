@@ -72,6 +72,8 @@ namespace SuikaGame.Scripts.Entities.Spawning
         {
             _pauseTimer.SetPause();
             _currentEntity = null;
+            NextEntitySizeIndex = spawnerConfig.GetSizeIndex(_entityMaxSizeCounter.CurrentMaxSize);
+            OnNextEntitySizeIndexChange?.Invoke(NextEntitySizeIndex);
         }
 
         public void OnEvent(EntityCollisionEvent t)
