@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: IceCreamSkinPack
+  m_EditorClassIdentifier: 
+  m_GroupName: IceCreamSkinPack
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 7bfdb9bd1be695e418703dca9bfde7f9
+  m_SerializeEntries:
+  - m_GUID: ab026d1d4eb0d5743b56cee118726d18
+    m_Address: Assets/SuikaGame/Sprites/Entities/IceCream/Butterscotch.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c1da58c50e96aef4d9dd1207bf428a36
+    m_Address: Assets/SuikaGame/Sprites/Entities/IceCream/Chocolate.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ebf14fec2a6db7140a81647999b6f62e
+    m_Address: Assets/SuikaGame/Sprites/Entities/IceCream/Chocolate Chip.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ad1cbfe16f9d6774e876cf39fadeda18
+    m_Address: Assets/SuikaGame/Sprites/Entities/IceCream/Cookie Dough.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2bf2a964d4f04ba4a8ec3befdcd86957
+    m_Address: Assets/SuikaGame/Sprites/Entities/IceCream/Cookies N Cream.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e6e7206c1cff0574882f5026e8f56e6a
+    m_Address: Assets/SuikaGame/Sprites/Entities/IceCream/IceCreamAtlas P1.spriteatlasv2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 034ff84289cf3004a9f0403c91cbde01
+    m_Address: Assets/SuikaGame/Sprites/Entities/IceCream/IceCreamAtlas P2.spriteatlasv2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e9e21dcf0a6b9a44bde086410730fd3
+    m_Address: Assets/SuikaGame/Sprites/Entities/IceCream/Mint Chocolate Chip.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7d5e23e9677f4274fa251ecd245b4258
+    m_Address: Assets/SuikaGame/Sprites/Entities/IceCream/Nutty.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d74ec7c3da83e6e4e9bab640a10dd110
+    m_Address: Assets/SuikaGame/Sprites/Entities/IceCream/Rocky Road.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6c94a96d6073a9a4aa3603b426074590
+    m_Address: Assets/SuikaGame/Sprites/Entities/IceCream/Strawberry.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 00e04cd25b7fdcb42be01e10a1c3d807
+    m_Address: Assets/SuikaGame/Sprites/Entities/IceCream/Vanilla.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b0d779af4b22aea4381f9c6ca3c54b9a
+    m_Address: Assets/SuikaGame/Configs/Skins/IceCreamSkinPackConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f8ba67870bc57f741b4e3747672bc7ba, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 5907b93fbd48bfd4e87a258fd9d31411, type: 2}
+    - {fileID: 11400000, guid: 98b6b9186fc79ba42a82b78bc08e52d4, type: 2}

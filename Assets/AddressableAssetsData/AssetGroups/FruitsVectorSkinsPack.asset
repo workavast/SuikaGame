@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: FruitsVectorSkinsPack
+  m_EditorClassIdentifier: 
+  m_GroupName: FruitsVectorSkinsPack
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 9b8c2988dd60f3944814a26e9fb6bfc0
+  m_SerializeEntries:
+  - m_GUID: 5b3681c70c5c84247a7d2b117ebc84f9
+    m_Address: Assets/SuikaGame/Sprites/Entities/FruitsVector/4.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 76e36a3228d8a8a43b1c5021fb157e8a
+    m_Address: Assets/SuikaGame/Sprites/Entities/FruitsVector/5.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 191b68bacbcb4c04fb80a17861333142
+    m_Address: Assets/SuikaGame/Sprites/Entities/FruitsVector/6.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7cb9bca10d065564b99c9dc8aa82c83b
+    m_Address: Assets/SuikaGame/Sprites/Entities/FruitsVector/7.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e416f46e511604547babaa609a1dd37c
+    m_Address: Assets/SuikaGame/Sprites/Entities/FruitsVector/8.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: bdfbcf39690caa94787432a3f8a53ad7
+    m_Address: Assets/SuikaGame/Sprites/Entities/FruitsVector/9.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b937606f11c26024ea04133e73c484cb
+    m_Address: Assets/SuikaGame/Sprites/Entities/FruitsVector/12.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 48e544a489d3d9641b9a31978aa6b1fb
+    m_Address: Assets/SuikaGame/Sprites/Entities/FruitsVector/22.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 31374d4ef7a831244969a7c7291c855e
+    m_Address: Assets/SuikaGame/Sprites/Entities/FruitsVector/24.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9fabfeeb9e40cb54fab2d94b4a5b435a
+    m_Address: Assets/SuikaGame/Sprites/Entities/FruitsVector/47.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e734c8f1638f95347b02974c6e86b075
+    m_Address: Assets/SuikaGame/Sprites/Entities/FruitsVector/FruitsVectorAtlas.spriteatlasv2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6baf8a332b05c784f8d6221b8b95960d
+    m_Address: Assets/SuikaGame/Configs/Skins/FruitsVectorSkinPackConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f8ba67870bc57f741b4e3747672bc7ba, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 89ca7be6d31169041a9215088a4d247c, type: 2}
+    - {fileID: 11400000, guid: 67572691603acf34591bdbb2e3aafa0c, type: 2}

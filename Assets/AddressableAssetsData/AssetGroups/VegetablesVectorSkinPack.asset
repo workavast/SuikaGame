@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: VegetablesVectorSkinPack
+  m_EditorClassIdentifier: 
+  m_GroupName: VegetablesVectorSkinPack
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 8380fd59b0fbc224a88a188d1806e4e8
+  m_SerializeEntries:
+  - m_GUID: a9c02df8577a629478ee35e92252eb91
+    m_Address: Assets/SuikaGame/Configs/Skins/VegetablesVectorSkinPackConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6019dada4328b594c964a5ce188ac39f
+    m_Address: Assets/SuikaGame/Sprites/Entities/Vegetables/2.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ca8d29c27627b2449ef9a855b4c3f60
+    m_Address: Assets/SuikaGame/Sprites/Entities/Vegetables/4.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9868f3d3e2cf5741ac875bd57effd32
+    m_Address: Assets/SuikaGame/Sprites/Entities/Vegetables/8.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6df4e406818880c4a8d455a056b9ec9d
+    m_Address: Assets/SuikaGame/Sprites/Entities/Vegetables/10.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d08c815c116b26645a1681a8d697c148
+    m_Address: Assets/SuikaGame/Sprites/Entities/Vegetables/15.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 58e7338ccf0e4e84684f8032cc2cf1c6
+    m_Address: Assets/SuikaGame/Sprites/Entities/Vegetables/22.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8c4acbacf63a4f24eac092fd6e3c9e29
+    m_Address: Assets/SuikaGame/Sprites/Entities/Vegetables/33.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7bd385f497585934b977bb781c72daf0
+    m_Address: Assets/SuikaGame/Sprites/Entities/Vegetables/41.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 62601f61483761b4ba6d1afe3b994fc2
+    m_Address: Assets/SuikaGame/Sprites/Entities/Vegetables/VegetablesAtlas.spriteatlasv2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8faa39694b28e2848bb1a85c99b7afac
+    m_Address: Assets/SuikaGame/Sprites/Entities/Vegetables/17.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 778a585b42bdd1245a14a70b76df862d
+    m_Address: Assets/SuikaGame/Sprites/Entities/Vegetables/9.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f8ba67870bc57f741b4e3747672bc7ba, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: c78e48633e3691243b8391811afccac2, type: 2}
+    - {fileID: 11400000, guid: d74f84125011aac4badff17e12a7b471, type: 2}

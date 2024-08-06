@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: RuCoinsSkinPack
+  m_EditorClassIdentifier: 
+  m_GroupName: RuCoinsSkinPack
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 749a3a08992d16e45bed38d4ff4a1d71
+  m_SerializeEntries:
+  - m_GUID: 70c634eb6577cd04088eb93ca082de89
+    m_Address: Assets/SuikaGame/Sprites/Entities/RuCoins/001-Photoroom.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 024d713eb1d6ed64a912d4bd8f8e66da
+    m_Address: Assets/SuikaGame/Sprites/Entities/RuCoins/01-Photoroom.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 803d93956bfb05a45a1fff1b9a39613e
+    m_Address: Assets/SuikaGame/Sprites/Entities/RuCoins/1-Photoroom.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 844aeaada5a334c40bad828fe803ad71
+    m_Address: Assets/SuikaGame/Sprites/Entities/RuCoins/2-Photoroom.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9b76cb9b49e66d84fa5c443118c3c4f5
+    m_Address: Assets/SuikaGame/Sprites/Entities/RuCoins/3-Photoroom.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c3494b276a0542f4d96651353a5a2d41
+    m_Address: Assets/SuikaGame/Sprites/Entities/RuCoins/005-Photoroom.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 27a5b8e2530199842b18dbe8fd4155ed
+    m_Address: Assets/SuikaGame/Sprites/Entities/RuCoins/05-Photoroom.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 6a2b28e7cc896b94e973ec4dcdb9b1b9
+    m_Address: Assets/SuikaGame/Sprites/Entities/RuCoins/5-Photoroom.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a2f8ea477c53a354c9b300ddd468d982
+    m_Address: Assets/SuikaGame/Sprites/Entities/RuCoins/10-Photoroom.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e0b43a1aa3694224184befb9636c8007
+    m_Address: Assets/SuikaGame/Sprites/Entities/RuCoins/10_-Photoroom.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: aa74d78c0defad14d9dcd5d85ea29d5e
+    m_Address: Assets/SuikaGame/Sprites/Entities/RuCoins/RuCoinsAtlas.spriteatlasv2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1642a4f041c9450468ba757d9bb92ac5
+    m_Address: Assets/SuikaGame/Configs/Skins/RuCoinsSkinPackConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f8ba67870bc57f741b4e3747672bc7ba, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 4cf21c44577674b4a8954875c8f30378, type: 2}
+    - {fileID: 11400000, guid: 89e6fd35f9342c244b6c5bf4e810dc5d, type: 2}
