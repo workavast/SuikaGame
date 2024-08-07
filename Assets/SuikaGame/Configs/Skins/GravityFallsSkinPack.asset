@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a165654813ff4e2d97d4d19cd32eddca, type: 3}
+  m_Name: GravityFallsSkinPack
+  m_EditorClassIdentifier: 
+  skins:
+  - {fileID: -450614678, guid: 3dea9a94dafc5b543aeeb5559be3b100, type: 3}
+  - {fileID: 2046300097, guid: 3dea9a94dafc5b543aeeb5559be3b100, type: 3}
+  - {fileID: -1481292390, guid: 3dea9a94dafc5b543aeeb5559be3b100, type: 3}
+  - {fileID: -28475001, guid: 3dea9a94dafc5b543aeeb5559be3b100, type: 3}
+  - {fileID: 491967774, guid: 3dea9a94dafc5b543aeeb5559be3b100, type: 3}
+  - {fileID: 1177738956, guid: 3dea9a94dafc5b543aeeb5559be3b100, type: 3}
+  - {fileID: -853035891, guid: 3dea9a94dafc5b543aeeb5559be3b100, type: 3}
+  - {fileID: 938243272, guid: 3dea9a94dafc5b543aeeb5559be3b100, type: 3}

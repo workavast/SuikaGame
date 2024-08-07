@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a165654813ff4e2d97d4d19cd32eddca, type: 3}
+  m_Name: HayaoMiyazakiSkinPackConfig
+  m_EditorClassIdentifier: 
+  skins:
+  - {fileID: -712433639, guid: 0ef17995a75dcd14bb252d7f93b3927b, type: 3}
+  - {fileID: -1251594810, guid: 0ef17995a75dcd14bb252d7f93b3927b, type: 3}
+  - {fileID: 1743576560, guid: 0ef17995a75dcd14bb252d7f93b3927b, type: 3}
+  - {fileID: 1497972414, guid: 0ef17995a75dcd14bb252d7f93b3927b, type: 3}
+  - {fileID: 835177683, guid: 0ef17995a75dcd14bb252d7f93b3927b, type: 3}
+  - {fileID: -766877369, guid: 0ef17995a75dcd14bb252d7f93b3927b, type: 3}
+  - {fileID: -1566485214, guid: 0ef17995a75dcd14bb252d7f93b3927b, type: 3}
+  - {fileID: 1232710345, guid: 0ef17995a75dcd14bb252d7f93b3927b, type: 3}

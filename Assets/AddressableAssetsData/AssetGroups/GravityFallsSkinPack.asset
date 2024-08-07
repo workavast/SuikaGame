@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: GravityFallsSkinPack
+  m_EditorClassIdentifier: 
+  m_GroupName: GravityFallsSkinPack
+  m_Data:
+    m_SerializedData: []
+  m_GUID: ca3c581ddbd1117418aa13d207eaa9cb
+  m_SerializeEntries:
+  - m_GUID: 3dea9a94dafc5b543aeeb5559be3b100
+    m_Address: Assets/SuikaGame/Sprites/Entities/GravityFalls/GravityFalls.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3ecc8fa3493c27045b9fd4248a245b28
+    m_Address: Assets/SuikaGame/Sprites/Entities/GravityFalls/GravityFallsAtlas.spriteatlasv2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 01a70c3532c885043b830073b0a3a8b7
+    m_Address: Assets/SuikaGame/Configs/Skins/GravityFallsSkinPack.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f8ba67870bc57f741b4e3747672bc7ba, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: bbf9fccc866ab6842bf230537456b54b, type: 2}
+    - {fileID: 11400000, guid: b0ddc8e1b71d307488d4e255ec58620c, type: 2}

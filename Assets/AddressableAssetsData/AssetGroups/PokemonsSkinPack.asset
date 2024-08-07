@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: PokemonsSkinPack
+  m_EditorClassIdentifier: 
+  m_GroupName: PokemonsSkinPack
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 2b632d67c2a82e14085460f4a91a8d81
+  m_SerializeEntries:
+  - m_GUID: e7e9a8f50abfbe24ea08aaf6a54bba63
+    m_Address: Assets/SuikaGame/Configs/Skins/PokemonsSkinPackConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f38ad766602430542b21e50ffaf7fa66
+    m_Address: Assets/SuikaGame/Sprites/Entities/Pokemons/Pokemons.spriteatlasv2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 21616b85b28d7ce4ca8162059ca8aa37
+    m_Address: Assets/SuikaGame/Sprites/Entities/Pokemons/Pokemons.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f8ba67870bc57f741b4e3747672bc7ba, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 28555a7e5e93c914ca49b0892ed53df7, type: 2}
+    - {fileID: 11400000, guid: 3e75bc6df572fd042a81b8aa3344f40a, type: 2}

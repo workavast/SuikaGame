@@ -72,11 +72,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0ad2f93290f638740a45e65c18a21727
-    m_Address: Assets/SuikaGame/Sprites/Entities/Cats/SkinsConfig.asset
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 73d5f3f77b3d910469ae6fbbdeb5fce5
     m_Address: Assets/SuikaGame/Sprites/Entities/Cats/cat12.png
     m_ReadOnly: 0
@@ -84,6 +79,11 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 5b9759f8bda9ec64dae1361c9aee2c50
     m_Address: Assets/SuikaGame/Sprites/Entities/Cats/cat11.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0ad2f93290f638740a45e65c18a21727
+    m_Address: Assets/SuikaGame/Configs/Skins/CatsSkinPackConfig.asset
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
