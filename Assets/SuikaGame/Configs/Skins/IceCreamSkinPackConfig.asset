@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: IceCreamSkinPackConfig
   m_EditorClassIdentifier: 
   skins:
-  - {fileID: 21300000, guid: 00e04cd25b7fdcb42be01e10a1c3d807, type: 3}
-  - {fileID: 21300000, guid: 7d5e23e9677f4274fa251ecd245b4258, type: 3}
   - {fileID: 21300000, guid: d74ec7c3da83e6e4e9bab640a10dd110, type: 3}
   - {fileID: 21300000, guid: ab026d1d4eb0d5743b56cee118726d18, type: 3}
   - {fileID: 21300000, guid: c1da58c50e96aef4d9dd1207bf428a36, type: 3}

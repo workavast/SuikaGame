@@ -62,16 +62,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c58b2c39d4dd17d479e6713732ac1e0f
-    m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/fruits 8.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3a75664692e31fb45adce7f61cac86a5
-    m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/fruits 9.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a08d2ce12f49f1d44b4a1119348a136d
     m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/fruits 10.png
     m_ReadOnly: 0

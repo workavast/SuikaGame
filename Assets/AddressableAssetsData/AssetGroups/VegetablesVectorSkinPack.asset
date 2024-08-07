@@ -27,18 +27,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 0ca8d29c27627b2449ef9a855b4c3f60
-    m_Address: Assets/SuikaGame/Sprites/Entities/Vegetables/4.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: b9868f3d3e2cf5741ac875bd57effd32
     m_Address: Assets/SuikaGame/Sprites/Entities/Vegetables/8.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 6df4e406818880c4a8d455a056b9ec9d
-    m_Address: Assets/SuikaGame/Sprites/Entities/Vegetables/10.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

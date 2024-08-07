@@ -37,11 +37,6 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9b76cb9b49e66d84fa5c443118c3c4f5
-    m_Address: Assets/SuikaGame/Sprites/Entities/RuCoins/3-Photoroom.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c3494b276a0542f4d96651353a5a2d41
     m_Address: Assets/SuikaGame/Sprites/Entities/RuCoins/005-Photoroom.png
     m_ReadOnly: 0
@@ -59,11 +54,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: a2f8ea477c53a354c9b300ddd468d982
     m_Address: Assets/SuikaGame/Sprites/Entities/RuCoins/10-Photoroom.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: e0b43a1aa3694224184befb9636c8007
-    m_Address: Assets/SuikaGame/Sprites/Entities/RuCoins/10_-Photoroom.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

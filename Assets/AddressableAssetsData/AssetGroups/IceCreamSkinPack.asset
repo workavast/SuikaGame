@@ -47,18 +47,8 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 034ff84289cf3004a9f0403c91cbde01
-    m_Address: Assets/SuikaGame/Sprites/Entities/IceCream/IceCreamAtlas P2.spriteatlasv2
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 0e9e21dcf0a6b9a44bde086410730fd3
     m_Address: Assets/SuikaGame/Sprites/Entities/IceCream/Mint Chocolate Chip.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7d5e23e9677f4274fa251ecd245b4258
-    m_Address: Assets/SuikaGame/Sprites/Entities/IceCream/Nutty.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -69,11 +59,6 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 6c94a96d6073a9a4aa3603b426074590
     m_Address: Assets/SuikaGame/Sprites/Entities/IceCream/Strawberry.png
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 00e04cd25b7fdcb42be01e10a1c3d807
-    m_Address: Assets/SuikaGame/Sprites/Entities/IceCream/Vanilla.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
