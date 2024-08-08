@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: AdventureTimeSkinPackConfig
   m_EditorClassIdentifier: 
   skins:
-  - {fileID: 494452045, guid: 18b51b47f54481c4ea0fd0814410d5aa, type: 3}
-  - {fileID: 648339750, guid: 18b51b47f54481c4ea0fd0814410d5aa, type: 3}
-  - {fileID: -144714606, guid: 18b51b47f54481c4ea0fd0814410d5aa, type: 3}
-  - {fileID: -315802235, guid: 18b51b47f54481c4ea0fd0814410d5aa, type: 3}
-  - {fileID: 907056598, guid: 18b51b47f54481c4ea0fd0814410d5aa, type: 3}
-  - {fileID: -487017048, guid: 18b51b47f54481c4ea0fd0814410d5aa, type: 3}
-  - {fileID: 1553696851, guid: 18b51b47f54481c4ea0fd0814410d5aa, type: 3}
-  - {fileID: -799800613, guid: 18b51b47f54481c4ea0fd0814410d5aa, type: 3}
+  - {fileID: 1293649686, guid: 18b51b47f54481c4ea0fd0814410d5aa, type: 3}
+  - {fileID: 720279835, guid: 18b51b47f54481c4ea0fd0814410d5aa, type: 3}
+  - {fileID: -111074839, guid: 18b51b47f54481c4ea0fd0814410d5aa, type: 3}
+  - {fileID: -1830043564, guid: 18b51b47f54481c4ea0fd0814410d5aa, type: 3}
+  - {fileID: -1348550371, guid: 18b51b47f54481c4ea0fd0814410d5aa, type: 3}
+  - {fileID: 324626152, guid: 18b51b47f54481c4ea0fd0814410d5aa, type: 3}
+  - {fileID: 132789387, guid: 18b51b47f54481c4ea0fd0814410d5aa, type: 3}
+  - {fileID: -93524426, guid: 18b51b47f54481c4ea0fd0814410d5aa, type: 3}
