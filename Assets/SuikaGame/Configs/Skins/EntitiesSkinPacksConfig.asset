@@ -26,12 +26,12 @@ MonoBehaviour:
     - key: 10
       value:
         <Price>k__BackingField: 125
-        <Preview>k__BackingField: {fileID: 21300000, guid: a12967b04069b6b4b81e5118a9d61a72, type: 3}
+        <Preview>k__BackingField: {fileID: 21300000, guid: 3f5d3deea47201e48989a42608d343d6, type: 3}
         <SkinPack>k__BackingField:
-          m_AssetGUID: 0ad2f93290f638740a45e65c18a21727
+          m_AssetGUID: c8a38de0d3855dc46b271f41b8a824b3
           m_SubObjectName: 
           m_SubObjectType: 
-          m_EditorAssetChanged: 1
+          m_EditorAssetChanged: 0
     - key: 15
       value:
         <Price>k__BackingField: 150
@@ -74,15 +74,6 @@ MonoBehaviour:
         <Preview>k__BackingField: {fileID: 21300000, guid: 03e7ebe22a4e2e3468aad0d85e149f66, type: 3}
         <SkinPack>k__BackingField:
           m_AssetGUID: 1642a4f041c9450468ba757d9bb92ac5
-          m_SubObjectName: 
-          m_SubObjectType: 
-          m_EditorAssetChanged: 0
-    - key: 70
-      value:
-        <Price>k__BackingField: 150
-        <Preview>k__BackingField: {fileID: 21300000, guid: 3f5d3deea47201e48989a42608d343d6, type: 3}
-        <SkinPack>k__BackingField:
-          m_AssetGUID: c8a38de0d3855dc46b271f41b8a824b3
           m_SubObjectName: 
           m_SubObjectType: 
           m_EditorAssetChanged: 0

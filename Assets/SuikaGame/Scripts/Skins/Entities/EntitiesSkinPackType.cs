@@ -10,7 +10,6 @@ namespace SuikaGame.Scripts.Skins.Entities
         VegetablesVector = 40,
         IceCream = 50,
         RuCoins = 60,
-        CatsInCircles = 70,
         GravityFalls = 80,
         Pokemons = 90,
         HayaoMiyazaki = 100,

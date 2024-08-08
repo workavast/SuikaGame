@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5d17a21594effb4e9591490b009e7aa, type: 3}
-  m_Name: CatsSkinsPack_BundledAssetGroupSchema
+  m_Name: CatsSkinPack_BundledAssetGroupSchema
   m_EditorClassIdentifier: 
-  m_Group: {fileID: 11400000, guid: 88a7eebca68d47348b0bf6d760c6b822, type: 2}
+  m_Group: {fileID: 11400000, guid: db8edca0841bb0f44bb80c770467753d, type: 2}
   m_InternalBundleIdMode: 1
   m_Compression: 1
   m_IncludeAddressInCatalog: 1
@@ -32,7 +32,7 @@ MonoBehaviour:
   m_Timeout: 0
   m_ChunkedTransfer: 0
   m_RedirectLimit: -1
-  m_RetryCount: 1
+  m_RetryCount: 0
   m_BuildPath:
     m_Id: f7b22c478c709ce4492f18cf71a620d6
   m_LoadPath:
