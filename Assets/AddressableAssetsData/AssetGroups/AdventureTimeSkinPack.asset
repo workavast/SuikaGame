@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: AdventureTimeSkinPack
+  m_EditorClassIdentifier: 
+  m_GroupName: AdventureTimeSkinPack
+  m_Data:
+    m_SerializedData: []
+  m_GUID: b810387346c40f94b8b992bd77111f4f
+  m_SerializeEntries:
+  - m_GUID: 70a2c76e64d4c5f45a90cae8c5537478
+    m_Address: Assets/SuikaGame/Configs/Skins/AdventureTimeSkinPackConfig.asset
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 18b51b47f54481c4ea0fd0814410d5aa
+    m_Address: Assets/SuikaGame/Sprites/Entities/AdventureTime/AdventureTime.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c0d9314de28676a4f9f5a5c7f025e3a6
+    m_Address: Assets/SuikaGame/Sprites/Entities/AdventureTime/AdventureTimeAtlas.spriteatlasv2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: f8ba67870bc57f741b4e3747672bc7ba, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: d50de9b352aeafb4e8c8185cfc23c0f3, type: 2}
+    - {fileID: 11400000, guid: 3125afb8b7096794181b843dde250fe1, type: 2}

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a165654813ff4e2d97d4d19cd32eddca, type: 3}
+  m_Name: DogsSkinPackConfig
+  m_EditorClassIdentifier: 
+  skins:
+  - {fileID: 2097099460, guid: f8a5779bcf7ba26428714ad8d51337ff, type: 3}
+  - {fileID: 1383538276, guid: f8a5779bcf7ba26428714ad8d51337ff, type: 3}
+  - {fileID: 1629888616, guid: f8a5779bcf7ba26428714ad8d51337ff, type: 3}
+  - {fileID: -760742892, guid: f8a5779bcf7ba26428714ad8d51337ff, type: 3}
+  - {fileID: -598340967, guid: f8a5779bcf7ba26428714ad8d51337ff, type: 3}
+  - {fileID: -234154028, guid: f8a5779bcf7ba26428714ad8d51337ff, type: 3}
+  - {fileID: 1838421362, guid: f8a5779bcf7ba26428714ad8d51337ff, type: 3}
+  - {fileID: 1416281579, guid: f8a5779bcf7ba26428714ad8d51337ff, type: 3}

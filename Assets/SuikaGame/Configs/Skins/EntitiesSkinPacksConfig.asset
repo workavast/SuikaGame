@@ -32,6 +32,15 @@ MonoBehaviour:
           m_SubObjectName: 
           m_SubObjectType: 
           m_EditorAssetChanged: 1
+    - key: 15
+      value:
+        <Price>k__BackingField: 150
+        <Preview>k__BackingField: {fileID: 21300000, guid: f9de6c08caf4f3947bcacba958ceed6f, type: 3}
+        <SkinPack>k__BackingField:
+          m_AssetGUID: 9e08e7e053f7fd842b0108a8ff5eda62
+          m_SubObjectName: 
+          m_SubObjectType: 
+          m_EditorAssetChanged: 0
     - key: 20
       value:
         <Price>k__BackingField: 150
@@ -101,6 +110,15 @@ MonoBehaviour:
         <Preview>k__BackingField: {fileID: 21300000, guid: ec1b7fc1a54d4d44f97a61923231b4ee, type: 3}
         <SkinPack>k__BackingField:
           m_AssetGUID: c8ed43e9e1c542049aa9181b3c7d21c7
+          m_SubObjectName: 
+          m_SubObjectType: 
+          m_EditorAssetChanged: 0
+    - key: 110
+      value:
+        <Price>k__BackingField: 150
+        <Preview>k__BackingField: {fileID: 21300000, guid: ea45cb0be53999241b076357a915763e, type: 3}
+        <SkinPack>k__BackingField:
+          m_AssetGUID: 70a2c76e64d4c5f45a90cae8c5537478
           m_SubObjectName: 
           m_SubObjectType: 
           m_EditorAssetChanged: 0

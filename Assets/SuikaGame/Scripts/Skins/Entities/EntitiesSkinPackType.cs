@@ -4,6 +4,7 @@ namespace SuikaGame.Scripts.Skins.Entities
     {
         Fruits = 0,
         Cats = 10,
+        Dogs = 15,
         FruitsVector = 20,
         ExoticFruitsVector = 30,
         VegetablesVector = 40,
@@ -12,6 +13,7 @@ namespace SuikaGame.Scripts.Skins.Entities
         CatsInCircles = 70,
         GravityFalls = 80,
         Pokemons = 90,
-        HayaoMiyazaki = 100
+        HayaoMiyazaki = 100,
+        AdventureTime = 110
     }
 }
