@@ -17,13 +17,53 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: bdf8ea1a3eb51014e8f55557da3d9982
   m_SerializeEntries:
-  - m_GUID: cf9f60ab2f6eec74ab610cb66acaa93d
-    m_Address: Assets/SuikaGame/Sprites/Entities/Cats/BackgroundPrewiev.jpg
+  - m_GUID: 46361fa1e414b5f45923910d6d422c6b
+    m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/bg.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 46361fa1e414b5f45923910d6d422c6b
-    m_Address: Assets/SuikaGame/Sprites/Entities/Fruits/bg.png
+  - m_GUID: 19f62cb1f9c5f4843b4bda19eea6a3f3
+    m_Address: Assets/SuikaGame/Sprites/Backgrounds/Cats/CatsBackgroundAtlas.spriteatlasv2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 978991fba6f83c943ae696476c433bac
+    m_Address: Assets/SuikaGame/Sprites/Backgrounds/Cats/CatsBackground.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d4d5a79a456302a4e8696b1c95dac019
+    m_Address: Assets/SuikaGame/Sprites/Backgrounds/Dogs/DogsBackground.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0788ee1fddbb593459a7cd5add32a604
+    m_Address: Assets/SuikaGame/Sprites/Backgrounds/Dogs/DogsBackgroundAtlas.spriteatlasv2
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4e5e5a556396f9e4d8b71cf73c6fd467
+    m_Address: Assets/SuikaGame/Sprites/Backgrounds/AdventureTime/AdventureTimeBackground.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fee607032b054de4f9f8755490a88612
+    m_Address: Assets/SuikaGame/Sprites/Backgrounds/FruitsVector/FruitsVectorBackground.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 903b069d333a1bf4998a29ec87318ff4
+    m_Address: Assets/SuikaGame/Sprites/Backgrounds/VegetablesVector/VegetablesVectorBackground.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 15edab99428f9ab45ae6ee6d67c50342
+    m_Address: Assets/SuikaGame/Sprites/Backgrounds/IceCream/IceCreamBackground.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc7e321cef2e34146bfbb07c48c2ebce
+    m_Address: Assets/SuikaGame/Sprites/Backgrounds/GravityFalls/GravityFallsBackground.png
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0

@@ -26,9 +26,69 @@ MonoBehaviour:
     - key: 10
       value:
         <Price>k__BackingField: 100
-        <Preview>k__BackingField: {fileID: 21300000, guid: e75b1521afb11804b87a6d30a6d656d6, type: 3}
+        <Preview>k__BackingField: {fileID: 21300000, guid: 09b1973de39929e4c8716746411e9211, type: 3}
         <Background>k__BackingField:
-          m_AssetGUID: cf9f60ab2f6eec74ab610cb66acaa93d
+          m_AssetGUID: 978991fba6f83c943ae696476c433bac
+          m_SubObjectName: 
+          m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_EditorAssetChanged: 0
+    - key: 15
+      value:
+        <Price>k__BackingField: 100
+        <Preview>k__BackingField: {fileID: 21300000, guid: 6bbe62bf52fe0a445b02035e91a10002, type: 3}
+        <Background>k__BackingField:
+          m_AssetGUID: d4d5a79a456302a4e8696b1c95dac019
+          m_SubObjectName: 
+          m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_EditorAssetChanged: 0
+    - key: 20
+      value:
+        <Price>k__BackingField: 100
+        <Preview>k__BackingField: {fileID: 21300000, guid: 893970ac2f61edf429b42b8f3bdb4c28, type: 3}
+        <Background>k__BackingField:
+          m_AssetGUID: fee607032b054de4f9f8755490a88612
+          m_SubObjectName: 
+          m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_EditorAssetChanged: 0
+    - key: 40
+      value:
+        <Price>k__BackingField: 100
+        <Preview>k__BackingField: {fileID: 21300000, guid: 346b67a1938177447a7af1d813c5e96a, type: 3}
+        <Background>k__BackingField:
+          m_AssetGUID: 903b069d333a1bf4998a29ec87318ff4
+          m_SubObjectName: 
+          m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_EditorAssetChanged: 0
+    - key: 50
+      value:
+        <Price>k__BackingField: 100
+        <Preview>k__BackingField: {fileID: 21300000, guid: a7975c06c1837f44db355be436e124f8, type: 3}
+        <Background>k__BackingField:
+          m_AssetGUID: 15edab99428f9ab45ae6ee6d67c50342
+          m_SubObjectName: 
+          m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_EditorAssetChanged: 0
+    - key: 80
+      value:
+        <Price>k__BackingField: 100
+        <Preview>k__BackingField: {fileID: 21300000, guid: 2fbc73e2c18b98642b9e4101180b8b3f, type: 3}
+        <Background>k__BackingField:
+          m_AssetGUID: dc7e321cef2e34146bfbb07c48c2ebce
+          m_SubObjectName: 
+          m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_EditorAssetChanged: 0
+    - key: 110
+      value:
+        <Price>k__BackingField: 100
+        <Preview>k__BackingField: {fileID: 21300000, guid: f3fb366b694775f4fbfbcab60d2e64fe, type: 3}
+        <Background>k__BackingField:
+          m_AssetGUID: 4e5e5a556396f9e4d8b71cf73c6fd467
           m_SubObjectName: 
           m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
             Culture=neutral, PublicKeyToken=null
