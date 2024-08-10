@@ -139,12 +139,12 @@ TextureImporter:
       name: AdventureTimePreview_0
       rect:
         serializedVersion: 2
-        x: 9
-        y: 329
-        width: 142
-        height: 142
+        x: 11
+        y: 651
+        width: 298
+        height: 298
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,12 +160,12 @@ TextureImporter:
       name: AdventureTimePreview_1
       rect:
         serializedVersion: 2
-        x: 169
-        y: 329
-        width: 142
-        height: 142
+        x: 331
+        y: 651
+        width: 298
+        height: 298
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -181,12 +181,12 @@ TextureImporter:
       name: AdventureTimePreview_2
       rect:
         serializedVersion: 2
-        x: 330
-        y: 329
-        width: 141
-        height: 141
+        x: 651
+        y: 651
+        width: 298
+        height: 298
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -202,12 +202,12 @@ TextureImporter:
       name: AdventureTimePreview_3
       rect:
         serializedVersion: 2
-        x: 9
-        y: 169
-        width: 142
-        height: 142
+        x: 11
+        y: 331
+        width: 298
+        height: 298
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -223,12 +223,12 @@ TextureImporter:
       name: AdventureTimePreview_4
       rect:
         serializedVersion: 2
-        x: 169
-        y: 169
-        width: 142
-        height: 142
+        x: 331
+        y: 331
+        width: 298
+        height: 298
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -244,12 +244,12 @@ TextureImporter:
       name: AdventureTimePreview_5
       rect:
         serializedVersion: 2
-        x: 330
-        y: 169
-        width: 141
-        height: 142
+        x: 651
+        y: 331
+        width: 298
+        height: 298
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -265,12 +265,12 @@ TextureImporter:
       name: AdventureTimePreview_6
       rect:
         serializedVersion: 2
-        x: 9
-        y: 8
-        width: 142
-        height: 143
+        x: 11
+        y: 9
+        width: 298
+        height: 298
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -286,12 +286,12 @@ TextureImporter:
       name: AdventureTimePreview_7
       rect:
         serializedVersion: 2
-        x: 169
+        x: 331
         y: 9
-        width: 142
-        height: 142
+        width: 298
+        height: 298
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -307,12 +307,12 @@ TextureImporter:
       name: AdventureTimePreview_8
       rect:
         serializedVersion: 2
-        x: 330
+        x: 651
         y: 9
-        width: 141
-        height: 142
+        width: 298
+        height: 298
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

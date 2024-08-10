@@ -48,7 +48,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 415
+  spritePixelsToUnits: 423
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -139,12 +139,12 @@ TextureImporter:
       name: HayaoMiyazaki_0
       rect:
         serializedVersion: 2
-        x: 24
-        y: 1536
-        width: 420
-        height: 422
+        x: 55
+        y: 1582
+        width: 418
+        height: 418
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -160,12 +160,12 @@ TextureImporter:
       name: HayaoMiyazaki_1
       rect:
         serializedVersion: 2
-        x: 638
-        y: 1520
-        width: 422
-        height: 423
+        x: 667
+        y: 1565
+        width: 427
+        height: 427
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -181,12 +181,12 @@ TextureImporter:
       name: HayaoMiyazaki_2
       rect:
         serializedVersion: 2
-        x: 1265
-        y: 1529
-        width: 422
-        height: 423
+        x: 1297
+        y: 1574
+        width: 419
+        height: 420
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -202,12 +202,12 @@ TextureImporter:
       name: HayaoMiyazaki_3
       rect:
         serializedVersion: 2
-        x: 1891
-        y: 1523
-        width: 425
-        height: 426
+        x: 1923
+        y: 1569
+        width: 421
+        height: 422
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -223,12 +223,12 @@ TextureImporter:
       name: HayaoMiyazaki_4
       rect:
         serializedVersion: 2
-        x: 2506
-        y: 1531
-        width: 422
-        height: 421
+        x: 2538
+        y: 1577
+        width: 418
+        height: 418
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -244,12 +244,12 @@ TextureImporter:
       name: HayaoMiyazaki_5
       rect:
         serializedVersion: 2
-        x: 11
-        y: 1025
-        width: 422
-        height: 423
+        x: 38
+        y: 1068
+        width: 427
+        height: 427
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -265,12 +265,12 @@ TextureImporter:
       name: HayaoMiyazaki_6
       rect:
         serializedVersion: 2
-        x: 631
-        y: 1025
-        width: 426
-        height: 425
+        x: 659
+        y: 1066
+        width: 427
+        height: 427
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -286,12 +286,12 @@ TextureImporter:
       name: HayaoMiyazaki_7
       rect:
         serializedVersion: 2
-        x: 1267
-        y: 1022
-        width: 420
-        height: 422
+        x: 1298
+        y: 1068
+        width: 418
+        height: 418
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -307,12 +307,12 @@ TextureImporter:
       name: HayaoMiyazaki_8
       rect:
         serializedVersion: 2
-        x: 1896
-        y: 1007
-        width: 420
-        height: 422
+        x: 1927
+        y: 1053
+        width: 418
+        height: 419
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -328,12 +328,12 @@ TextureImporter:
       name: HayaoMiyazaki_9
       rect:
         serializedVersion: 2
-        x: 2504
-        y: 1020
-        width: 425
-        height: 425
+        x: 2535
+        y: 1066
+        width: 427
+        height: 427
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -349,12 +349,12 @@ TextureImporter:
       name: HayaoMiyazaki_10
       rect:
         serializedVersion: 2
-        x: 6
-        y: 518
-        width: 421
-        height: 420
+        x: 31
+        y: 558
+        width: 427
+        height: 427
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -370,12 +370,12 @@ TextureImporter:
       name: HayaoMiyazaki_11
       rect:
         serializedVersion: 2
-        x: 638
-        y: 513
-        width: 422
-        height: 422
+        x: 670
+        y: 559
+        width: 419
+        height: 419
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -391,12 +391,12 @@ TextureImporter:
       name: HayaoMiyazaki_12
       rect:
         serializedVersion: 2
-        x: 1268
-        y: 506
-        width: 425
-        height: 425
+        x: 1300
+        y: 552
+        width: 421
+        height: 422
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -412,12 +412,12 @@ TextureImporter:
       name: HayaoMiyazaki_13
       rect:
         serializedVersion: 2
-        x: 1901
-        y: 505
-        width: 422
-        height: 420
+        x: 1931
+        y: 549
+        width: 427
+        height: 427
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -433,12 +433,12 @@ TextureImporter:
       name: HayaoMiyazaki_14
       rect:
         serializedVersion: 2
-        x: 2516
-        y: 485
-        width: 420
-        height: 423
+        x: 2547
+        y: 531
+        width: 418
+        height: 419
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -454,12 +454,12 @@ TextureImporter:
       name: HayaoMiyazaki_15
       rect:
         serializedVersion: 2
-        x: 0
-        y: 9
-        width: 424
-        height: 427
+        x: 30
+        y: 55
+        width: 423
+        height: 423
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -475,12 +475,12 @@ TextureImporter:
       name: HayaoMiyazaki_16
       rect:
         serializedVersion: 2
-        x: 648
-        y: 19
-        width: 422
-        height: 421
+        x: 680
+        y: 65
+        width: 418
+        height: 418
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -496,12 +496,12 @@ TextureImporter:
       name: HayaoMiyazaki_17
       rect:
         serializedVersion: 2
-        x: 1286
-        y: 17
-        width: 422
-        height: 422
+        x: 1311
+        y: 58
+        width: 427
+        height: 427
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -517,12 +517,12 @@ TextureImporter:
       name: HayaoMiyazaki_18
       rect:
         serializedVersion: 2
-        x: 1906
-        y: 17
-        width: 423
-        height: 426
+        x: 1937
+        y: 63
+        width: 421
+        height: 422
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -538,12 +538,12 @@ TextureImporter:
       name: HayaoMiyazaki_19
       rect:
         serializedVersion: 2
-        x: 2516
-        y: 4
-        width: 424
-        height: 420
+        x: 2542
+        y: 45
+        width: 427
+        height: 427
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

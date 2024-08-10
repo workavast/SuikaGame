@@ -139,12 +139,12 @@ TextureImporter:
       name: PokemonsPreviews_1
       rect:
         serializedVersion: 2
-        x: 406
-        y: 1136
-        width: 320
-        height: 320
+        x: 401
+        y: 1131
+        width: 330
+        height: 330
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -165,7 +165,7 @@ TextureImporter:
         width: 320
         height: 320
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -181,12 +181,12 @@ TextureImporter:
       name: PokemonsPreviews_3
       rect:
         serializedVersion: 2
-        x: 30
-        y: 774
-        width: 320
-        height: 320
+        x: 25
+        y: 769
+        width: 330
+        height: 330
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -202,12 +202,12 @@ TextureImporter:
       name: PokemonsPreviews_4
       rect:
         serializedVersion: 2
-        x: 406
-        y: 774
-        width: 320
-        height: 320
+        x: 401
+        y: 769
+        width: 330
+        height: 330
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -223,12 +223,12 @@ TextureImporter:
       name: PokemonsPreviews_5
       rect:
         serializedVersion: 2
-        x: 782
-        y: 773
-        width: 320
-        height: 321
+        x: 775
+        y: 769
+        width: 332
+        height: 330
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -249,7 +249,7 @@ TextureImporter:
         width: 320
         height: 320
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -265,12 +265,12 @@ TextureImporter:
       name: PokemonsPreviews_7
       rect:
         serializedVersion: 2
-        x: 406
-        y: 411
-        width: 320
-        height: 320
+        x: 401
+        y: 407
+        width: 330
+        height: 330
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -286,12 +286,12 @@ TextureImporter:
       name: PokemonsPreviews_8
       rect:
         serializedVersion: 2
-        x: 782
-        y: 411
-        width: 320
-        height: 320
+        x: 775
+        y: 407
+        width: 332
+        height: 330
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -312,7 +312,7 @@ TextureImporter:
         width: 320
         height: 321
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -328,12 +328,12 @@ TextureImporter:
       name: PokemonsPreviews_10
       rect:
         serializedVersion: 2
-        x: 406
-        y: 49
-        width: 320
-        height: 320
+        x: 401
+        y: 43
+        width: 330
+        height: 332
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -349,12 +349,12 @@ TextureImporter:
       name: PokemonsPreviews_11
       rect:
         serializedVersion: 2
-        x: 782
-        y: 48
-        width: 320
-        height: 321
+        x: 775
+        y: 43
+        width: 332
+        height: 332
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

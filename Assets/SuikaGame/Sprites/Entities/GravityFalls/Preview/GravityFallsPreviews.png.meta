@@ -139,10 +139,10 @@ TextureImporter:
       name: GravityFalls_1
       rect:
         serializedVersion: 2
-        x: 518
-        y: 1031
-        width: 454
-        height: 453
+        x: 508
+        y: 1025
+        width: 472
+        height: 467
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -160,10 +160,10 @@ TextureImporter:
       name: GravityFalls_2
       rect:
         serializedVersion: 2
-        x: 1001
-        y: 1030
-        width: 453
-        height: 452
+        x: 992
+        y: 1020
+        width: 472
+        height: 472
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -181,10 +181,10 @@ TextureImporter:
       name: GravityFalls_3
       rect:
         serializedVersion: 2
-        x: 32
-        y: 547
-        width: 453
-        height: 452
+        x: 24
+        y: 540
+        width: 468
+        height: 468
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -202,10 +202,10 @@ TextureImporter:
       name: GravityFalls_4
       rect:
         serializedVersion: 2
-        x: 518
-        y: 551
-        width: 453
-        height: 452
+        x: 508
+        y: 544
+        width: 472
+        height: 468
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -223,10 +223,10 @@ TextureImporter:
       name: GravityFalls_5
       rect:
         serializedVersion: 2
-        x: 1004
-        y: 551
-        width: 451
-        height: 452
+        x: 992
+        y: 546
+        width: 468
+        height: 466
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -244,10 +244,10 @@ TextureImporter:
       name: GravityFalls_6
       rect:
         serializedVersion: 2
-        x: 34
-        y: 66
-        width: 453
-        height: 453
+        x: 24
+        y: 60
+        width: 470
+        height: 468
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -265,10 +265,10 @@ TextureImporter:
       name: GravityFalls_7
       rect:
         serializedVersion: 2
-        x: 514
-        y: 58
-        width: 462
-        height: 461
+        x: 512
+        y: 56
+        width: 468
+        height: 468
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -286,10 +286,10 @@ TextureImporter:
       name: GravityFalls_8
       rect:
         serializedVersion: 2
-        x: 1001
-        y: 68
-        width: 453
-        height: 453
+        x: 992
+        y: 60
+        width: 472
+        height: 468
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -314,6 +314,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      GravityFallsPreviews_0: -621707360
       GravityFalls_0: 2030811182
       GravityFalls_1: -450614678
       GravityFalls_2: 2046300097
