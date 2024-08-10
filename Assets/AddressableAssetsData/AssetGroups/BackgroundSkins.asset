@@ -67,6 +67,11 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1a7f675257a589e46ac00654c157591f
+    m_Address: Assets/SuikaGame/Sprites/Backgrounds/Money/Money.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f8ba67870bc57f741b4e3747672bc7ba, type: 2}
   m_SchemaSet:
