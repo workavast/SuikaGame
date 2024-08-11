@@ -72,6 +72,16 @@ MonoBehaviour:
     m_ReadOnly: 0
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: fb9b25b4e537c08408fbed5fb19a5f67
+    m_Address: Assets/SuikaGame/Sprites/Backgrounds/Pokemons/PokemonsBackground.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 592d83fb278e4df4eba5f77a52544695
+    m_Address: Assets/SuikaGame/Sprites/Backgrounds/HayaoMiyazaki/HayaoMiyazakiBackground.png
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: f8ba67870bc57f741b4e3747672bc7ba, type: 2}
   m_SchemaSet:
