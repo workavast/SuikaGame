@@ -34,7 +34,7 @@ namespace SuikaGame.Scripts.Coins
         {
             Container.BindInterfacesTo<CoinsModel>().FromNew().AsSingle().NonLazy();
         }
-        
+
         private void BindRewarding()
         {
             Container.BindInterfacesAndSelfTo<CoinsRewarding>().FromNew().AsSingle().NonLazy();

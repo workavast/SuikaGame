@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SuikaGame.Scripts.Coins
@@ -8,5 +9,8 @@ namespace SuikaGame.Scripts.Coins
         [field: SerializeField, Range(0, 1), Tooltip("Percentage of score that will be converted into coins")]
         public float CoinsPerScore { get; private set; }
         [field: SerializeField, Min(0)] public int CoinsPerRewardedAd { get; private set; } = 250;
+        [SerializeField] private List<int> coinsPerMerge;
+
+        public IReadOnlyList<int> CoinsPerMerge => coinsPerMerge;
     }
 }

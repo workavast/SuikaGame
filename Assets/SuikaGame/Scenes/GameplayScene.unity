@@ -1284,6 +1284,7 @@ MonoBehaviour:
   - {fileID: 1935928897}
   - {fileID: 707370218}
   - {fileID: 973502535}
+  - {fileID: 1809480279}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -1327,6 +1328,7 @@ Transform:
   - {fileID: 1935928896}
   - {fileID: 707370219}
   - {fileID: 973502534}
+  - {fileID: 1809480278}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &212280099
@@ -18322,6 +18324,50 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2904563576109188984, guid: e4f901cd0d6e6634b82a9f527bbef2d0, type: 3}
   m_PrefabInstance: {fileID: 1801428927}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1809480277
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1809480278}
+  - component: {fileID: 1809480279}
+  m_Layer: 0
+  m_Name: CoinsCounter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1809480278
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809480277}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 211693376}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1809480279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1809480277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 389a208a87124244b24d913d734dfb4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1832784713
 GameObject:
   m_ObjectHideFlags: 0

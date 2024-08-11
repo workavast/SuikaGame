@@ -37,7 +37,7 @@ namespace SuikaGame.Scripts.UI.Windows
         public override void Show()
         {
             gameObject.SetActive(true);
-            gotCoinsView.SetValue(_scoreCounter.Score);
+            gotCoinsView.SetValue();
             TryShowRecordTitle();
             _animationBlocksHolder.Show();
         }

@@ -19,12 +19,12 @@ namespace SuikaGame.Scripts.GameplayControlling
         private readonly IEntityMaxSizeCounter _entityMaxSizeCounter;
         private readonly IGameOverZone _gameOverZone;
         private readonly IGameplaySaver _gameplaySaver;
-        private readonly ICoinsModel _coinsModel;
+        private readonly ICoinsCounter _coinsCounter;
         private readonly GameplayFieldVfxHider _gameplayFieldVfxHider;
 
         public GameplayController(IEntitySpawner entitySpawner, IEntitiesRepository entitiesRepository, 
             IScoreCounter scoreCounter, IEntityMaxSizeCounter entityMaxSizeCounter, IGameOverZone gameOverZone,
-            IGameplaySaver gameplaySaver, ICoinsModel coinsModel, GameplayFieldVfxHider gameplayFieldVfxHider)
+            IGameplaySaver gameplaySaver, ICoinsCounter coinsCounter, GameplayFieldVfxHider gameplayFieldVfxHider)
         {
             _entitySpawner = entitySpawner;
             _entitiesRepository = entitiesRepository;
@@ -32,7 +32,7 @@ namespace SuikaGame.Scripts.GameplayControlling
             _scoreCounter = scoreCounter;
             _gameOverZone = gameOverZone;
             _gameplaySaver = gameplaySaver;
-            _coinsModel = coinsModel;
+            _coinsCounter = coinsCounter;
             _gameplayFieldVfxHider = gameplayFieldVfxHider;
 
             _gameOverZone.OnGameIsOver += OnGameIsOver;
@@ -52,6 +52,7 @@ namespace SuikaGame.Scripts.GameplayControlling
             _gameplayFieldVfxHider.HideGameField();
             _gameOverZone.Reset();
             _scoreCounter.Reset();
+            _coinsCounter.Reset();
             _entityMaxSizeCounter.Reset();
             _entitiesRepository.Reset();
             _entitySpawner.Reset();
@@ -63,7 +64,6 @@ namespace SuikaGame.Scripts.GameplayControlling
         
         private void ApplySessionResult()
         {
-            _coinsModel.AddCoinsByScore(_scoreCounter.Score);
             if (_scoreCounter.Record <= _scoreCounter.Score) 
                 _scoreCounter.ApplyRecord();
         }
