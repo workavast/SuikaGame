@@ -14,13 +14,13 @@ namespace SuikaGame.Scripts.UI.Elements.Views
         
         private int _getedCoinsValue;
         private IRewardedAd _rewardedAd;
-        private ICoinsController _coinsController;
+        private ICoinsModel _coinsModel;
 
         [Inject]
-        public void Construct(ICoinsController coinsChangeModel, IRewardedAd rewardedAd)
+        public void Construct(ICoinsModel coinsModel, IRewardedAd rewardedAd)
         {
             _rewardedAd = rewardedAd;
-            _coinsController = coinsChangeModel;
+            _coinsModel = coinsModel;
             
             _rewardedAd.OnAdReward += OnRewarded;
         }
@@ -32,7 +32,7 @@ namespace SuikaGame.Scripts.UI.Elements.Views
 
         public void SetValue(int score)
         {
-            _getedCoinsValue = _coinsController.ScoreToCoins(score);
+            _getedCoinsValue = _coinsModel.CoinsByScore(score);
             tmpText.text = _getedCoinsValue.ToString();
             doubleCoins.SetText($"+{_getedCoinsValue.ToString()}");
             doubleCoins.ToggleActivity(true);
@@ -50,7 +50,7 @@ namespace SuikaGame.Scripts.UI.Elements.Views
         private void DoubleCoins()
         {
             doubleCoins.ToggleActivity(false);
-            _coinsController.ChangeCoinsValue(_getedCoinsValue);
+            _coinsModel.ChangeCoinsValue(_getedCoinsValue);
             _getedCoinsValue *= 2;
 
             tmpText.text = _getedCoinsValue.ToString();

@@ -19,12 +19,12 @@ namespace SuikaGame.Scripts.GameplayControlling
         private readonly IEntityMaxSizeCounter _entityMaxSizeCounter;
         private readonly IGameOverZone _gameOverZone;
         private readonly IGameplaySaver _gameplaySaver;
-        private readonly ICoinsController _coinsController;
+        private readonly ICoinsModel _coinsModel;
         private readonly GameplayFieldVfxHider _gameplayFieldVfxHider;
 
         public GameplayController(IEntitySpawner entitySpawner, IEntitiesRepository entitiesRepository, 
             IScoreCounter scoreCounter, IEntityMaxSizeCounter entityMaxSizeCounter, IGameOverZone gameOverZone,
-            IGameplaySaver gameplaySaver, ICoinsController coinsController, GameplayFieldVfxHider gameplayFieldVfxHider)
+            IGameplaySaver gameplaySaver, ICoinsModel coinsModel, GameplayFieldVfxHider gameplayFieldVfxHider)
         {
             _entitySpawner = entitySpawner;
             _entitiesRepository = entitiesRepository;
@@ -32,7 +32,7 @@ namespace SuikaGame.Scripts.GameplayControlling
             _scoreCounter = scoreCounter;
             _gameOverZone = gameOverZone;
             _gameplaySaver = gameplaySaver;
-            _coinsController = coinsController;
+            _coinsModel = coinsModel;
             _gameplayFieldVfxHider = gameplayFieldVfxHider;
 
             _gameOverZone.OnGameIsOver += OnGameIsOver;
@@ -63,7 +63,7 @@ namespace SuikaGame.Scripts.GameplayControlling
         
         private void ApplySessionResult()
         {
-            _coinsController.AddCoinsByScore(_scoreCounter.Score);
+            _coinsModel.AddCoinsByScore(_scoreCounter.Score);
             if (_scoreCounter.Record <= _scoreCounter.Score) 
                 _scoreCounter.ApplyRecord();
         }

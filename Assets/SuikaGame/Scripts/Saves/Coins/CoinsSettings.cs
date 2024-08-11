@@ -1,9 +1,10 @@
 using System;
 using SuikaGame.Scripts.Coins;
+using UnityEngine;
 
 namespace SuikaGame.Scripts.Saves.Coins
 {
-    public class CoinsSettings : ISettings, ICoinsModel
+    public class CoinsSettings : ISettings
     {
         public int Coins { get; private set; }
         

@@ -13,7 +13,7 @@ namespace SuikaGame.Scripts.Coins
         {
             BindConfig();
             BindSettings();
-            BindController();
+            BindModel();
             BindRewarding();
         }
 
@@ -27,12 +27,12 @@ namespace SuikaGame.Scripts.Coins
         
         private void BindSettings()
         {
-            Container.BindInterfacesAndSelfTo<ICoinsModel>().FromInstance(PlayerData.Instance.CoinsSettings).AsSingle().NonLazy();
+            Container.BindInstance(PlayerData.Instance.CoinsSettings).AsSingle().NonLazy();
         }
 
-        private void BindController()
+        private void BindModel()
         {
-            Container.BindInterfacesTo<CoinsController>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesTo<CoinsModel>().FromNew().AsSingle().NonLazy();
         }
         
         private void BindRewarding()

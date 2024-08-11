@@ -9,10 +9,10 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.BuyOrEquiping
     {
         private readonly ISkinsChanger _skinsChanger;
         private readonly BackgroundsSkinsConfig _backgroundsSkinsConfig;
-        private readonly ICoinsController _coinsModel;
+        private readonly ICoinsModel _coinsModel;
         
         public BuyOrEquiperBackgroundSkin(BuyOrEquipButton buyOrEquipButton, ISkinsChanger skinsChanger, 
-            BackgroundsSkinsConfig backgroundsSkinsConfig, ICoinsController coinsModel) 
+            BackgroundsSkinsConfig backgroundsSkinsConfig, ICoinsModel coinsModel) 
             : base(buyOrEquipButton)
         {
             _skinsChanger = skinsChanger;

@@ -9,10 +9,10 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.BuyOrEquiping
     {
         private readonly ISkinsChanger _skinsChanger;
         private readonly EntitiesSkinPacksConfig _entitiesSkinPacksConfig;
-        private readonly ICoinsController _coinsModel;
+        private readonly ICoinsModel _coinsModel;
          
         public BuyOrEquiperEntitiesSkinPack(BuyOrEquipButton buyOrEquipButton, ISkinsChanger skinsChanger,
-            EntitiesSkinPacksConfig entitiesSkinPacksConfig, ICoinsController coinsModel) 
+            EntitiesSkinPacksConfig entitiesSkinPacksConfig, ICoinsModel coinsModel) 
             : base(buyOrEquipButton)
         {
             _skinsChanger = skinsChanger;

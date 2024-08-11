@@ -24,10 +24,10 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.BuyOrEquiping
 
         [Inject]
         public void Construct(ISkinsChanger skinsChanger, EntitiesSkinPacksConfig entitiesSkinPacksConfig, 
-            BackgroundsSkinsConfig backgroundsSkinsConfig, ICoinsController coinsController)
+            BackgroundsSkinsConfig backgroundsSkinsConfig, ICoinsModel coinsModel)
         {
-            _buyOrEquiperEntitiesSkinPack = new BuyOrEquiperEntitiesSkinPack(this, skinsChanger, entitiesSkinPacksConfig, coinsController);
-            _buyOrEquiperBackgroundSkin = new BuyOrEquiperBackgroundSkin(this, skinsChanger, backgroundsSkinsConfig, coinsController);
+            _buyOrEquiperEntitiesSkinPack = new BuyOrEquiperEntitiesSkinPack(this, skinsChanger, entitiesSkinPacksConfig, coinsModel);
+            _buyOrEquiperBackgroundSkin = new BuyOrEquiperBackgroundSkin(this, skinsChanger, backgroundsSkinsConfig, coinsModel);
         }
         
         public void Initialize(SkinsPreviewModel model)
