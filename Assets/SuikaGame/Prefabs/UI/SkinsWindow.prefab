@@ -1822,8 +1822,8 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 200, y: 200}
-  m_Spacing: {x: 20, y: 20}
+  m_CellSize: {x: 180, y: 180}
+  m_Spacing: {x: 60, y: 30}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!114 &6959182033257960662
@@ -3337,7 +3337,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 0.5
+  m_PixelsPerUnitMultiplier: 1
 --- !u!225 &3880817107068398203
 CanvasGroup:
   m_ObjectHideFlags: 0
