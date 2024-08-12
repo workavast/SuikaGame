@@ -15,12 +15,14 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
 {
     public class SkinsWindow : UI_ScreenBase
     {
+        [SerializeField] private AnimationFadeBlock smallBackgroundAndFramesFadeBlock;
         [SerializeField] private AnimationFadeBlock backgroundFadeBlock;
         [SerializeField] private AnimationFadeBlock previewFadeBlock;
         [SerializeField] private AnimationMoveBlock scrollsMoveBlock;
         [SerializeField] private AnimationMoveBlock upTitleMoveBlock;
         [Space]
         [SerializeField] private SkinPackPreviewView skinPackPreviewView;
+        [SerializeField] private BackgroundPreviewView smallBackgroundPreviewView;
         [SerializeField] private BackgroundPreviewView backgroundPreviewView;
         [SerializeField] private EntitiesSkinPacksRowsView entitiesSkinPacksRowsView;
         [SerializeField] private BackgroundsSkinsRowsView backgroundsSkinsRowsView;
@@ -44,6 +46,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
             _model.ChangeBackgroundPreview(_skinsChanger.EquippedBackgroundSkin);
             
             skinPackPreviewView.Initialize(_model);
+            smallBackgroundPreviewView.Initialize(_model);
             backgroundPreviewView.Initialize(_model);
             entitiesSkinPacksRowsView.Initialize(_model);
             backgroundsSkinsRowsView.Initialize(_model);
@@ -51,7 +54,8 @@ namespace SuikaGame.Scripts.UI.Windows.Skins
             rowsViewsSwitcher.Initialize();
 
             _animationBlocksHolder = new AnimationBlocksHolder(new IAnimationBlock[]
-                { backgroundFadeBlock, previewFadeBlock, scrollsMoveBlock, upTitleMoveBlock });
+                { smallBackgroundAndFramesFadeBlock, backgroundFadeBlock, previewFadeBlock, scrollsMoveBlock, 
+                    upTitleMoveBlock });
             
             HideInstantly(false);
         }
