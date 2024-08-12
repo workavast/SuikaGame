@@ -86,6 +86,9 @@ namespace SuikaGame.Scripts.Saves
         [MenuItem("SuikaGame/Reset saves")]
 #endif
         public static void ResetSave()
-            => SaveAndLoader.ResetSave();
+        {
+            SaveAndLoader.ResetSave();
+            Debug.Log($"Saves reseted");
+        }
     }
 }

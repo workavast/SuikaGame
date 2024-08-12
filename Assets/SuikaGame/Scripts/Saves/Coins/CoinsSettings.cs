@@ -1,6 +1,4 @@
 using System;
-using SuikaGame.Scripts.Coins;
-using UnityEngine;
 
 namespace SuikaGame.Scripts.Saves.Coins
 {
@@ -21,9 +19,11 @@ namespace SuikaGame.Scripts.Saves.Coins
                 return;
             
             Coins += changeValue;
-            OnChange?.Invoke();
         }
-        
+
+        public void Apply()
+            => OnChange?.Invoke();
+
         public void LoadData(CoinsSettingsSave save)
         {
             Coins = save.Coins;

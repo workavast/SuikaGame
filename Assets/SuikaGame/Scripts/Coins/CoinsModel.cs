@@ -3,7 +3,7 @@ using SuikaGame.Scripts.Saves.Coins;
 
 namespace SuikaGame.Scripts.Coins
 {
-    public class CoinsModel : ICoinsModel, IDisposable
+    public class CoinsModel : ICoinsModel
     {
         private readonly CoinsSettings _coinsSettings;
         private readonly CoinsConfig _coinsConfig;
@@ -16,8 +16,6 @@ namespace SuikaGame.Scripts.Coins
         {
             _coinsSettings = coinsModel;
             _coinsConfig = coinsConfig;
-
-            _coinsSettings.OnChange += SendChangeMessage;
         }
 
         public void AddCoinsByScore(int score) 
@@ -26,16 +24,16 @@ namespace SuikaGame.Scripts.Coins
         public int CoinsByScore(int score) 
             => (int)(score * _coinsConfig.CoinsPerScore);
 
-        public void ChangeCoinsValue(int changeValue) 
-            => _coinsSettings.ChangeCoinsValue(changeValue);
+        public void ChangeCoinsValue(int changeValue)
+        {
+            if (changeValue == 0)
+                return;
+
+            _coinsSettings.ChangeCoinsValue(changeValue);
+            OnChange?.Invoke();
+        }
 
         public bool IsCanBuy(int price) 
             => _coinsSettings.Coins >= price;
-
-        private void SendChangeMessage() 
-            => OnChange?.Invoke();
-
-        public void Dispose() 
-            => _coinsSettings.OnChange -= SendChangeMessage;
     }
 }
