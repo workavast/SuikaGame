@@ -1,4 +1,5 @@
 using Avastrad.UI.UI_System;
+using SuikaGame.Scripts.Leaderboard;
 using SuikaGame.Scripts.Score;
 using SuikaGame.Scripts.UI.AnimationBlocks;
 using SuikaGame.Scripts.UI.AnimationBlocks.Blocks;
@@ -18,12 +19,14 @@ namespace SuikaGame.Scripts.UI.Windows
         [SerializeField] private GetedCoinsView gotCoinsView;
 
         private IScoreCounter _scoreCounter;
+        private ILeaderBoardPositionLoader _leaderBoardPositionLoader;
         private AnimationBlocksHolder _animationBlocksHolder;
 
         [Inject]
-        public void Construct(IScoreCounter scoreCounter)
+        public void Construct(IScoreCounter scoreCounter, ILeaderBoardPositionLoader leaderBoardPositionLoader)
         {
             _scoreCounter = scoreCounter;
+            _leaderBoardPositionLoader = leaderBoardPositionLoader;
         }
 
         public override void Initialize()
@@ -39,6 +42,7 @@ namespace SuikaGame.Scripts.UI.Windows
             gameObject.SetActive(true);
             gotCoinsView.SetValue();
             TryShowRecordTitle();
+            TryShowLeaderboardPlace();
             _animationBlocksHolder.Show();
         }
 
@@ -55,10 +59,16 @@ namespace SuikaGame.Scripts.UI.Windows
 
         private void TryShowRecordTitle()
         {
-            if (_scoreCounter.Record <= _scoreCounter.Score)
+            if (_scoreCounter.IsNewRecord)
                 newRecordTitle.Show();
             else
                 newRecordTitle.Hide();
+        }
+        
+        private void TryShowLeaderboardPlace()
+        {
+            if (_scoreCounter.IsNewRecord || _leaderBoardPositionLoader.IsLoadSuccess && !_leaderBoardPositionLoader.IsLoading)
+                _leaderBoardPositionLoader.LoadLeaderboardPosition();
         }
     }
 }

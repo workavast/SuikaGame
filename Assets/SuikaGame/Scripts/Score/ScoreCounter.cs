@@ -15,6 +15,7 @@ namespace SuikaGame.Scripts.Score
         private readonly ScoreSettings _scoreSettings;
         private readonly IGameOverZone _gameOverZone;
 
+        public bool IsNewRecord { get; private set; }
         public int Score { get; private set; }
         public int Record => _scoreSettings.ScoreRecord;
         public event Action<int> OnScoreChanged;
@@ -36,6 +37,7 @@ namespace SuikaGame.Scripts.Score
         {
              if (Score > Record)
              {
+                 IsNewRecord = true;
                  _scoreSettings.SetScoreRecord(Score);
                  OnRecordChanged?.Invoke(Record);
              }
@@ -43,6 +45,7 @@ namespace SuikaGame.Scripts.Score
 
         public void Reset()
         {
+            IsNewRecord = false;
             Score = 0;
             OnScoreChanged?.Invoke(Score);        
         }

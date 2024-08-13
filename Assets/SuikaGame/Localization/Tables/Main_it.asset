@@ -79,6 +79,10 @@ MonoBehaviour:
     m_Localized: 'Seguente:'
     m_Metadata:
       m_Items: []
+  - m_Id: 13630842553434112
+    m_Localized: Errore
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

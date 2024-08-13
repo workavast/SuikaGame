@@ -4,6 +4,7 @@ namespace SuikaGame.Scripts.Score
 {
     public interface IScoreCounter
     {
+        public bool IsNewRecord { get; }
         public int Score { get; }
         public int Record { get; }
 
