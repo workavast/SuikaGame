@@ -22,7 +22,7 @@ namespace SuikaGame.Scripts.Leaderboard
         {
             IsLoading = true;
             OnStartLoad?.Invoke();
-            GP_Leaderboard.FetchPlayerRating();
+            GP_Leaderboard.FetchPlayerRating("tag");
         }
 
         private void OnLoadSuccess(string str, int  data)

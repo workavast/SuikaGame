@@ -40,12 +40,12 @@ namespace SuikaGame.Scripts.UI.Elements.Views
             loadTitle.SetActive(false);
             if (placeLoadSuccess)
             {
-                loadErrorTitle.SetActive(true);
+                view.gameObject.SetActive(true);
+                view.text = place.ToString();
             }
             else
             {
-                view.gameObject.SetActive(true);
-                view.text = place.ToString();
+                loadErrorTitle.SetActive(true);
             }
         }
 
