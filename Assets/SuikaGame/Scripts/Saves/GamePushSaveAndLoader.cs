@@ -57,6 +57,6 @@ namespace SuikaGame.Scripts.Saves
         }
 
         public void ResetSave()
-            => throw new NotImplementedException();
+            => GP_Player.ResetPlayer();
     }
 }
