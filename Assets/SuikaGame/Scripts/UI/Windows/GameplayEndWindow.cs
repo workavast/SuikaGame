@@ -50,8 +50,11 @@ namespace SuikaGame.Scripts.UI.Windows
 
         public override void Hide()
         {
-            _animationBlocksHolder.Hide(() => gameObject.SetActive(false));
-            GameplayWebStateSwitcher.GameplayStartMessage();
+            _animationBlocksHolder.Hide(() =>
+            {
+                gameObject.SetActive(false);
+                GameplayWebStateSwitcher.GameplayStartMessage();
+            });
         }
 
         public override void HideInstantly()
