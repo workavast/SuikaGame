@@ -1,4 +1,5 @@
 using Avastrad.UI.UI_System;
+using SuikaGame.Scripts.GamePausing;
 using SuikaGame.Scripts.Leaderboard;
 using SuikaGame.Scripts.Score;
 using SuikaGame.Scripts.UI.AnimationBlocks;
@@ -44,17 +45,20 @@ namespace SuikaGame.Scripts.UI.Windows
             TryShowRecordTitle();
             TryShowLeaderboardPlace();
             _animationBlocksHolder.Show();
+            GameplayWebStateSwitcher.GameplayStopMessage();
         }
 
         public override void Hide()
         {
             _animationBlocksHolder.Hide(() => gameObject.SetActive(false));
+            GameplayWebStateSwitcher.GameplayStartMessage();
         }
 
         public override void HideInstantly()
         {
             _animationBlocksHolder.HideInstantly();
             gameObject.SetActive(false);
+            GameplayWebStateSwitcher.GameplayStartMessage();
         }
 
         private void TryShowRecordTitle()
