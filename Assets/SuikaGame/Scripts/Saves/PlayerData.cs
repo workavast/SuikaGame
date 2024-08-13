@@ -33,19 +33,16 @@ namespace SuikaGame.Scripts.Saves
         
         public event Action OnInit;
 
-        public void ResetSaves() 
-            => SaveAndLoader.ResetSave();
-
-        public void InvokeLoad()
+        private PlayerData()
         {
             SaveAndLoader.OnLoaded += LoadData;
-            SaveAndLoader.Load();
         }
         
+        public void InvokeLoad() 
+            => SaveAndLoader.Load();
+
         private void LoadData(PlayerDataSave save)
         {
-            SaveAndLoader.OnLoaded -= LoadData;
-            
             LocalizationSettings.LoadData(save.localizationSettingsSave);
             VolumeSettings.LoadData(save.volumeSettingsSave);
             ScoreSettings.LoadData(save.scoreSettingsSave);
@@ -88,6 +85,7 @@ namespace SuikaGame.Scripts.Saves
         public static void ResetSave()
         {
             SaveAndLoader.ResetSave();
+            SaveAndLoader.Load();
             Debug.Log($"Saves reseted");
         }
     }
