@@ -1,3 +1,4 @@
+using SuikaGame.Scripts.Analytics;
 using SuikaGame.Scripts.Coins;
 using SuikaGame.Scripts.Skins;
 using SuikaGame.Scripts.Skins.Backgrounds;
@@ -24,10 +25,10 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.BuyOrEquiping
 
         [Inject]
         public void Construct(ISkinsChanger skinsChanger, EntitiesSkinPacksConfig entitiesSkinPacksConfig, 
-            BackgroundsSkinsConfig backgroundsSkinsConfig, ICoinsModel coinsModel)
+            BackgroundsSkinsConfig backgroundsSkinsConfig, ICoinsModel coinsModel, IAnalyticsProvider analyticsProvider)
         {
-            _buyOrEquiperEntitiesSkinPack = new BuyOrEquiperEntitiesSkinPack(this, skinsChanger, entitiesSkinPacksConfig, coinsModel);
-            _buyOrEquiperBackgroundSkin = new BuyOrEquiperBackgroundSkin(this, skinsChanger, backgroundsSkinsConfig, coinsModel);
+            _buyOrEquiperEntitiesSkinPack = new BuyOrEquiperEntitiesSkinPack(this, skinsChanger, entitiesSkinPacksConfig, coinsModel, analyticsProvider);
+            _buyOrEquiperBackgroundSkin = new BuyOrEquiperBackgroundSkin(this, skinsChanger, backgroundsSkinsConfig, coinsModel, analyticsProvider);
         }
         
         public void Initialize(SkinsPreviewModel model)

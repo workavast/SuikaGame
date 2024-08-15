@@ -1,6 +1,7 @@
 using System;
 using Avastrad.CustomTimer;
 using Avastrad.EventBusFramework;
+using SuikaGame.Scripts.Analytics;
 using SuikaGame.Scripts.Audio.Sources;
 using SuikaGame.Scripts.Audio.Sources.Factory;
 using SuikaGame.Scripts.Entities.Factory;
@@ -27,6 +28,7 @@ namespace SuikaGame.Scripts.Entities.Spawning
         private IVfxFactory _vfxFactory;
         private IAudioFactory _audioFactory;
         private EntitiesConfig _entitiesConfig;
+        private IAnalyticsProvider _analyticsProvider;
         private Timer _pauseTimer;
         private Entity _currentEntity;
 
@@ -38,7 +40,7 @@ namespace SuikaGame.Scripts.Entities.Spawning
         [Inject]
         public void Construct(IEventBus eventBus, IEntityFactory entityFactory,
             IEntityMaxSizeCounter entityMaxSizeCounter, IInput input, IVfxFactory vfxFactory, 
-            IAudioFactory audioFactory, EntitiesConfig entitiesConfig)
+            IAudioFactory audioFactory, EntitiesConfig entitiesConfig, IAnalyticsProvider analyticsProvider)
         {
             _eventBus = eventBus;
             _entityFactory = entityFactory;
@@ -47,6 +49,7 @@ namespace SuikaGame.Scripts.Entities.Spawning
             _input = input;
             _vfxFactory = vfxFactory;
             _audioFactory = audioFactory;
+            _analyticsProvider = analyticsProvider;
             
             _eventBus.Subscribe(this);
 
@@ -84,7 +87,7 @@ namespace SuikaGame.Scripts.Entities.Spawning
             if (!t.Parent.IsActive || !t.Child.IsActive)
                 return;
 
-            var sizeIndex = 1 + t.Parent.SizeIndex;
+            var sizeIndexOfNewEntity = 1 + t.Parent.SizeIndex;
             var childPos = t.Child.transform.position;
 
             var mass = t.Parent.Mass;
@@ -100,11 +103,12 @@ namespace SuikaGame.Scripts.Entities.Spawning
             t.Parent.ManualReturnInPool();
             t.Child.ManualReturnInPool();
 
-            var entity = _entityFactory.Create(sizeIndex, childPos);
+            var entity = _entityFactory.Create(sizeIndexOfNewEntity, childPos);
             var newVelocity = (parentVelocity + childVelocity) * mass / entity.Mass;
             entity.Activate();
             entity.SetVelocity(newVelocity);
-            _eventBus.Invoke(new MergeEvent(sizeIndex));
+            _eventBus.Invoke(new MergeEvent(sizeIndexOfNewEntity));
+            _analyticsProvider.SendEvent(AnalyticsKeys.Balls[sizeIndexOfNewEntity]);
         }
 
         private void SpawnEntity()

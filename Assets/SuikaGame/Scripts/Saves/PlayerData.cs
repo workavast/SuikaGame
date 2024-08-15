@@ -1,4 +1,5 @@
 using System;
+using SuikaGame.Scripts.Saves.Analytics;
 using SuikaGame.Scripts.Saves.Audio;
 using SuikaGame.Scripts.Saves.Coins;
 using SuikaGame.Scripts.Saves.GameplayScene;
@@ -24,6 +25,7 @@ namespace SuikaGame.Scripts.Saves
         public readonly GameplaySceneSettings GameplaySceneSettings = new();
         public readonly SkinsSettings SkinsSettings = new();
         public readonly CoinsSettings CoinsSettings = new();
+        public readonly AnalyticsSettings AnalyticsSettings = new();
 
 #if !UNITY_EDITOR && UNITY_WEBGL
         private static readonly IPlayerDataSaveAndLoader SaveAndLoader = new GamePushSaveAndLoader();
@@ -50,6 +52,7 @@ namespace SuikaGame.Scripts.Saves
             GameplaySceneSettings.LoadData(save.gameplaySceneSettingsSave);
             SkinsSettings.LoadData(save.skinsSettingsSave);
             CoinsSettings.LoadData(save.coinsSettingsSave);
+            AnalyticsSettings.LoadData(save.analyticsSettingsSave);
             
             if(!_isLoaded)
                 SubsAfterFirstLoad();
@@ -71,7 +74,8 @@ namespace SuikaGame.Scripts.Saves
                 TutorialSettings,
                 GameplaySceneSettings,
                 SkinsSettings,
-                CoinsSettings
+                CoinsSettings,
+                AnalyticsSettings
             };
             foreach (var setting in settings)
                 setting.OnChange += SaveData;
