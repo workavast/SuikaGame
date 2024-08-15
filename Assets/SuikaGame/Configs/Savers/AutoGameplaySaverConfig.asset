@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea19ad82906348d49c2b57d5a9d18923, type: 3}
   m_Name: AutoGameplaySaverConfig
   m_EditorClassIdentifier: 
-  <SavePause>k__BackingField: 60
+  <SavePause>k__BackingField: 20
