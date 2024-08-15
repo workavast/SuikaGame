@@ -65,5 +65,11 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
 
         private void TogglePriceVisibility() 
             => priceView.ToggleVisibility(!_skinsChanger.AvailableEntitiesSkinPacks[EntitiesSkinPackType]);
+
+        private void OnDestroy()
+        {
+            _skinsChanger.OnEntitiesSkinPackUnlocked -= TogglePriceVisibility;
+            _skinsChanger.OnEntitiesSkinPackEquipped -= UpdateEquipMark;        
+        }
     }
 }

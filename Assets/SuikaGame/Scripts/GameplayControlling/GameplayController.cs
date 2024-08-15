@@ -71,8 +71,8 @@ namespace SuikaGame.Scripts.GameplayControlling
         private void OnGameIsOver()
         {
             ApplySessionResult();
-            UI_Controller.ToggleScreen(ScreenType.GameplayEnd, true);
             _gameplaySaver.Save();
+            UI_Controller.ToggleScreen(ScreenType.GameplayEnd, true);
         }
     }
 }

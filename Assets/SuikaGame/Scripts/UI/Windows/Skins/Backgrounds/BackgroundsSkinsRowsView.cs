@@ -31,7 +31,6 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Backgrounds
             _model.OnBackgroundPreviewChanged += UpdateActiveRow;
             
             InitializeRows();
-            SetRowsData();
         }
         
         private void InitializeRows()
@@ -63,6 +62,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Backgrounds
             foreach (var row in _rows)
                 row.OnClicked += ChangeSkinPreview;
 
+            SetRowsData();
             UpdateActiveRow(_model.BackgroundSkinPreview);
         }
 
@@ -81,9 +81,6 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Backgrounds
 
         private void SetRowsData()
         {
-            if(_backgroundsSkinsConfig.BackgroundsSkins.Count != _rows.Count)
-                InitializeRows();
-
             var backgroundSkinTypes = _backgroundsSkinsConfig.BackgroundsSkins.Keys.ToList();
             for (int i = 0; i < _backgroundsSkinsConfig.BackgroundsSkins.Count && i < _rows.Count; i++)
             {

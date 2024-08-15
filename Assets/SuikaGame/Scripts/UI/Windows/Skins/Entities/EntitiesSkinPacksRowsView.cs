@@ -31,7 +31,6 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
             _model.OnEntitiesSkinPackPreviewChanged += UpdateActiveRow;
             
             InitializeRows();
-            SetRowsData();
         }
         
         private void InitializeRows()
@@ -63,6 +62,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
             foreach (var row in _rows)
                 row.OnClicked += ChangeSkinPackPreview;
 
+            SetRowsData();
             UpdateActiveRow(_model.EntitiesSkinPackPreview);
         }
 
@@ -81,9 +81,6 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Entities
 
         private void SetRowsData()
         {
-            if(_entitiesSkinPacksConfig.SkinsPacks.Count != _rows.Count)
-                InitializeRows();
-
             var skinsPacks = _entitiesSkinPacksConfig.SkinsPacks.Keys.ToList();
             for (int i = 0; i < _entitiesSkinPacksConfig.SkinsPacks.Count && i < _rows.Count; i++)
             {

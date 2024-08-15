@@ -40,6 +40,9 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.BuyOrEquiping
             
             _model.OnEntitiesSkinPackPreviewChanged += UpdateButton;
             _model.OnBackgroundPreviewChanged += UpdateButton;
+
+            UpdateButton(_model.EntitiesSkinPackPreview);
+            UpdateButton(_model.BackgroundSkinPreview);
         }
         
         public void SetBuyState(int newPrice)

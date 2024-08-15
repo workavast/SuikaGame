@@ -44,10 +44,22 @@ namespace SuikaGame.Scripts.Localization.Changer
         {
             switch (localizationId)
             {
-                case 1:
-                    return Language.Russian;
                 case 0:
                     return Language.English;
+                case 1:
+                    return Language.French;
+                case 2:
+                    return Language.German;
+                case 3:
+                    return Language.Italian;
+                case 4:
+                    return Language.Portuguese;
+                case 5:
+                    return Language.Russian;
+                case 6:
+                    return Language.Spanish;
+                case 7:
+                    return Language.Turkish;
                 default:
                     return Language.English;
             }

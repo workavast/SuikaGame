@@ -43,7 +43,6 @@ namespace SuikaGame.Scripts.UI.Windows
             gameObject.SetActive(true);
             gotCoinsView.SetValue();
             TryShowRecordTitle();
-            TryShowLeaderboardPlace();
             _animationBlocksHolder.Show();
             GameplayWebStateSwitcher.GameplayStopMessage();
         }
@@ -70,12 +69,6 @@ namespace SuikaGame.Scripts.UI.Windows
                 newRecordTitle.Show();
             else
                 newRecordTitle.Hide();
-        }
-        
-        private void TryShowLeaderboardPlace()
-        {
-            if (_scoreCounter.IsNewRecord || _leaderBoardPositionLoader.IsLoadSuccess && !_leaderBoardPositionLoader.IsLoading)
-                _leaderBoardPositionLoader.LoadLeaderboardPosition();
         }
     }
 }
