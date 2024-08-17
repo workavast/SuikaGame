@@ -33,7 +33,7 @@ MonoBehaviour:
         - {fileID: -1285380023, guid: c9db2ce01680f55409fa81c21aab8abc, type: 3}
     - key: 10
       value:
-        <Price>k__BackingField: 125
+        <Price>k__BackingField: 1250
         <SkinPack>k__BackingField:
           m_AssetGUID: c8a38de0d3855dc46b271f41b8a824b3
           m_SubObjectName: 
@@ -50,7 +50,7 @@ MonoBehaviour:
         - {fileID: -767736348, guid: f31165a7db48a0c4396e3a6a08389a12, type: 3}
     - key: 15
       value:
-        <Price>k__BackingField: 150
+        <Price>k__BackingField: 1250
         <SkinPack>k__BackingField:
           m_AssetGUID: 9e08e7e053f7fd842b0108a8ff5eda62
           m_SubObjectName: 
@@ -67,7 +67,7 @@ MonoBehaviour:
         - {fileID: 52294745, guid: c3203038f03b04f4390d4b38dc4f2bf5, type: 3}
     - key: 20
       value:
-        <Price>k__BackingField: 150
+        <Price>k__BackingField: 750
         <SkinPack>k__BackingField:
           m_AssetGUID: 6baf8a332b05c784f8d6221b8b95960d
           m_SubObjectName: 
@@ -84,7 +84,7 @@ MonoBehaviour:
         - {fileID: -1192617689, guid: 50ad7866bc82bc4409bcfe941a78f3e3, type: 3}
     - key: 40
       value:
-        <Price>k__BackingField: 150
+        <Price>k__BackingField: 750
         <SkinPack>k__BackingField:
           m_AssetGUID: a9c02df8577a629478ee35e92252eb91
           m_SubObjectName: 
@@ -101,7 +101,7 @@ MonoBehaviour:
         - {fileID: 21300000, guid: 335c818bc200c0047a91519305664faf, type: 3}
     - key: 50
       value:
-        <Price>k__BackingField: 150
+        <Price>k__BackingField: 900
         <SkinPack>k__BackingField:
           m_AssetGUID: b0d779af4b22aea4381f9c6ca3c54b9a
           m_SubObjectName: 
@@ -118,7 +118,7 @@ MonoBehaviour:
         - {fileID: 1963382734, guid: be4d90f9238e9d141970d6fc425ea5bc, type: 3}
     - key: 60
       value:
-        <Price>k__BackingField: 150
+        <Price>k__BackingField: 900
         <SkinPack>k__BackingField:
           m_AssetGUID: 1642a4f041c9450468ba757d9bb92ac5
           m_SubObjectName: 
@@ -135,7 +135,7 @@ MonoBehaviour:
         - {fileID: -289804142, guid: 46f3b6b2deb25ba49aedfac5952d9d9e, type: 3}
     - key: 80
       value:
-        <Price>k__BackingField: 150
+        <Price>k__BackingField: 900
         <SkinPack>k__BackingField:
           m_AssetGUID: 01a70c3532c885043b830073b0a3a8b7
           m_SubObjectName: 
@@ -152,7 +152,7 @@ MonoBehaviour:
         - {fileID: 938243272, guid: 1ca8b215d383a084a89cb09a8ec15e28, type: 3}
     - key: 90
       value:
-        <Price>k__BackingField: 150
+        <Price>k__BackingField: 1500
         <SkinPack>k__BackingField:
           m_AssetGUID: e7e9a8f50abfbe24ea08aaf6a54bba63
           m_SubObjectName: 
@@ -169,7 +169,7 @@ MonoBehaviour:
         - {fileID: -1325349212, guid: 74a382d823aa5fc408571bac8f3ff10d, type: 3}
     - key: 100
       value:
-        <Price>k__BackingField: 150
+        <Price>k__BackingField: 1500
         <SkinPack>k__BackingField:
           m_AssetGUID: c8ed43e9e1c542049aa9181b3c7d21c7
           m_SubObjectName: 
@@ -186,7 +186,7 @@ MonoBehaviour:
         - {fileID: -1907908877, guid: 26dd7241f912d954c80c9368c91e8c10, type: 3}
     - key: 110
       value:
-        <Price>k__BackingField: 150
+        <Price>k__BackingField: 1500
         <SkinPack>k__BackingField:
           m_AssetGUID: 70a2c76e64d4c5f45a90cae8c5537478
           m_SubObjectName: 

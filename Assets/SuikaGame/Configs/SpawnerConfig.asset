@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0998c6367b60484e883940dcf4d7117d, type: 3}
   m_Name: SpawnerConfig
   m_EditorClassIdentifier: 
-  <PauseTime>k__BackingField: 0.8
+  <PauseTime>k__BackingField: 0.5
   <Range>k__BackingField: 2.775
   spawnSets:
   - set:
