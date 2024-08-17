@@ -19,7 +19,7 @@ namespace SuikaGame.Scripts.GameplayField.Savers
             BindGameplaySaver();
             BindAutoGameplaySaver();
             BindManualGameplaySaver();
-            BindApplicationFocusSaver();
+            // BindApplicationFocusSaver();
             BindApplicationPauseSaver();
         }
 

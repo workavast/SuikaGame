@@ -13,6 +13,7 @@ namespace SuikaGame.Scripts.Ad.RewardedAd
         {
             GP_Ads.OnRewardedStart += () => OnAdStart?.Invoke();
             GP_Ads.OnRewardedClose += (_) => OnAdClose?.Invoke();
+            
             GP_Ads.OnRewardedReward += (rewardId) => OnAdReward?.Invoke(rewardId);
         }
         

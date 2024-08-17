@@ -1,5 +1,6 @@
 using System;
 using Avastrad.CustomTimer;
+using SuikaGame.Scripts.ApplicationPause;
 using UnityEngine;
 using Zenject;
 
@@ -10,7 +11,8 @@ namespace SuikaGame.Scripts.GameplayField.Savers.AutoSaver
         private readonly IGameplaySaver _saver;
         private readonly Timer _timer;
 
-        public AutoGameplaySaver(AutoGameplaySaverConfig autoGameplaySaverConfig, IGameplaySaver saver)
+        public AutoGameplaySaver(AutoGameplaySaverConfig autoGameplaySaverConfig, IGameplaySaver saver, 
+            IApplicationPauseProvider applicationPauseProvider)
         {
             _saver = saver;
             _timer = new Timer(autoGameplaySaverConfig.SavePause);
@@ -21,7 +23,7 @@ namespace SuikaGame.Scripts.GameplayField.Savers.AutoSaver
         
         public void Tick() 
             => _timer.Tick(Time.deltaTime);
-
+        
         private void ResetTimer() 
             => _timer.Reset();
         

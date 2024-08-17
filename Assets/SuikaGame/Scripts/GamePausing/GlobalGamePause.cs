@@ -5,6 +5,8 @@ namespace SuikaGame.Scripts.GamePausing
 {
     public static class GlobalGamePause
     {
+        private static int _pauseRequestsCount = 0;
+        
         public static bool IsPaused { get; private set; }
         
         public static event Action OnPaused; 
@@ -12,20 +14,26 @@ namespace SuikaGame.Scripts.GamePausing
         
         public static void Pause()
         {
-            if (IsPaused)
-                return;
-
             IsPaused = true;
-            OnPaused?.Invoke();
+            _pauseRequestsCount++;
+            if (_pauseRequestsCount == 1)
+                OnPaused?.Invoke();
         }
 
         public static void Continue()
         {
-            if (!IsPaused)
+            if (_pauseRequestsCount <= 0)
+            {
+                Debug.LogError("Superfluous call of global game continue");
                 return;
-            
-            IsPaused = false;
-            OnContinued?.Invoke();
+            }
+
+            _pauseRequestsCount--;
+            if (_pauseRequestsCount <= 0)
+            {
+                IsPaused = false;
+                OnContinued?.Invoke();
+            }
         }
     }
 }

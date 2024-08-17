@@ -487,6 +487,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bedd3f03b114f6ba1d13de7cfd9a7d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildVersionConfiguration: {fileID: 4900000, guid: 3f0f1657774b45228513ff7853fa1701, type: 3}
   developmentBuild: 0
   viewPrefab: {fileID: 7351040795203393263, guid: eb8fe98da8cde474cbec51c649448c72, type: 3}
 --- !u!1 &7714839984263466091

@@ -1,6 +1,5 @@
 using Avastrad.UI.UI_System;
 using SuikaGame.Scripts.GamePausing;
-using SuikaGame.Scripts.Leaderboard;
 using SuikaGame.Scripts.Score;
 using SuikaGame.Scripts.UI.AnimationBlocks;
 using SuikaGame.Scripts.UI.AnimationBlocks.Blocks;
@@ -20,14 +19,12 @@ namespace SuikaGame.Scripts.UI.Windows
         [SerializeField] private GetedCoinsView gotCoinsView;
 
         private IScoreCounter _scoreCounter;
-        private ILeaderBoardPositionLoader _leaderBoardPositionLoader;
         private AnimationBlocksHolder _animationBlocksHolder;
 
         [Inject]
-        public void Construct(IScoreCounter scoreCounter, ILeaderBoardPositionLoader leaderBoardPositionLoader)
+        public void Construct(IScoreCounter scoreCounter)
         {
             _scoreCounter = scoreCounter;
-            _leaderBoardPositionLoader = leaderBoardPositionLoader;
         }
 
         public override void Initialize()

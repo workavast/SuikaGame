@@ -32,7 +32,7 @@ namespace SuikaGame.Scripts.Ad
 
         private void BindAdController()
         {
-            Container.BindInterfacesAndSelfTo<GamePushAdController>().FromNew().AsSingle().NonLazy();
+            Container.BindInterfacesTo<GamePushAdController>().FromNew().AsSingle().NonLazy();
         }
     }
 }

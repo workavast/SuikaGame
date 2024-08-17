@@ -16,9 +16,9 @@ namespace SuikaGame.Scripts.GameplayField.Savers
             _applicationFocusProvider.OnApplicationPauseChanged += OnApplicationFocusChanged;
         }
         
-        private void OnApplicationFocusChanged(bool hasFocus)
+        private void OnApplicationFocusChanged(bool isPause)
         {
-            if (!hasFocus) 
+            if (isPause)
                 _gameplaySaver?.Save();
         }
 
