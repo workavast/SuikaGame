@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -36,19 +35,12 @@ namespace SuikaGame.Scripts.AddressablesExtension.AssetReferenceLoading
             if (_cancelMarkers.Count > 0)
             {
                 var res = _cancelMarkers.Find(cm => cm.AssetReference == targetAssetReference);
-                if (res == null)
-                {
-                    var lastCancelMarker = _cancelMarkers.Last();
-                    lastCancelMarker.IsCanceled = true;
-                }
-                else
-                {
-                    var lastCancelMarker = _cancelMarkers.Last();
-                    if(lastCancelMarker.AssetReference != targetAssetReference)
-                        lastCancelMarker.IsCanceled = true;
-                    
+
+                foreach (var cancelMarker in _cancelMarkers) 
+                    cancelMarker.IsCanceled = true;
+                
+                if (res != null)
                     res.IsCanceled = false;
-                }
             }
 
             _parent.StartCoroutine(LoadAsset(targetAssetReference, onLoadedCallback));
