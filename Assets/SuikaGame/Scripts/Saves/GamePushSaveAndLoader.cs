@@ -1,5 +1,6 @@
 ﻿using System;
 using GamePush;
+using SuikaGame.Scripts.Saves.Analytics;
 using SuikaGame.Scripts.Saves.GameplayScene;
 using SuikaGame.Scripts.Saves.Localization;
 using SuikaGame.Scripts.Saves.SkinsPacks;
@@ -36,7 +37,10 @@ namespace SuikaGame.Scripts.Saves
                 coinsSettingsSave =
                 {
                     Coins = GP_Player.GetInt(GamePushSaveParametersNames.CoinsSave)
-                }
+                },
+                analyticsSettingsSave =     
+                    JsonUtility.FromJson<AnalyticsSettingsSave>(
+                        GP_Player.GetString(GamePushSaveParametersNames.Analytics)),
             };
 
             OnLoaded?.Invoke(save);
@@ -50,6 +54,7 @@ namespace SuikaGame.Scripts.Saves
             GP_Player.Set(GamePushSaveParametersNames.GameplaySave, JsonUtility.ToJson(new GameplaySceneSettingsSave(playerData.GameplaySceneSettings)));
             GP_Player.Set(GamePushSaveParametersNames.SkinsSave, JsonUtility.ToJson(new SkinsSettingsSave(playerData.SkinsSettings)));
             GP_Player.Set(GamePushSaveParametersNames.CoinsSave, playerData.CoinsSettings.Coins);
+            GP_Player.Set(GamePushSaveParametersNames.Analytics, JsonUtility.ToJson(new AnalyticsSettingsSave(playerData.AnalyticsSettings)));
             
             GP_Player.SetScore(playerData.ScoreSettings.ScoreRecord);
             
