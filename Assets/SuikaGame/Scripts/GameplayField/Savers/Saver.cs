@@ -1,8 +1,6 @@
-using System;
 using System.Collections.Generic;
 using SuikaGame.Scripts.Entities;
 using SuikaGame.Scripts.GameOver.GameOverControlling;
-using SuikaGame.Scripts.GameplayControlling;
 using SuikaGame.Scripts.GameplayField.Model;
 using SuikaGame.Scripts.Score;
 
@@ -15,8 +13,6 @@ namespace SuikaGame.Scripts.GameplayField.Savers
         private readonly IGameplayFieldChangeModel _gameplayFieldChangeModel;
         private readonly IGameOverProvider _gameOverProvider;
         
-        public event Action OnSave;
-
         public Saver(IScoreCounter scoreCounter, IEntitiesRepository entitiesRepository, 
             IGameplayFieldChangeModel gameplayFieldChangeModel, IGameOverProvider gameOverProvider)
         {
@@ -26,7 +22,7 @@ namespace SuikaGame.Scripts.GameplayField.Savers
             _gameOverProvider = gameOverProvider;
         }
         
-        public void Save()
+        public void Apply()
         {
             var score = 0;
             var entityModels = new List<EntityModel>();
@@ -41,9 +37,6 @@ namespace SuikaGame.Scripts.GameplayField.Savers
             
             _gameplayFieldChangeModel.SetNewScore(score);
             _gameplayFieldChangeModel.SetNewEntityModels(entityModels);
-            _gameplayFieldChangeModel.Apply();
-            
-            OnSave?.Invoke();
         }
     }
 }

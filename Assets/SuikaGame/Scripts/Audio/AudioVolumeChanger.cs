@@ -1,4 +1,5 @@
-﻿using SuikaGame.Scripts.Saves.Audio;
+﻿using SuikaGame.Scripts.Saves;
+using SuikaGame.Scripts.Saves.Audio;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -48,8 +49,11 @@ namespace SuikaGame.Scripts.Audio
             SetVolume(OstParam, OstVolume);
         }
 
-        public void Apply() 
-            => _volumeSettings.Apply();
+        public void Apply()
+        {
+            _volumeSettings.Apply();
+            PlayerData.Instance.SaveData();
+        }
 
         private void SetVolume(string paramName, float newVolume)
             => _mixer.SetFloat($"{paramName}", Mathf.Lerp(-80, 0, Mathf.Sqrt(Mathf.Sqrt(newVolume))));

@@ -7,6 +7,7 @@ using SuikaGame.Scripts.Audio.Sources.Factory;
 using SuikaGame.Scripts.Entities.Factory;
 using SuikaGame.Scripts.Entities.MaxSizeCounting;
 using SuikaGame.Scripts.InputDetection;
+using SuikaGame.Scripts.Saves;
 using SuikaGame.Scripts.Vfx;
 using UnityEngine;
 using Zenject;
@@ -108,7 +109,8 @@ namespace SuikaGame.Scripts.Entities.Spawning
             entity.Activate();
             entity.SetVelocity(newVelocity);
             _eventBus.Invoke(new MergeEvent(sizeIndexOfNewEntity));
-            _analyticsProvider.SendEvent(AnalyticsKeys.Balls[sizeIndexOfNewEntity]);
+            
+            _analyticsProvider.SendEvent(AnalyticsKeys.Balls[sizeIndexOfNewEntity], "", true);
         }
 
         private void SpawnEntity()

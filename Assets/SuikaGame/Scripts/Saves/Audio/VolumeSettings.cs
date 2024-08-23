@@ -5,6 +5,7 @@ namespace SuikaGame.Scripts.Saves.Audio
 {
     public sealed class VolumeSettings : ISettings
     {
+        public bool IsChanged { get; private set; }
         public float Master { get; private set; }
         public float MusicVolume { get; private set; }
         public float EffectsVolume { get; private set; }
@@ -13,8 +14,6 @@ namespace SuikaGame.Scripts.Saves.Audio
         private float _prevMusicVolume;
         private float _prevEffectsVolume;
         
-        public event Action OnChange;
-
         public VolumeSettings()
         {
             Master = 1;
@@ -38,11 +37,11 @@ namespace SuikaGame.Scripts.Saves.Audio
                 Math.Abs(_prevMusicVolume - MusicVolume) > tolerance ||
                 Math.Abs(_prevEffectsVolume - EffectsVolume) > tolerance)
             {
+                IsChanged = true;
+                
                 _prevMasterVolume = Master;
                 _prevMusicVolume = MusicVolume;
                 _prevEffectsVolume = EffectsVolume;
-
-                OnChange?.Invoke();
             }
         }
         
@@ -52,5 +51,8 @@ namespace SuikaGame.Scripts.Saves.Audio
             MusicVolume = volumeSettingsSave.MusicVolume;
             EffectsVolume = volumeSettingsSave.EffectsVolume;
         }
+        
+        public void ResetChangedMarker() 
+            => IsChanged = false;
     }
 }

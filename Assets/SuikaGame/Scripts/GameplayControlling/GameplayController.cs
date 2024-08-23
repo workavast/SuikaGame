@@ -6,6 +6,7 @@ using SuikaGame.Scripts.Entities.Spawning;
 using SuikaGame.Scripts.GameOver.GameOverControlling;
 using SuikaGame.Scripts.GameplayField.Hiding;
 using SuikaGame.Scripts.GameplayField.Savers;
+using SuikaGame.Scripts.Saves;
 using SuikaGame.Scripts.Score;
 using UnityEngine;
 
@@ -59,19 +60,19 @@ namespace SuikaGame.Scripts.GameplayControlling
             UI_Controller.SetSingleScreens(new[] { ScreenType.Gameplay, ScreenType.BottomMenu });
             
             Initialize();
-            _gameplaySaver.Save();
         }
         
         private void ApplySessionResult()
         {
+            _gameplaySaver.Apply();
             if (_scoreCounter.Record <= _scoreCounter.Score) 
                 _scoreCounter.ApplyRecord();
+            PlayerData.Instance.SaveData();
         }
 
         private void OnGameIsOver()
         {
             ApplySessionResult();
-            _gameplaySaver.Save();
             UI_Controller.ToggleScreen(ScreenType.GameplayEnd, true);
         }
     }

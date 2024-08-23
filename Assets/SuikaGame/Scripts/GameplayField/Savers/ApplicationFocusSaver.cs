@@ -1,5 +1,6 @@
 using System;
 using SuikaGame.Scripts.ApplicationFocus;
+using SuikaGame.Scripts.Saves;
 
 namespace SuikaGame.Scripts.GameplayField.Savers
 {
@@ -18,8 +19,11 @@ namespace SuikaGame.Scripts.GameplayField.Savers
         
         private void OnApplicationFocusChanged(bool hasFocus)
         {
-            if (!hasFocus) 
-                _gameplaySaver?.Save();
+            if (!hasFocus)
+            {
+                _gameplaySaver?.Apply();
+                PlayerData.Instance.SaveData();
+            }
         }
 
         public void Dispose()

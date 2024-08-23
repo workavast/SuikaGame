@@ -1,6 +1,7 @@
 using Avastrad.UI.UI_System;
 using SuikaGame.Scripts.Analytics;
 using SuikaGame.Scripts.Coins;
+using SuikaGame.Scripts.Saves;
 using SuikaGame.Scripts.Skins;
 using SuikaGame.Scripts.Skins.Backgrounds;
 
@@ -28,6 +29,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.BuyOrEquiping
             if (_skinsChanger.AvailableBackgroundSkins[Type])
             {
                 _skinsChanger.EquipSkin(Type);
+                PlayerData.Instance.SaveData();
             }
             else
             {
@@ -37,6 +39,7 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.BuyOrEquiping
                     _skinsChanger.UnlockSkin(Type);
                     _analyticsProvider.SendEvent(AnalyticsKeys.BackgroundSkins[Type]);
                     _skinsChanger.EquipSkin(Type);
+                    PlayerData.Instance.SaveData();
                 }
                 else
                 {

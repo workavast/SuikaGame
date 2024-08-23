@@ -25,7 +25,7 @@ namespace SuikaGame.Scripts.Coins
             => ReceivedCoins = 0;
 
         public void DoubleCoins() 
-            => _coinsModel.ChangeCoinsValue(ReceivedCoins);
+            => _coinsModel.ChangeCoinsValue(ReceivedCoins, true);
 
         public void OnEvent(MergeEvent t)
         {

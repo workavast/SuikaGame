@@ -5,6 +5,7 @@ namespace SuikaGame.Scripts.Saves.Analytics
 {
     public sealed class AnalyticsSettings : ISettings
     {
+        public bool IsChanged { get; private set; }
         private readonly List<string> _usedEvents = new();
         public IReadOnlyList<string> UsedEvents => _usedEvents;
         
@@ -17,8 +18,11 @@ namespace SuikaGame.Scripts.Saves.Analytics
 
         public void AddUsedEvent(string usedEvent)
         {
-            if (!_usedEvents.Contains(usedEvent)) 
+            if (!_usedEvents.Contains(usedEvent))
+            {
                 _usedEvents.Add(usedEvent);
+                IsChanged = true;
+            }
         }
 
         public void Apply()
@@ -31,5 +35,8 @@ namespace SuikaGame.Scripts.Saves.Analytics
             _usedEvents.Clear();
             _usedEvents.AddRange(save.UsedEvents);
         }
+        
+        public void ResetChangedMarker() 
+            => IsChanged = false;
     }
 }

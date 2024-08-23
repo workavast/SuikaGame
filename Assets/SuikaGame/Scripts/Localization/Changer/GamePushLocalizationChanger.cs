@@ -26,6 +26,7 @@ namespace SuikaGame.Scripts.Localization.Changer
             await ApplyLocalization(localizationId);
             
             PlayerData.Instance.LocalizationSettings.ChangeLocalization(localizationId);
+            PlayerData.Instance.SaveData();
         }
 
         private async Task ApplyLocalization(int localizationId)

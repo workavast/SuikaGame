@@ -54,5 +54,11 @@ namespace SuikaGame.Scripts.UI.Windows.Skins.Backgrounds
         
         private void TogglePriceVisibility() 
             => priceView.ToggleVisibility(!_skinsChanger.AvailableBackgroundSkins[BackgroundSkinType]);
+
+        private void OnDestroy()
+        {
+            _skinsChanger.OnBackgroundSkinUnlocked -= TogglePriceVisibility;
+            _skinsChanger.OnBackgroundSkinEquipped -= UpdateEquipMark;
+        }
     }
 }

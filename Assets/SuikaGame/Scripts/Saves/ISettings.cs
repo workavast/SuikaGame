@@ -1,9 +1,9 @@
-﻿using System;
-
-namespace SuikaGame.Scripts.Saves
+﻿namespace SuikaGame.Scripts.Saves
 {
     public interface ISettings
     {
-        public event Action OnChange;
+        public bool IsChanged { get; }
+
+        public void ResetChangedMarker();
     }
 }

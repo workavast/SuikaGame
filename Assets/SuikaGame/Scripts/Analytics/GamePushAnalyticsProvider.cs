@@ -1,5 +1,6 @@
 using System.Linq;
 using GamePush;
+using SuikaGame.Scripts.Saves;
 using SuikaGame.Scripts.Saves.Analytics;
 
 namespace SuikaGame.Scripts.Analytics
@@ -13,22 +14,26 @@ namespace SuikaGame.Scripts.Analytics
             _analyticsSettings = analyticsSettings;
         }
         
-        public void SendEvent(string key, int value)
+        public void SendEvent(string key, int value, bool save)
         {
             if (_analyticsSettings.UsedEvents.Contains(key))
                 return;
 
             GP_Analytics.Goal(key, value);
             _analyticsSettings.AddUsedEvent(key);
+            if (save)
+                PlayerData.Instance.SaveData();
         }
 
-        public void SendEvent(string key, string value = "")
+        public void SendEvent(string key, string value, bool save)
         {
             if (_analyticsSettings.UsedEvents.Contains(key))
                 return;
             
             GP_Analytics.Goal(key, value);
             _analyticsSettings.AddUsedEvent(key);
+            if (save)
+                PlayerData.Instance.SaveData();
         }
     }
 }

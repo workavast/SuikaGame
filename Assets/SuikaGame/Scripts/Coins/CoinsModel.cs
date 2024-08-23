@@ -1,4 +1,5 @@
 using System;
+using SuikaGame.Scripts.Saves;
 using SuikaGame.Scripts.Saves.Coins;
 
 namespace SuikaGame.Scripts.Coins
@@ -18,18 +19,20 @@ namespace SuikaGame.Scripts.Coins
             _coinsConfig = coinsConfig;
         }
 
-        public void AddCoinsByScore(int score) 
-            => ChangeCoinsValue(CoinsByScore(score));
+        public void AddCoinsByScore(int score, bool save = false) 
+            => ChangeCoinsValue(CoinsByScore(score), save);
 
         public int CoinsByScore(int score) 
             => (int)(score * _coinsConfig.CoinsPerScore);
 
-        public void ChangeCoinsValue(int changeValue)
+        public void ChangeCoinsValue(int changeValue, bool save = false)
         {
             if (changeValue == 0)
                 return;
 
             _coinsSettings.ChangeCoinsValue(changeValue);
+            if (save)
+                PlayerData.Instance.SaveData();
             OnChange?.Invoke();
         }
 

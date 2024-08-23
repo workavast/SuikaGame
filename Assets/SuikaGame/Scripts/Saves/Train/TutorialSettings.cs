@@ -5,8 +5,8 @@ namespace SuikaGame.Scripts.Saves.Train
     public class TutorialSettings : ISettings
     {
         public bool TutorialCompleted { get; private set; }
-        
-        public event Action OnChange;
+
+        public bool IsChanged { get; private set; }
 
         public TutorialSettings()
         {
@@ -17,14 +17,17 @@ namespace SuikaGame.Scripts.Saves.Train
         {
             if (TutorialCompleted == trained)
                 return;
-            
+
+            IsChanged = true;
             TutorialCompleted = trained;
-            OnChange?.Invoke();
         }
         
         public void LoadData(TutorialSettingsSave save)
         {
             TutorialCompleted = save.TutorialCompleted;
         }
+        
+        public void ResetChangedMarker() 
+            => IsChanged = false;
     }
 }

@@ -1,13 +1,11 @@
-using System;
-
 namespace SuikaGame.Scripts.Saves.Score
 {
     public class ScoreSettings : ISettings
     {
+        public bool IsChanged { get; private set; }
+        
         public int ScoreRecord { get; private set; }
-        
-        public event Action OnChange;
-        
+
         public ScoreSettings()
         {
             ScoreRecord = 0;
@@ -18,13 +16,16 @@ namespace SuikaGame.Scripts.Saves.Score
             if (newScoreRecord == ScoreRecord)
                 return;
             
+            IsChanged = true;
             ScoreRecord = newScoreRecord;
-            OnChange?.Invoke();
         }
         
         public void LoadData(ScoreSettingsSave save)
         {
             ScoreRecord = save.ScoreRecord;
         }
+        
+        public void ResetChangedMarker() 
+            => IsChanged = false;
     }
 }

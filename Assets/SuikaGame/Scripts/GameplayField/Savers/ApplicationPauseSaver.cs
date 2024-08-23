@@ -1,5 +1,6 @@
 using System;
 using SuikaGame.Scripts.ApplicationPause;
+using SuikaGame.Scripts.Saves;
 
 namespace SuikaGame.Scripts.GameplayField.Savers
 {
@@ -19,7 +20,10 @@ namespace SuikaGame.Scripts.GameplayField.Savers
         private void OnApplicationFocusChanged(bool isPause)
         {
             if (isPause)
-                _gameplaySaver?.Save();
+            {
+                _gameplaySaver?.Apply();
+                PlayerData.Instance.SaveData();
+            }
         }
 
         public void Dispose()

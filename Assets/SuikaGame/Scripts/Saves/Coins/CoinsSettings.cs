@@ -4,9 +4,9 @@ namespace SuikaGame.Scripts.Saves.Coins
 {
     public class CoinsSettings : ISettings
     {
-        public int Coins { get; private set; }
+        public bool IsChanged { get; private set; }
         
-        public event Action OnChange;
+        public int Coins { get; private set; }
         
         public CoinsSettings()
         {
@@ -17,16 +17,17 @@ namespace SuikaGame.Scripts.Saves.Coins
         {
             if (changeValue == 0)
                 return;
-            
+
+            IsChanged = true;
             Coins += changeValue;
         }
-
-        public void Apply()
-            => OnChange?.Invoke();
 
         public void LoadData(CoinsSettingsSave save)
         {
             Coins = save.Coins;
         }
+        
+        public void ResetChangedMarker() 
+            => IsChanged = false;
     }
 }

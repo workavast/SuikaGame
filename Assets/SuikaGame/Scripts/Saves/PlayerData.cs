@@ -27,6 +27,8 @@ namespace SuikaGame.Scripts.Saves
         public readonly CoinsSettings CoinsSettings = new();
         public readonly AnalyticsSettings AnalyticsSettings = new();
 
+        private readonly ISettings[] _settings;
+
 #if !UNITY_EDITOR && UNITY_WEBGL
         private static readonly IPlayerDataSaveAndLoader SaveAndLoader = new GamePushSaveAndLoader();
 #else
@@ -34,9 +36,22 @@ namespace SuikaGame.Scripts.Saves
 #endif
         
         public event Action OnInit;
+        public event Action OnSave;
 
         private PlayerData()
         {
+            _settings = new ISettings[]
+            {
+                LocalizationSettings,
+                VolumeSettings, 
+                ScoreSettings,
+                TutorialSettings,
+                GameplaySceneSettings,
+                SkinsSettings,
+                CoinsSettings,
+                AnalyticsSettings
+            };
+            
             SaveAndLoader.OnLoaded += LoadData;
         }
         
@@ -56,30 +71,26 @@ namespace SuikaGame.Scripts.Saves
             
             if(!_isLoaded)
                 SubsAfterFirstLoad();
+            
             _isLoaded = true;
         }
         
-        private void SaveData() 
-            => SaveAndLoader.Save(this);
+        public void SaveData()
+        {
+            foreach (var setting in _settings)
+                if (setting.IsChanged)
+                {
+                    SaveAndLoader.Save(this);
+                    foreach (var setting2 in _settings) 
+                        setting2.ResetChangedMarker();
+                    OnSave?.Invoke();
+                    return;
+                }
+        }
 
         private void SubsAfterFirstLoad()
         {
             Debug.Log("-||- SubsAfterFirstLoad");
-            
-            ISettings[] settings =
-            {
-                LocalizationSettings,
-                VolumeSettings, 
-                ScoreSettings,
-                TutorialSettings,
-                GameplaySceneSettings,
-                SkinsSettings,
-                CoinsSettings,
-                AnalyticsSettings
-            };
-            foreach (var setting in settings)
-                setting.OnChange += SaveData;
-            
             OnInit?.Invoke();
         }
         

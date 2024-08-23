@@ -12,6 +12,7 @@ namespace SuikaGame.Scripts.Saves.SkinsPacks
         private readonly Dictionary<EntitiesSkinPackType, bool> _availableEntitiesSkinPacks = new();
         private readonly Dictionary<BackgroundSkinType, bool> _availableBackgroundSkins = new();
         
+        public bool IsChanged { get; private set; }
         public EntitiesSkinPackType EquippedEntitiesSkinPack { get; private set; }
         public BackgroundSkinType EquippedBackgroundSkin { get; private set; }
         public bool IsEntitiesSkinPackInitialized { get; private set; }
@@ -19,7 +20,6 @@ namespace SuikaGame.Scripts.Saves.SkinsPacks
         public IReadOnlyDictionary<EntitiesSkinPackType, bool> AvailableEntitiesSkinPacks => _availableEntitiesSkinPacks;
         public IReadOnlyDictionary<BackgroundSkinType, bool> AvailableBackgroundSkins => _availableBackgroundSkins;
         
-        public event Action OnChange;
         public event Action OnEntitiesSkinPackEquipped;
         public event Action OnBackgroundSkinEquipped;
         public event Action OnBackgroundSkinUnlocked;
@@ -46,8 +46,8 @@ namespace SuikaGame.Scripts.Saves.SkinsPacks
             if(EquippedEntitiesSkinPack == newSkin)
                 return;
             
+            IsChanged = true;
             EquippedEntitiesSkinPack = newSkin;
-            OnChange?.Invoke();
             OnEntitiesSkinPackEquipped?.Invoke();
         }
 
@@ -56,8 +56,8 @@ namespace SuikaGame.Scripts.Saves.SkinsPacks
             if(EquippedBackgroundSkin == newSkin)
                 return;
             
+            IsChanged = true;
             EquippedBackgroundSkin = newSkin;
-            OnChange?.Invoke();
             OnBackgroundSkinEquipped?.Invoke();
         }
 
@@ -66,6 +66,7 @@ namespace SuikaGame.Scripts.Saves.SkinsPacks
             if (_availableEntitiesSkinPacks[skin])
                 return;
 
+            IsChanged = true;
             _availableEntitiesSkinPacks[skin] = true;
             OnEntitiesSkinPackUnlocked?.Invoke();
         }
@@ -75,6 +76,7 @@ namespace SuikaGame.Scripts.Saves.SkinsPacks
             if (_availableBackgroundSkins[skin])
                 return;
 
+            IsChanged = true;
             _availableBackgroundSkins[skin] = true;
             OnBackgroundSkinUnlocked?.Invoke();
         }
@@ -101,5 +103,8 @@ namespace SuikaGame.Scripts.Saves.SkinsPacks
             foreach (var backgroundSkin in save.AvailableBackgroundSkins)
                 _availableBackgroundSkins[backgroundSkin.Key] = backgroundSkin.IsAvailable;
         }
+        
+        public void ResetChangedMarker() 
+            => IsChanged = false;
     }
 }

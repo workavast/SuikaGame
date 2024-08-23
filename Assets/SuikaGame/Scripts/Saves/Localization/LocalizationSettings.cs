@@ -5,10 +5,10 @@ namespace SuikaGame.Scripts.Saves.Localization
 {
     public class LocalizationSettings : ISettings
     {
+        public bool IsChanged { get; private set; }
+
         public bool Initializaed { get; private set; } = false;
         public int LocalizationId { get; private set; }
-        
-        public event Action OnChange;
 
         public LocalizationSettings()
         {
@@ -20,9 +20,10 @@ namespace SuikaGame.Scripts.Saves.Localization
         {
             if(Initializaed)
                 return;
-            
+
+            IsChanged = true;
             Initializaed = true;
-            OnChange?.Invoke();
+            PlayerData.Instance.SaveData();
         }
 
         public void ChangeLocalization(int newLocalizationId)
@@ -30,8 +31,8 @@ namespace SuikaGame.Scripts.Saves.Localization
             if (newLocalizationId == LocalizationId)
                 return;
             
+            IsChanged = true;
             LocalizationId = newLocalizationId;
-            OnChange?.Invoke();
         }
 
         public void LoadData(LocalizationSettingsSave settingsSave)
@@ -39,5 +40,8 @@ namespace SuikaGame.Scripts.Saves.Localization
             Initializaed = settingsSave.Initializaed;
             LocalizationId = settingsSave.LocalizationId;
         }
+        
+        public void ResetChangedMarker() 
+            => IsChanged = false;
     }
 }

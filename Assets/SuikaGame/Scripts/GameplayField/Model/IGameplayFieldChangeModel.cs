@@ -8,7 +8,5 @@ namespace SuikaGame.Scripts.GameplayField.Model
         public void SetNewScore(int newSCore);
 
         public void SetNewEntityModels(IEnumerable<EntityModel> entityModels);
-
-        public void Apply();
     }
 }

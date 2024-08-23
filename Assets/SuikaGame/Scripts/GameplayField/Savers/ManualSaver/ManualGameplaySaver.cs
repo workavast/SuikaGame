@@ -1,5 +1,6 @@
 using System;
 using Avastrad.CustomTimer;
+using SuikaGame.Scripts.Saves;
 using UnityEngine;
 using Zenject;
 
@@ -35,9 +36,10 @@ namespace SuikaGame.Scripts.GameplayField.Savers.ManualSaver
                 return;
             }
             
-            _saver.Save();
+            _saver.Apply();
             SaveAllowed = false;
             _resetTimer.Reset();
+            PlayerData.Instance.SaveData();
         }
         
         private void AllowManualSave()

@@ -20,7 +20,7 @@ namespace SuikaGame.Scripts.Coins
         private void CheckReward(string rewardId)
         {
             if (rewardId == RewardIds.AdditionalCoins)
-                _coinsChangeModel.ChangeCoinsValue(_coinsConfig.CoinsPerRewardedAd);
+                _coinsChangeModel.ChangeCoinsValue(_coinsConfig.CoinsPerRewardedAd, true);
         }
     }
 }
