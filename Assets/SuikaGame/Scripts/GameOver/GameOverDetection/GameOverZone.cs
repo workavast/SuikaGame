@@ -1,10 +1,9 @@
 using System;
 using System.Collections.Generic;
-using Avastrad.UI.UI_System;
 using SuikaGame.Scripts.Entities;
 using UnityEngine;
 
-namespace SuikaGame.Scripts.GameOverDetection
+namespace SuikaGame.Scripts.GameOver.GameOverDetection
 {
     public class GameOverZone : MonoBehaviour, IGameOverZone
     {

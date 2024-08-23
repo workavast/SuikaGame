@@ -1,10 +1,12 @@
 using System;
+using SuikaGame.Scripts.GameOver.GameOverControlling;
+using SuikaGame.Scripts.GameOver.GameOverDetection;
 using UnityEngine;
 using Zenject;
 
-namespace SuikaGame.Scripts.GameOverDetection
+namespace SuikaGame.Scripts.GameOver
 {
-    public class GameOverZoneInstaller : MonoInstaller
+    public class GameOverInstaller : MonoInstaller
     {
         [SerializeField] private GameOverZoneConfig config;
         
@@ -12,6 +14,7 @@ namespace SuikaGame.Scripts.GameOverDetection
         {
             BindConfig();
             BindZone();
+            BindController();
         }
 
         private void BindConfig()
@@ -29,6 +32,11 @@ namespace SuikaGame.Scripts.GameOverDetection
                 throw new NullReferenceException($"gameOverZone is null");
 
             Container.BindInterfacesTo<GameOverZone>().FromInstance(gameOverZone).AsSingle();
+        }
+        
+        private void BindController()
+        {
+            Container.BindInterfacesTo<GameOverController>().FromNew().AsSingle();
         }
     }
 }

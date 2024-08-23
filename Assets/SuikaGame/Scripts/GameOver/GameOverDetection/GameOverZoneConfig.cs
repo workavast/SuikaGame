@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace SuikaGame.Scripts.GameOverDetection
+namespace SuikaGame.Scripts.GameOver.GameOverDetection
 {
     [CreateAssetMenu(fileName = nameof(GameOverZoneConfig), menuName = "SuikaGame/Configs/" + nameof(GameOverZoneConfig))]
     public class GameOverZoneConfig : ScriptableObject

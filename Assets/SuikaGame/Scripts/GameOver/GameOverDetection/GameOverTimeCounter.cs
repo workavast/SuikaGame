@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace SuikaGame.Scripts.GameOverDetection
+namespace SuikaGame.Scripts.GameOver.GameOverDetection
 {
     public class GameOverTimeCounter : MonoBehaviour
     {

@@ -3,7 +3,7 @@ using SuikaGame.Scripts.Coins;
 using SuikaGame.Scripts.Entities;
 using SuikaGame.Scripts.Entities.MaxSizeCounting;
 using SuikaGame.Scripts.Entities.Spawning;
-using SuikaGame.Scripts.GameOverDetection;
+using SuikaGame.Scripts.GameOver.GameOverControlling;
 using SuikaGame.Scripts.GameplayField.Hiding;
 using SuikaGame.Scripts.GameplayField.Savers;
 using SuikaGame.Scripts.Score;
@@ -17,13 +17,13 @@ namespace SuikaGame.Scripts.GameplayControlling
         private readonly IEntitiesRepository _entitiesRepository;
         private readonly IScoreCounter _scoreCounter;
         private readonly IEntityMaxSizeCounter _entityMaxSizeCounter;
-        private readonly IGameOverZone _gameOverZone;
+        private readonly IGameOverController _gameOverZone;
         private readonly IGameplaySaver _gameplaySaver;
         private readonly ICoinsCounter _coinsCounter;
         private readonly GameplayFieldVfxHider _gameplayFieldVfxHider;
-
+        
         public GameplayController(IEntitySpawner entitySpawner, IEntitiesRepository entitiesRepository, 
-            IScoreCounter scoreCounter, IEntityMaxSizeCounter entityMaxSizeCounter, IGameOverZone gameOverZone,
+            IScoreCounter scoreCounter, IEntityMaxSizeCounter entityMaxSizeCounter, IGameOverController gameOverZone,
             IGameplaySaver gameplaySaver, ICoinsCounter coinsCounter, GameplayFieldVfxHider gameplayFieldVfxHider)
         {
             _entitySpawner = entitySpawner;
@@ -35,18 +35,18 @@ namespace SuikaGame.Scripts.GameplayControlling
             _coinsCounter = coinsCounter;
             _gameplayFieldVfxHider = gameplayFieldVfxHider;
 
-            _gameOverZone.OnGameIsOver += OnGameIsOver;
+            _gameOverZone.OnGameIsOvered += OnGameIsOver;
         }
 
         public void Initialize()
         {
             _entitySpawner.Initialize();
         }
-        
+
         public void ResetGame()
         {
             if (!_gameOverZone.GameIsOver) 
-                ApplySessionResult();
+                Debug.LogWarning("Game un overed, but you reset the game");
 
             Debug.Log($"RESET");
             _gameplayFieldVfxHider.HideGameField();
